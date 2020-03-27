@@ -19,19 +19,6 @@ export default function sketch(p) {
     cVerb.process(mic);
   };
 
-  // p.draw = function() {
-  //   p.background(200);
-
-  //   var vol = mic.getLevel();
-
-  //   p.fill(127);
-  //   p.stroke(0);
-
-  //   // Draw an ellipse with height based on volume
-  //   var h = p.map(vol, 0, 0.5, p.height, 0);
-  //   p.ellipse(p.width / 2, h - 25, 50, 50);
-  // };
-
   p.touchStarted = function() {
     p.getAudioContext().resume();
   };
