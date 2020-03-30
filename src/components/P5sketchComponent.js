@@ -7,11 +7,9 @@ import { showAllSpaces } from "../actions/spaceActions";
 class P5sketchComponent extends React.Component {
   componentDidMount() {
     this.props.showAllSpaces();
-    //this.props.showOneSpace(Number(this.props.match.params.id));
   }
   render() {
-    console.log("lll", this.props);
-
+    //console.log("lll", this.props);
     return <P5Wrapper sketch={sketch} space={this.props.space} />;
   }
 }

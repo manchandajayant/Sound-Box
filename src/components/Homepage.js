@@ -8,19 +8,23 @@ export class Homepage extends Component {
     this.props.showAllSpaces();
   }
   render() {
+    console.log(this.props);
     if (!this.props.spaces) {
-      return <h1>Loading....</h1>;
+      return <h1>Loading...</h1>;
+    } else if (!this.props.user.auth) {
+      return (
+        <h1>
+          <Link to="/">PLEASE LOGIN OR SIGN UP</Link>
+        </h1>
+      );
     } else {
       return (
         <div>
-          {this.props.spaces.map(space => (
-            <div>
-              <ul key={space.id}></ul>
+          {this.props.spaces.map((space, index) => (
+            <div key={index}>
               <h1 className="space">
                 <Link to={`/spaces/${space.id}`}>{space.name}</Link>
               </h1>
-              <h3>DESCRIPTION: {space.description}</h3>
-              <img src={space.url} alt="Not Loading" />
             </div>
           ))}
         </div>
@@ -30,7 +34,8 @@ export class Homepage extends Component {
 }
 
 const mapStateToProps = state => ({
-  spaces: state.spaces
+  spaces: state.spaces,
+  user: state.users
 });
 
 const mapDispatchToProps = {

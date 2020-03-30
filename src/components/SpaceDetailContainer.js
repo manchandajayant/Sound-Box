@@ -11,21 +11,31 @@ export class SpaceDetailContainer extends Component {
     //this.props.fetchFile();
   }
   render() {
-    console.log(this.props);
-    if (this.props.space) {
+    //console.log(this.props);
+    if (!this.props.user.auth) {
+      return (
+        <h1>
+          <Link to="/">PLEASE LOGIN OR SIGN UP</Link>
+        </h1>
+      );
+    } else if (this.props.space) {
       return (
         <div>
+          <h1>{this.props.space.name}</h1>
+          <p>{this.props.space.description}</p>
+          <img src={this.props.space.url} alt="loading" />
           <P5sketchComponent />
         </div>
       );
     } else {
-      return <h1>Nnothing</h1>;
+      return <h1>Loading....</h1>;
     }
   }
 }
 
 const mapStateToProps = state => ({
-  space: state.space
+  space: state.space,
+  user: state.users
 });
 
 const mapDispatchToProps = {
