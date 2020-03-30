@@ -1,21 +1,24 @@
 import "p5/lib/addons/p5.sound";
 import p5 from "p5";
 
-import soundFile from "./Hamilton48k.wav";
-import soundFile2 from "./r.mp3";
+// import soundFile from "/Hamilton48k.wav";
+// import soundFile2 from "/r.mp3";
+// import soundFile3 from "/Inchindown.wav";
 
 let mic;
 let sound;
 let cVerb;
 let sound2;
+let convolverFile;
 export default function sketch(p) {
   //p.someVar = 445;
   p.preload = function() {
     p.soundFormats("mp3", "wav");
-    sound2 = p.loadSound(soundFile2);
-    sound = p.loadSound(soundFile);
-    p.someVar = soundFile;
-    console.log("preload", soundFile);
+    // sound2 = p.loadSound("/Hamilton48K.wav");
+    // sound = p.loadSound("/Hamilton48K.wav");
+    p.loadSound(convolverFile);
+    //p.someVar = soundFile;
+    console.log("preload");
   };
   p.setup = function() {
     p.createCanvas(100, 100);
@@ -24,16 +27,17 @@ export default function sketch(p) {
     p.background(10);
     mic = new p5.AudioIn();
     console.log("setup");
-    //mic.start();
-    cVerb = p.createConvolver(soundFile);
-    cVerb.addImpulse(soundFile);
+    mic.start();
+    cVerb = p.createConvolver(convolverFile);
+    cVerb.addImpulse(convolverFile);
     cVerb.process(mic);
   };
   p.myCustomRedrawAccordingToNewPropsHandler = function(props) {
     //const { id } = props.spaces;
-    p.loadSound(props.space.file.location);
+    convolverFile = props.space.file.location;
+
     //p.someVar = props.space.file.location;
-    console.log("propss", props.space.file.location);
+    console.log("propss");
   };
 
   p.touchStarted = function() {
