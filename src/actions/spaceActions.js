@@ -1,7 +1,7 @@
 import request from "superagent";
 
 export const SPACES_FETCHED = "SPACES_FETCHED";
-
+export const SPACE_FETCHED = "SPACE_FETCHED";
 const baseUrl = "http://localhost:4000";
 
 const allSpacesFetched = spaces => ({
@@ -35,6 +35,7 @@ export const showOneSpace = id => (dispatch, getState) => {
     .then(res => {
       const action = OneSpaceFetched(res.body);
       dispatch(action);
+      console.log(res.body);
     })
     .catch(console.error);
 };

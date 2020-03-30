@@ -7,10 +7,10 @@ const fileFetched = file => ({
   payload: file
 });
 
-export const fetchFile = id => (dispatch, getState) => {
+export const fetchFile = spaceId => (dispatch, getState) => {
   request
-    .get(`${baseUrl}/file/${id}`)
-    .send(id)
+    .get(`${baseUrl}/file/${spaceId}`)
+    .send(spaceId)
     .then(res => {
       const action = fileFetched(res.body);
       dispatch(action);

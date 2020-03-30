@@ -1,11 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
+import { Route } from "react-router";
 import "./App.css";
-import InteractiveSketch from "./components/InteractiveSketch";
+import SpaceDetailContainer from "./components/SpaceDetailContainer";
+import Homepage from "./components/Homepage";
+
 function App() {
   return (
     <div className="App">
-      <InteractiveSketch />
+      <Route exact path="/" component={Homepage} />
+      <Route exact path="/spaces/:id" component={SpaceDetailContainer} />
     </div>
   );
 }

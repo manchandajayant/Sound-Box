@@ -1,20 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { showAllSpaces } from "../actions/spaceActions";
 
 export class Homepage extends Component {
+  componentDidMount() {
+    this.props.showAllSpaces();
+  }
   render() {
-    return (
-      <div>
-        Welcome
-        <Route to="/sketch" />
-      </div>
-    );
+    if (!this.props.spaces) {
+      return <h1>Loading....</h1>;
+    } else {
+      return (
+        <div>
+          {this.props.spaces.map(space => (
+            <div>
+              <ul key={space.id}></ul>
+              <h1 className="space">
+                <Link to={`/spaces/${space.id}`}>{space.name}</Link>
+              </h1>
+              <h3>DESCRIPTION: {space.description}</h3>
+              <img src={space.url} alt="Not Loading" />
+            </div>
+          ))}
+        </div>
+      );
+    }
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  spaces: state.spaces
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  showAllSpaces
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
