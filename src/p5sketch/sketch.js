@@ -14,9 +14,14 @@ export default function sketch(p) {
   p.setup = function() {
     p.soundFormats("mp3", "wav");
     p.loadSound(convolverFile);
+    p.createCanvas(1, 1);
     console.log("insetup", convolverFile);
+    let col = p.color(25, 23, 200, 50);
+
     button = p.createButton("Mic On");
     button2 = p.createButton("Mic Off");
+    //button.style("margin-right", "100px");
+    //button.position(100, 100);
 
     mic = new p5.AudioIn();
 
@@ -27,7 +32,12 @@ export default function sketch(p) {
   };
   p.myCustomRedrawAccordingToNewPropsHandler = function(props) {
     convolverFile = props.space.file.location;
-    console.log("props");
+
+    console.log("props", props);
+  };
+
+  p.pressed = () => {
+    console.log("hello");
   };
 
   p.buttonPressed = () => {
@@ -43,36 +53,4 @@ export default function sketch(p) {
   p.touchStarted = function() {
     p.getAudioContext().resume();
   };
-  // p.button2Pressed = function() {
-  //   // ensure audio is enabled
-  //   p.userStartAudio();
-
-  //   // make sure user enabled the mic
-  //   if (p.state === 0 && p.mic.enabled) {
-  //     // record to our p5.SoundFile
-  //     recorder.record(soundFile);
-
-  //     p.background(255, 0, 0);
-  //     p.text("Recording!", p.width / 2, p.height / 2);
-  //     p.state++;
-  //   } else if (p.state === 1) {
-  //     p.background(0, 255, 0);
-
-  //     // stop recorder and
-  //     // send result to soundFile
-  //     recorder.stop();
-
-  //     p.text(
-  //       "Done! Tap to play and download",
-  //       p.width / 2,
-  //       p.height / 2,
-  //       p.width - 20
-  //     );
-  //     p.state++;
-  //   } else if (p.state === 2) {
-  //     soundFile.play(); // play the result!
-  //     p.save(soundFile, "mySound.wav");
-  //     p.state++;
-  //   }
-  // };
 }

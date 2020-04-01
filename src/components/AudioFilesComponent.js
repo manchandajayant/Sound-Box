@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
 import { connect } from "react-redux";
 import axios from "axios";
 import { newRecording } from "../actions/recordingActions";
-
+import "../CSS/AudioPlayer.css";
 class AudioFilesComponent extends Component {
   state = {
     name: "",
     location: "",
     description: "",
-    spaceId: this.props.space.id
+    spaceId: this.props.space.id,
+    src: null
   };
-  onDrop = async files => {
-    this.setState({ file: files[0] });
+  onPlay = id => {
+    console.log("click", id);
+    const b = this.props.recordings.filter(
+      n => n.spaceId === this.props.space.id
+    );
+    this.setState({
+      src: b[id].location
+    });
   };
   onChange = e => {
     console.log("e", e.target.files);
@@ -46,22 +52,23 @@ class AudioFilesComponent extends Component {
     //console.log("thos", this.state);
   };
   render() {
-    console.log("rec", this.state);
+    console.log("render of afc", this.state);
     const b = this.props.recordings.filter(
       n => n.spaceId === this.props.space.id
     );
+
     console.log("b", b);
     return (
       <div>
         Ambient Recordings
         {b.map((filtered, index) => {
           return (
-            <div key={index}>
+            <div key={index} onClick={e => this.onPlay(index)}>
               <p>{filtered.name}</p>
-              <AudioPlayer Play src={filtered.location} />
             </div>
           );
         })}
+        <AudioPlayer Play src={this.state.src} />
         Upload A Recording
         <input onChange={this.onChange} type="file" name="file" />
         <button onClick={this.submit}>Click</button>

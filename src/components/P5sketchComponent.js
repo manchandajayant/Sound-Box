@@ -3,14 +3,25 @@ import P5Wrapper from "react-p5-wrapper";
 import sketch from "../p5sketch/sketch";
 import { connect } from "react-redux";
 import { showAllSpaces } from "../actions/spaceActions";
+import "../CSS/sketchComponent.css";
 
 class P5sketchComponent extends React.Component {
   componentDidMount() {
     this.props.showAllSpaces();
   }
+
   render() {
+    const s = { height: "20px", width: "20px" };
     //console.log("lll", this.props);
-    return <P5Wrapper sketch={sketch} space={this.props.space} />;
+    return (
+      <div className="sketch">
+        <P5Wrapper
+          sketch={sketch}
+          space={this.props.space}
+          press={this.onPress}
+        />
+      </div>
+    );
   }
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { showAllSpaces } from "../actions/spaceActions";
+import { CreateNewSpaceContainer } from "./CreateNewSpaceContainer";
 
 export class Homepage extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ export class Homepage extends Component {
               </h1>
             </div>
           ))}
+          <Link to="/newspace">CREATE YOUR OWN SPACE</Link>
         </div>
       );
     }

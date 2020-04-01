@@ -1,7 +1,8 @@
 import request from "superagent";
-
+import superagent from "superagent";
 export const SPACES_FETCHED = "SPACES_FETCHED";
 export const SPACE_FETCHED = "SPACE_FETCHED";
+export const SPACE_CREATED = "SPACE_CREATED";
 const baseUrl = "http://localhost:4000";
 
 const allSpacesFetched = spaces => ({
@@ -39,3 +40,22 @@ export const showOneSpace = id => (dispatch, getState) => {
     })
     .catch(console.error);
 };
+
+const newSpaceCreated = space => ({
+  type: SPACE_CREATED,
+  payload: space
+});
+
+export function newSpace(data) {
+  return async function(dispatch) {
+    try {
+      const res = await superagent.post(`${baseUrl}/space`).send(data);
+
+      const action = newSpaceCreated(res.body);
+      dispatch(action);
+      console.log("action", action);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}

@@ -5,7 +5,8 @@ import { fetchRecordings } from "../actions/recordingActions";
 import P5sketchComponent from "./P5sketchComponent";
 import { Link } from "react-router-dom";
 import AudioFilesComponent from "./AudioFilesComponent";
-
+//import "../CSS/spaceDetail.css";
+import "../App.css";
 export class SpaceDetailContainer extends Component {
   componentDidMount() {
     this.props.showOneSpace(Number(this.props.match.params.id));

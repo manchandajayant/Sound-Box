@@ -20,19 +20,6 @@ const newRecordingCreated = payload => ({
   payload
 });
 
-// export const newRecording = data => (dispatch, getState) => {
-//   console.log("datta", data);
-//   request
-//     .post(`${baseUrl}/recording`)
-//     .send(data)
-//     .then(res => {
-//       const action = newRecordingCreated(res.body);
-//       dispatch(action);
-//       console.log("action", action);
-//     })
-//     .catch(console.error);
-// };
-
 export function newRecording(data) {
   return async function(dispatch) {
     try {
