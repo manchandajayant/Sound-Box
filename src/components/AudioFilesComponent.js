@@ -34,13 +34,16 @@ class AudioFilesComponent extends Component {
     );
     console.log("response", response.data);
     //console.log("response", file);
-    this.props.newRecording(this.state);
+
     this.setState({
       location: response.data.url,
       name: response.data.original_filename,
       description: response.data.public_id,
       spaceId: this.state.spaceId
     });
+
+    this.props.newRecording(this.state);
+    //console.log("thos", this.state);
   };
   render() {
     console.log("rec", this.state);

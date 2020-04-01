@@ -1,5 +1,5 @@
 import request from "superagent";
-
+import superagent from "superagent";
 export const RECORDINGS_FETCHED = "RECORDINGS_FETCHED";
 export const NEW_RECORDING = "NEW_RECORDING";
 const baseUrl = "http://localhost:4000";
@@ -20,15 +20,30 @@ const newRecordingCreated = payload => ({
   payload
 });
 
-export const newRecording = data => (dispatch, getState) => {
-  console.log("datta", data);
-  request
-    .post(`${baseUrl}/recording`)
-    .send(data)
-    .then(res => {
+// export const newRecording = data => (dispatch, getState) => {
+//   console.log("datta", data);
+//   request
+//     .post(`${baseUrl}/recording`)
+//     .send(data)
+//     .then(res => {
+//       const action = newRecordingCreated(res.body);
+//       dispatch(action);
+//       console.log("action", action);
+//     })
+//     .catch(console.error);
+// };
+
+export function newRecording(data) {
+  return async function(dispatch) {
+    try {
+      //const body  =  {name, description, spaceId, location}
+      const res = await superagent.post(`${baseUrl}/recording`).send(data);
+
       const action = newRecordingCreated(res.body);
       dispatch(action);
       console.log("action", action);
-    })
-    .catch(console.error);
-};
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
