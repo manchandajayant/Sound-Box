@@ -11,7 +11,6 @@ class P5sketchComponent extends React.Component {
   }
 
   render() {
-    const s = { height: "20px", width: "20px" };
     //console.log("lll", this.props);
     return (
       <div className="sketch">

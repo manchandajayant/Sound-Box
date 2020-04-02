@@ -7,7 +7,6 @@ let cVerb;
 let convolverFile;
 let button;
 let button2;
-
 let con;
 
 export default function sketch(p) {
@@ -16,7 +15,6 @@ export default function sketch(p) {
     p.loadSound(convolverFile);
     p.createCanvas(1, 1);
     console.log("insetup", convolverFile);
-    let col = p.color(25, 23, 200, 50);
 
     button = p.createButton("Mic On");
     button2 = p.createButton("Mic Off");

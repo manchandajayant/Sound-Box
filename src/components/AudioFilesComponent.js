@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { newRecording } from "../actions/recordingActions";
 import "../CSS/AudioPlayer.css";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { Typography } from "@material-ui/core";
 class AudioFilesComponent extends Component {
   state = {
     name: "",
@@ -61,17 +64,36 @@ class AudioFilesComponent extends Component {
     return (
       <div>
         Ambient Recordings
+        <br />
+        <br />
         {b.map((filtered, index) => {
           return (
             <div key={index} onClick={e => this.onPlay(index)}>
-              <p>{filtered.name}</p>
+              <Button style={{ color: "white" }} variant="outlined">
+                {filtered.name}
+              </Button>
             </div>
           );
         })}
+        <br />
+        <br />
         <AudioPlayer Play src={this.state.src} />
-        Upload A Recording
-        <input onChange={this.onChange} type="file" name="file" />
-        <button onClick={this.submit}>Click</button>
+        <br />
+        <br />
+        Upload A Recording{"   "}
+        <br />
+        <br />
+        <TextField onChange={this.onChange} type="file" name="file" />
+        <br />
+        <br />
+        <Button
+          style={{ color: "black" }}
+          variant="contained"
+          component="span"
+          onClick={this.submit}
+        >
+          <Typography>Upload</Typography>
+        </Button>
       </div>
     );
   }

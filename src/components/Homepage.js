@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { showAllSpaces } from "../actions/spaceActions";
-import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
@@ -21,13 +20,21 @@ export class Homepage extends Component {
     } else if (!this.props.user.auth) {
       return (
         <h1>
-          <Link to="/">PLEASE LOGIN OR SIGN UP</Link>
+          <Link
+            style={{
+              color: "rgba(255,255,255,0.7)",
+              textDecoration: "inherit"
+            }}
+            to="/"
+          >
+            PLEASE LOGIN
+          </Link>
         </h1>
       );
     } else {
       return (
         <div>
-          <GridList cellHeight={180}>
+          <GridList cellHeight={300}>
             <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
               <ListSubheader component="div">
                 <Typography variant="h4">Spaces</Typography>
@@ -40,14 +47,34 @@ export class Homepage extends Component {
                   title={space.name}
                   actionIcon={
                     <IconButton>
-                      <Link to={`/spaces/${space.id}`}>Listen</Link>
+                      <Link
+                        style={{
+                          color: "rgba(255,255,255,0.7)",
+                          textDecoration: "inherit"
+                        }}
+                        to={`/spaces/${space.id}`}
+                      >
+                        Listen
+                      </Link>
                     </IconButton>
                   }
                 />
               </GridListTile>
             ))}
           </GridList>
-          <Link to="/newspace">CREATE YOUR OWN SPACE</Link>
+          <Link
+            style={{
+              color: "rgba(255,255,255,0.7)",
+              textDecoration: "inherit"
+            }}
+            to="/newspace"
+          >
+            <br />
+            <br />
+            <br />
+            <br />
+            CREATE YOUR OWN SPACE
+          </Link>
         </div>
       );
     }

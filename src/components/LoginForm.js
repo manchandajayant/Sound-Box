@@ -39,7 +39,7 @@ export default class LoginForm extends Component {
           <Button onClick={this.props.onSubmit}>Login</Button>
         </form>
         <Typography style={{ color: "white" }}>
-          <Link to="/signup">Sign up for a new account</Link>
+          <Link to="/signup">Sign up for a new accounts</Link>
         </Typography>
       </Container>
     );

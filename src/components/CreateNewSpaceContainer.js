@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { newSpace } from "../actions/spaceActions";
 import CreateNewSpace from "./CreateNewSpace";
 import { newFile } from "../actions/fileActions";
-import { Redirect } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 export class CreateNewSpaceContainer extends Component {
@@ -14,8 +13,8 @@ export class CreateNewSpaceContainer extends Component {
     url: "",
     spaceMade: false,
     location: "",
-    name: "",
-    description: "",
+    name2: "",
+    description2: "",
     spaceId: 0,
     redirect: false
   };
@@ -44,8 +43,8 @@ export class CreateNewSpaceContainer extends Component {
 
     this.setState({
       location: response.data.url,
-      name: response.data.original_filename,
-      description: response.data.public_id,
+      name2: response.data.original_filename,
+      description2: response.data.public_id,
       spaceId: this.props.spaces.length,
       redirect: true
     });
@@ -68,7 +67,10 @@ export class CreateNewSpaceContainer extends Component {
     console.log(this.props);
     if (this.state.redirect) {
       return (
-        <Link to={`/spaces/${this.props.spaces.length}`}>
+        <Link
+          style={{ color: "white", textDecoration: "inherit" }}
+          to={`/spaces/${this.props.spaces.length}`}
+        >
           You Created a space, click to open it
         </Link>
       );
