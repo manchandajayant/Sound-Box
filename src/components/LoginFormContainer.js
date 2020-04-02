@@ -25,7 +25,7 @@ export class LoginFormContainer extends Component {
   render() {
     //console.log("user", this.props);
     if (this.props.user.auth) {
-      return <Redirect to="/homepage"></Redirect>;
+      return <Redirect to="/spaces"></Redirect>;
     } else {
       return (
         <div className="login">

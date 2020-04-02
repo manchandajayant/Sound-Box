@@ -46,6 +46,7 @@ export default function sketch(p) {
   };
   p.buttonStops = () => {
     mic.stop();
+    mic.disconnect();
   };
 
   p.touchStarted = function() {

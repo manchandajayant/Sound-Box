@@ -27,11 +27,9 @@ export class SpaceDetailContainer extends Component {
           <h1>{this.props.space.name}</h1>
           <p>{this.props.space.description}</p>
           <img src={this.props.space.url} alt="loading" />
+
           <P5sketchComponent />
-          <AudioFilesComponent
-            recordings={this.props.recordings}
-            space={this.props.space}
-          />
+          <Link to={`/spaces/${this.props.space.id}/audiofiles`}>Linkn</Link>
         </div>
       );
     } else {

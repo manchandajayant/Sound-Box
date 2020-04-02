@@ -11,10 +11,15 @@ import LoginFormContainer from "./components/LoginFormContainer";
 import CreateNewSpaceContainer from "./components/CreateNewSpaceContainer";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import AudioFilesComponent from "./components/AudioFilesComponent";
+import { Container } from "@material-ui/core";
 function App() {
   return (
     <div className="App">
-      <AppBar position="static" style={{ background: "rgb(50,50,50,0.5)" }}>
+      <AppBar
+        position="static"
+        style={{ background: "rgba(138, 138, 148, 0.1)" }}
+      >
         <ToolBar>
           <Typography
             style={{
@@ -22,15 +27,15 @@ function App() {
               marginRight: "20px"
             }}
           >
-            SOUNDBOX
+            SPACE-EMULATOR
           </Typography>
           <Button style={{ color: "black" }}>
             <Link
               style={{
-                color: "rgba(255,255,255,0.7)",
+                color: "black",
                 textDecoration: "inherit"
               }}
-              to="/homepage"
+              to="/spaces"
             >
               SPACES
             </Link>
@@ -38,7 +43,7 @@ function App() {
           <Button>
             <Link
               style={{
-                color: "rgba(255,255,255,0.7)",
+                color: "black",
                 textDecoration: "inherit"
               }}
               to="/newspace"
@@ -48,11 +53,23 @@ function App() {
           </Button>
         </ToolBar>
       </AppBar>
-      <Route exact path="/homepage" component={Homepage} />
-      <Route exact path="/signup" component={SignUpFormContainer} />
-      <Route exact path="/spaces/:id" component={SpaceDetailContainer} />
-      <Route exact path="/" component={LoginFormContainer} />
-      <Route exact path="/newspace" component={CreateNewSpaceContainer} />
+      <Container
+        style={{
+          //border: "solid 2px black",
+          backgroundColor: "rgba(255,255,250,0.6)"
+        }}
+      >
+        <Route exact path="/spaces" component={Homepage} />
+        <Route exact path="/signup" component={SignUpFormContainer} />
+        <Route exact path="/spaces/:id" component={SpaceDetailContainer} />
+        <Route exact path="/" component={LoginFormContainer} />
+        <Route exact path="/newspace" component={CreateNewSpaceContainer} />
+        <Route
+          exact
+          path="/spaces/:id/audiofiles"
+          component={AudioFilesComponent}
+        />
+      </Container>
     </div>
   );
 }

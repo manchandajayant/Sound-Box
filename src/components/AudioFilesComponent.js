@@ -101,6 +101,7 @@ class AudioFilesComponent extends Component {
 
 const mapStateToProps = state => ({
   spaces: state.spaces,
+  space: state.space,
   user: state.users,
   recordings: state.recordings
 });
