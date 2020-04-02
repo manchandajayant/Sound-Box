@@ -3,7 +3,7 @@ import SignUpForm from "./SignUpForm";
 import { connect } from "react-redux";
 import { signUpUser } from "../actions/userActions";
 import { Redirect } from "react-router";
-
+import "../CSS/login.css";
 export class SignUpFormContainer extends Component {
   state = {
     email: "",
@@ -28,7 +28,7 @@ export class SignUpFormContainer extends Component {
     console.log(this.props.user);
     if (!this.props.user.newUser) {
       return (
-        <div>
+        <div className="login">
           <SignUpForm
             onSubmit={this.onSubmit}
             onChange={this.onChange}

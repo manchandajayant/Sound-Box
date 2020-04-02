@@ -1,34 +1,47 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
+import { Typography } from "@material-ui/core";
 
 export default class LoginForm extends Component {
   render() {
     //console.log(this.props.onSubmit);
     return (
-      <div>
+      <Container>
+        <br />
+
+        <br />
         <form onSubmit={this.props.onSubmit}>
-          <h3>Email</h3>
-          <input
+          <Typography variant="h5">Email</Typography>
+          <TextField
             type="text"
             name="email"
             placeholder="email"
             onChange={this.props.onChange}
             values={this.props.values}
+            variant="filled"
           />
-          <h3>Password</h3>
-          <input
-            type="text"
+          <br />
+          <br />
+          <Typography variant="h5">Password</Typography>
+          <TextField
+            type="password"
             name="password"
             placeholder="password"
             onChange={this.props.onChange}
             values={this.props.values}
+            variant="filled"
           />
-          <button onSubmit={this.props.onSubmit}>Login</button>
+          <br />
+          <br />
+          <Button onClick={this.props.onSubmit}>Login</Button>
         </form>
-        <h2>
+        <Typography style={{ color: "white" }}>
           <Link to="/signup">Sign up for a new account</Link>
-        </h2>
-      </div>
+        </Typography>
+      </Container>
     );
   }
 }

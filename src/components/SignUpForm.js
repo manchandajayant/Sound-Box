@@ -1,29 +1,38 @@
 import React, { Component } from "react";
+import { TextField, Button, Container, Typography } from "@material-ui/core";
 
 export default class SignUpForm extends Component {
   render() {
     return (
-      <div>
+      <Container>
+        <br />
+        <br />
         <form onSubmit={this.props.onSubmit}>
-          <h1>EMAIL:</h1>
-          <input
+          <Typography variant="h5">Email</Typography>
+          <TextField
             type="text"
             name="email"
             placeholder="email"
             onChange={this.props.onChange}
             values={this.props.values}
+            variant="filled"
           />
-          <h1>PASSWORD:</h1>
-          <input
+          <br />
+          <br />
+          <Typography variant="h5">Password</Typography>
+          <TextField
             type="password"
             name="password"
             placeholder="password"
             onChange={this.props.onChange}
             values={this.props.values}
+            variant="filled"
           />
-          <button onSubmit={this.props.onSubmit}>SignUp</button>
+          <br />
+          <br />
+          <Button onClick={this.props.onSubmit}>SignUp</Button>
         </form>
-      </div>
+      </Container>
     );
   }
 }

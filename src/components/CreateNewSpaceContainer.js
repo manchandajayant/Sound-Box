@@ -5,6 +5,7 @@ import CreateNewSpace from "./CreateNewSpace";
 import { newFile } from "../actions/fileActions";
 import { Redirect } from "react-router";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
@@ -66,7 +67,11 @@ export class CreateNewSpaceContainer extends Component {
   render() {
     console.log(this.props);
     if (this.state.redirect) {
-      return <Redirect to="/homepage" />;
+      return (
+        <Link to={`/spaces/${this.props.spaces.length}`}>
+          You Created a space, click to open it
+        </Link>
+      );
     } else if (this.state.spaceMade) {
       return (
         <div>
