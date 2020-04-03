@@ -46,7 +46,7 @@ class AudioFilesComponent extends Component {
     //console.log("response", file);
 
     this.setState({
-      location: response.data.url,
+      location: response.data.secure_url,
       name: response.data.original_filename,
       description: response.data.public_id,
       spaceId: this.state.spaceId

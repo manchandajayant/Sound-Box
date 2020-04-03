@@ -44,7 +44,7 @@ export class CreateNewSpaceContainer extends Component {
     console.log("response", response.data);
 
     this.setState({
-      location: response.data.url,
+      location: response.data.secure_url,
       name2: response.data.original_filename,
       description2: response.data.public_id,
       spaceId: this.props.spaces.length,
