@@ -73,6 +73,7 @@ export default class NavBar extends Component {
                   color: "black",
                   textDecoration: "inherit"
                 }}
+                to="/about"
               >
                 About
               </Link>

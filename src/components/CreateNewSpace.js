@@ -34,7 +34,7 @@ export default class CreateNewSpace extends Component {
         <TextField
           type="text"
           name="url"
-          placeholder="Event Logo"
+          placeholder="Image Url"
           onChange={this.props.onChange}
           values={this.props.values}
           variant="filled"
