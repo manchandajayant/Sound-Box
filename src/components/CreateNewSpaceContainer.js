@@ -75,7 +75,7 @@ export class CreateNewSpaceContainer extends Component {
               color: "black",
               textDecoration: "inherit"
             }}
-            to="/"
+            to="/login"
           >
             PLEASE LOGIN TO CREATE A NEW SPACE
           </Link>
