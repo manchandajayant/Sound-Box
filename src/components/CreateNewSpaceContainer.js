@@ -84,7 +84,7 @@ export class CreateNewSpaceContainer extends Component {
     } else if (this.state.redirect) {
       return (
         <Link
-          style={{ color: "white", textDecoration: "inherit" }}
+          style={{ color: "black", textDecoration: "inherit" }}
           to={`/spaces/${this.props.spaces.length}`}
         >
           You Created a space, click to open it
@@ -94,7 +94,12 @@ export class CreateNewSpaceContainer extends Component {
       return (
         <div>
           {" "}
-          Impulse Response
+          <br />
+          <br />
+          <br />
+          <Typography>Impulse Response</Typography>
+          <br />
+          <br />
           <TextField
             type="file"
             name="file"
@@ -102,6 +107,8 @@ export class CreateNewSpaceContainer extends Component {
             onChange={this.onChangeForFile}
             values={this.state}
           />
+          <br />
+          <br />
           <Button onClick={this.submit}>Upload</Button>
         </div>
       );

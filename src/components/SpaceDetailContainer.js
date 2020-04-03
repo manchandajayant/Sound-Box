@@ -20,7 +20,11 @@ export class SpaceDetailContainer extends Component {
           <br />
           <Typography variant="h5">{this.props.space.description}</Typography>
           <br />
-          <img src={this.props.space.url} alt="loading" />
+          <img
+            src={this.props.space.url}
+            style={{ width: "450px", height: "450px" }}
+            alt="loading"
+          />
 
           <P5sketchComponent />
           <Typography variant="h6">

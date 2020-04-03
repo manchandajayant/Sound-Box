@@ -20,19 +20,19 @@ function App() {
     <div className="App">
       <AppBar
         position="static"
-        style={{ background: "rgba(255, 255, 250, 0.6)" }}
+        style={{ background: "rgba(240, 225, 220, 0.6)" }}
       >
         <ToolBar>
           <Typography
             style={{
               color: "black",
               marginRight: "20px",
-              border: "solid 1px black",
-              borderRadius: "5px",
+              border: "solid 0.5px black",
+              borderRadius: "2px",
               backgroundColor: "rgb(120, 141, 154)"
             }}
           >
-            SPACE-EMULATOR
+            s w o g a n
           </Typography>
           <Button style={{ color: "black" }}>
             <Link
@@ -56,11 +56,33 @@ function App() {
               CREATE A NEW SPACE
             </Link>
           </Button>
+          <Button style={{ marginLeft: "63%", paddingRight: "1%" }}>
+            <Link
+              style={{
+                color: "black",
+                textDecoration: "inherit"
+              }}
+              to="/"
+            >
+              Login
+            </Link>
+          </Button>
+          <Button>
+            <Link
+              style={{
+                color: "black",
+                textDecoration: "inherit"
+              }}
+              to="/"
+            >
+              About
+            </Link>
+          </Button>
         </ToolBar>
       </AppBar>
       <Container
         style={{
-          backgroundColor: "rgba(138, 138, 148, 0.1)",
+          backgroundColor: "rgba(138, 138, 148, 0.4)",
           marginBottom: "5%"
         }}
       >
@@ -76,6 +98,14 @@ function App() {
           component={AudioFilesComponent}
         />
       </Container>
+      {/* <Container
+        style={{
+          backgroundColor: "rgba(138, 138, 148, 0.4)",
+          marginBottom: "5%"
+        }}
+      >
+        
+      </Container> */}
     </div>
   );
 }

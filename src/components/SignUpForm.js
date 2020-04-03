@@ -30,7 +30,7 @@ export default class SignUpForm extends Component {
           />
           <br />
           <br />
-          <Button onClick={this.props.onSubmit}>SignUp</Button>
+          <Button onClick={this.props.onSubmit}>SUBMIT</Button>
         </form>
       </Container>
     );

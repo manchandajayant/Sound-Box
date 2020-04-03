@@ -28,7 +28,7 @@ export class LoginFormContainer extends Component {
       return <Redirect to="/spaces"></Redirect>;
     } else {
       return (
-        <div className="login">
+        <div>
           <LoginForm
             onSubmit={this.onSubmit}
             onChange={this.onChange}
