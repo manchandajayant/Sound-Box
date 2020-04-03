@@ -16,6 +16,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 110px;
 }
 
 .App-link {
@@ -28,5 +29,5 @@ h1 {
 }
 
 body {
-  background-color: rgba(138, 138, 148, 0.1);
+  background-color: rgba(255, 255, 250, 0.6);
 }

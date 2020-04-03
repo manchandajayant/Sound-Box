@@ -4,6 +4,7 @@ import sketch from "../p5sketch/sketch";
 import { connect } from "react-redux";
 import { showAllSpaces } from "../actions/spaceActions";
 import "../CSS/sketchComponent.css";
+import { Typography } from "@material-ui/core";
 
 class P5sketchComponent extends React.Component {
   componentDidMount() {
@@ -14,6 +15,9 @@ class P5sketchComponent extends React.Component {
     //console.log("lll", this.props);
     return (
       <div className="sketch">
+        <Typography variant="subtitle1">
+          Please Use Headphones for using the Mic
+        </Typography>
         <P5Wrapper
           sketch={sketch}
           space={this.props.space}

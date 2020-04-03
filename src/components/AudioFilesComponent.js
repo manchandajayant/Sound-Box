@@ -6,7 +6,8 @@ import { newRecording } from "../actions/recordingActions";
 import "../CSS/AudioPlayer.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { Typography, Box, Container } from "@material-ui/core";
 class AudioFilesComponent extends Component {
   state = {
     name: "",
@@ -61,41 +62,79 @@ class AudioFilesComponent extends Component {
     );
 
     console.log("b", b);
-    return (
-      <div>
-        Ambient Recordings
-        <br />
-        <br />
-        {b.map((filtered, index) => {
-          return (
-            <div key={index} onClick={e => this.onPlay(index)}>
-              <Button style={{ color: "white" }} variant="outlined">
-                {filtered.name}
-              </Button>
-            </div>
-          );
-        })}
-        <br />
-        <br />
-        <AudioPlayer Play src={this.state.src} />
-        <br />
-        <br />
-        Upload A Recording{"   "}
-        <br />
-        <br />
-        <TextField onChange={this.onChange} type="file" name="file" />
-        <br />
-        <br />
-        <Button
-          style={{ color: "black" }}
-          variant="contained"
-          component="span"
-          onClick={this.submit}
-        >
-          <Typography>Upload</Typography>
-        </Button>
-      </div>
-    );
+    if (!this.props.user.auth) {
+      return (
+        <div>
+          <br />
+          <Typography variant="h4">Ambient Recordings</Typography>
+          <br />
+          <br />
+          {b.map((filtered, index) => {
+            return (
+              <div key={index} onClick={e => this.onPlay(index)}>
+                <Button style={{ color: "white" }} variant="outlined">
+                  {filtered.name}
+                </Button>
+              </div>
+            );
+          })}
+          <br />
+          <br />
+          <AudioPlayer Play src={this.state.src} />
+          <br />
+          <br />
+          <Typography variant="subTitle1">
+            <Link
+              style={{
+                color: "black",
+                textDecoration: "inherit"
+              }}
+              to="/"
+            >
+              PLEASE LOGIN TO UPLOAD A RECORDING
+            </Link>
+          </Typography>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <br />
+          <Typography variant="h4">Ambient Recordings</Typography>
+          <br />
+          <br />
+          {b.map((filtered, index) => {
+            return (
+              <div key={index} onClick={e => this.onPlay(index)}>
+                <Button style={{ color: "white" }} variant="outlined">
+                  {filtered.name}
+                </Button>
+              </div>
+            );
+          })}
+          <br />
+          <br />
+          <AudioPlayer Play src={this.state.src} />
+          <br />
+          <br />
+          Upload A Recording{"   "}
+          <br />
+          <br />
+          <TextField onChange={this.onChange} type="file" name="file" />
+          <br />
+          <br />
+          <Button
+            style={{ color: "black" }}
+            variant="contained"
+            component="span"
+            onClick={this.submit}
+          >
+            <Typography>Upload</Typography>
+          </Button>
+          <br />
+        </div>
+      );
+    }
   }
 }
 

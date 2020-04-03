@@ -4,32 +4,36 @@ import { showOneSpace } from "../actions/spaceActions";
 import { fetchRecordings } from "../actions/recordingActions";
 import P5sketchComponent from "./P5sketchComponent";
 import { Link } from "react-router-dom";
-import AudioFilesComponent from "./AudioFilesComponent";
-//import "../CSS/spaceDetail.css";
 import "../App.css";
+import { Typography } from "@material-ui/core";
 export class SpaceDetailContainer extends Component {
   componentDidMount() {
     this.props.showOneSpace(Number(this.props.match.params.id));
     this.props.fetchRecordings();
   }
   render() {
-    console.log(this.props);
-    // if (!this.props.user.auth) {
-    //   return (
-    //     <h1>
-    //       <Link to="/">PLEASE LOGIN OR SIGN UP</Link>
-    //     </h1>
-    //   );
-    // } else
+    //console.log(this.props);
     if (this.props.space) {
       return (
         <div>
-          <h1>{this.props.space.name}</h1>
-          <p>{this.props.space.description}</p>
+          <Typography variant="h2">{this.props.space.name}</Typography>
+          <br />
+          <Typography variant="h5">{this.props.space.description}</Typography>
+          <br />
           <img src={this.props.space.url} alt="loading" />
 
           <P5sketchComponent />
-          <Link to={`/spaces/${this.props.space.id}/audiofiles`}>Linkn</Link>
+          <Typography variant="h6">
+            <Link
+              style={{
+                color: "black",
+                textDecoration: "inherit"
+              }}
+              to={`/spaces/${this.props.space.id}/audiofiles`}
+            >
+              AMBIENT RECORDINGS
+            </Link>
+          </Typography>
         </div>
       );
     } else {

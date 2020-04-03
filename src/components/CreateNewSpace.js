@@ -1,34 +1,47 @@
 import React, { Component } from "react";
+import { TextField, Typography, Button } from "@material-ui/core";
 
 export default class CreateNewSpace extends Component {
   render() {
     return (
       <div>
-        NAME:
-        <input
+        <Typography>NAME</Typography>
+        <br />
+        <TextField
           type="text"
           name="name"
           placeholder="Name"
           onChange={this.props.onChange}
           values={this.props.values}
+          variant="filled"
         />
-        DESCRIPTION
-        <input
+        <br />
+        <br />
+        <Typography>DESCRIPTION</Typography>
+        <br />
+        <TextField
           type="text"
           name="description"
           placeholder="Description"
           onChange={this.props.onChange}
           values={this.props.values}
+          variant="filled"
         />
-        IMAGE:
-        <input
+        <br />
+        <br />
+        <Typography>IMAGE URL</Typography>
+        <br />
+        <TextField
           type="text"
           name="url"
           placeholder="Event Logo"
           onChange={this.props.onChange}
           values={this.props.values}
+          variant="filled"
         />
-        <button onClick={this.props.onSubmit}>CREATE</button>
+        <br />
+        <br />
+        <Button onClick={this.props.onSubmit}>CREATE</Button>
       </div>
     );
   }

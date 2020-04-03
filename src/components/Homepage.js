@@ -17,7 +17,6 @@ const styles = {
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden"
-    //backgroundColor: theme.palette.background.paper
   },
   gridList: {
     width: 1200,
@@ -38,20 +37,6 @@ export class Homepage extends Component {
     console.log(this.props);
     if (!this.props.spaces) {
       return <h1>Loading...</h1>;
-    } else if (!this.props.user.auth) {
-      return (
-        <h1>
-          <Link
-            style={{
-              color: "black",
-              textDecoration: "inherit"
-            }}
-            to="/"
-          >
-            PLEASE LOGIN
-          </Link>
-        </h1>
-      );
     } else {
       return (
         <div>
@@ -61,7 +46,7 @@ export class Homepage extends Component {
                 <Typography
                   variant="h4"
                   style={{
-                    color: "rgba(255,255,255,0.7)",
+                    color: "black",
                     fontWeight: "2px"
                   }}
                 >
@@ -71,7 +56,7 @@ export class Homepage extends Component {
             </GridListTile>
             {this.props.spaces.map((space, index) => (
               <GridListTile key={index}>
-                <img src={space.url} alt="loading" />
+                <img src={space.url} alt="No Image" />
                 <GridListTileBar
                   title={space.name}
                   actionIcon={

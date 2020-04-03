@@ -5,6 +5,7 @@ import CreateNewSpace from "./CreateNewSpace";
 import { newFile } from "../actions/fileActions";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Typography, TextField, Button } from "@material-ui/core";
 export class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
@@ -16,7 +17,8 @@ export class CreateNewSpaceContainer extends Component {
     name2: "",
     description2: "",
     spaceId: 0,
-    redirect: false
+    redirect: false,
+    fileLoad: false
   };
   onChange = event => {
     this.setState({
@@ -65,7 +67,21 @@ export class CreateNewSpaceContainer extends Component {
 
   render() {
     console.log(this.props);
-    if (this.state.redirect) {
+    if (!this.props.user.auth) {
+      return (
+        <Typography variant="h4">
+          <Link
+            style={{
+              color: "black",
+              textDecoration: "inherit"
+            }}
+            to="/"
+          >
+            PLEASE LOGIN TO CREATE A NEW SPACE
+          </Link>
+        </Typography>
+      );
+    } else if (this.state.redirect) {
       return (
         <Link
           style={{ color: "white", textDecoration: "inherit" }}
@@ -79,19 +95,23 @@ export class CreateNewSpaceContainer extends Component {
         <div>
           {" "}
           Impulse Response
-          <input
+          <TextField
             type="file"
             name="file"
             placeholder="File"
             onChange={this.onChangeForFile}
             values={this.state}
           />
-          <button onClick={this.submit}>Click</button>
+          <Button onClick={this.submit}>Upload</Button>
         </div>
       );
     } else {
       return (
         <div>
+          <Typography variant="h3">Space Details </Typography>
+          <br />
+          <br />
+          <br />
           <CreateNewSpace
             onSubmit={this.onSubmit}
             onChange={this.onChange}

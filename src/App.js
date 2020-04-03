@@ -13,18 +13,23 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import AudioFilesComponent from "./components/AudioFilesComponent";
 import { Container } from "@material-ui/core";
+
 function App() {
   return (
+    // NAV-BAR
     <div className="App">
       <AppBar
         position="static"
-        style={{ background: "rgba(138, 138, 148, 0.1)" }}
+        style={{ background: "rgba(255, 255, 250, 0.6)" }}
       >
         <ToolBar>
           <Typography
             style={{
               color: "black",
-              marginRight: "20px"
+              marginRight: "20px",
+              border: "solid 1px black",
+              borderRadius: "5px",
+              backgroundColor: "rgb(120, 141, 154)"
             }}
           >
             SPACE-EMULATOR
@@ -48,17 +53,18 @@ function App() {
               }}
               to="/newspace"
             >
-              UPLOAD
+              CREATE A NEW SPACE
             </Link>
           </Button>
         </ToolBar>
       </AppBar>
       <Container
         style={{
-          //border: "solid 2px black",
-          backgroundColor: "rgba(255,255,250,0.6)"
+          backgroundColor: "rgba(138, 138, 148, 0.1)",
+          marginBottom: "5%"
         }}
       >
+        {/* ROUTES DEFINED */}
         <Route exact path="/spaces" component={Homepage} />
         <Route exact path="/signup" component={SignUpFormContainer} />
         <Route exact path="/spaces/:id" component={SpaceDetailContainer} />
