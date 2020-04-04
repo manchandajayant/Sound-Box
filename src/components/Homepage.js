@@ -50,7 +50,7 @@ export class Homepage extends Component {
                     fontWeight: "2px"
                   }}
                 >
-                  Spaces
+                  SPACES
                 </Typography>
               </ListSubheader>
             </GridListTile>

@@ -2,26 +2,26 @@ import request from "superagent";
 import superagent from "superagent";
 export const RECORDINGS_FETCHED = "RECORDINGS_FETCHED";
 export const NEW_RECORDING = "NEW_RECORDING";
-const baseUrl = "http://localhost:4000";
-const recordingsFetched = recordings => ({
+const baseUrl = "https://verber-simulation.netlify.com";
+const recordingsFetched = (recordings) => ({
   type: RECORDINGS_FETCHED,
-  payload: recordings
+  payload: recordings,
 });
 
 export const fetchRecordings = () => (dispatch, getState) => {
-  request.get(`${baseUrl}/recording`).then(res => {
+  request.get(`${baseUrl}/recording`).then((res) => {
     const action = recordingsFetched(res.body);
     dispatch(action);
   });
 };
 
-const newRecordingCreated = payload => ({
+const newRecordingCreated = (payload) => ({
   type: NEW_RECORDING,
-  payload
+  payload,
 });
 
 export function newRecording(data) {
-  return async function(dispatch) {
+  return async function (dispatch) {
     try {
       //const body  =  {name, description, spaceId, location}
       const res = await superagent.post(`${baseUrl}/recording`).send(data);

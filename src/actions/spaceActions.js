@@ -3,11 +3,11 @@ import superagent from "superagent";
 export const SPACES_FETCHED = "SPACES_FETCHED";
 export const SPACE_FETCHED = "SPACE_FETCHED";
 export const SPACE_CREATED = "SPACE_CREATED";
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://verber-simulation.netlify.com";
 
-const allSpacesFetched = spaces => ({
+const allSpacesFetched = (spaces) => ({
   type: SPACES_FETCHED,
-  payload: spaces
+  payload: spaces,
 });
 
 export const showAllSpaces = () => (dispatch, getState) => {
@@ -16,7 +16,7 @@ export const showAllSpaces = () => (dispatch, getState) => {
 
   if (!spaces.length) {
     request(`${baseUrl}/space`)
-      .then(res => {
+      .then((res) => {
         const action = allSpacesFetched(res.body);
         dispatch(action);
       })
@@ -24,16 +24,16 @@ export const showAllSpaces = () => (dispatch, getState) => {
   }
 };
 
-const OneSpaceFetched = space => ({
+const OneSpaceFetched = (space) => ({
   type: SPACE_FETCHED,
-  payload: space
+  payload: space,
 });
 
-export const showOneSpace = id => (dispatch, getState) => {
+export const showOneSpace = (id) => (dispatch, getState) => {
   request
     .get(`${baseUrl}/space/${id}`)
     .send(id)
-    .then(res => {
+    .then((res) => {
       const action = OneSpaceFetched(res.body);
       dispatch(action);
       console.log(res.body);
@@ -41,13 +41,13 @@ export const showOneSpace = id => (dispatch, getState) => {
     .catch(console.error);
 };
 
-const newSpaceCreated = space => ({
+const newSpaceCreated = (space) => ({
   type: SPACE_CREATED,
-  payload: space
+  payload: space,
 });
 
 export function newSpace(data) {
-  return async function(dispatch) {
+  return async function (dispatch) {
     try {
       const res = await superagent.post(`${baseUrl}/space`).send(data);
 

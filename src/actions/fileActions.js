@@ -3,29 +3,29 @@ import superagent from "superagent";
 
 export const FILE_FETCHED = "FILES_FETCHED";
 export const NEW_FILE = "NEW_FILE";
-const baseUrl = "http://localhost:4000";
-const fileFetched = file => ({
+const baseUrl = "https://verber-simulation.netlify.com";
+const fileFetched = (file) => ({
   type: FILE_FETCHED,
-  payload: file
+  payload: file,
 });
 
-export const fetchFile = spaceId => (dispatch, getState) => {
+export const fetchFile = (spaceId) => (dispatch, getState) => {
   request
     .get(`${baseUrl}/file/${spaceId}`)
     .send(spaceId)
-    .then(res => {
+    .then((res) => {
       const action = fileFetched(res.body);
       dispatch(action);
     });
 };
 
-const newFileCreated = payload => ({
+const newFileCreated = (payload) => ({
   type: NEW_FILE,
-  payload
+  payload,
 });
 
 export function newFile(data) {
-  return async function(dispatch) {
+  return async function (dispatch) {
     try {
       //const body  =  {name, description, spaceId, location}
       const res = await superagent.post(`${baseUrl}/file`).send(data);
