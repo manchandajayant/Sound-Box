@@ -4,7 +4,7 @@ export const JWT = "JWT";
 export const NEW_USER = "NEW_USER";
 export const USER_FETCHED = "USER_FETCHED";
 
-const baseUrl = "https://verber-simulation.netlify.com";
+const baseUrl = "https://stoic-nightingale-f54e09.netlify.com";
 
 const userLogin = (payload) => ({
   type: JWT,

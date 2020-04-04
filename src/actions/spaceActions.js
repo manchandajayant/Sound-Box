@@ -3,7 +3,7 @@ import superagent from "superagent";
 export const SPACES_FETCHED = "SPACES_FETCHED";
 export const SPACE_FETCHED = "SPACE_FETCHED";
 export const SPACE_CREATED = "SPACE_CREATED";
-const baseUrl = "https://verber-simulation.netlify.com";
+const baseUrl = "https://stoic-nightingale-f54e09.netlify.com";
 
 const allSpacesFetched = (spaces) => ({
   type: SPACES_FETCHED,
