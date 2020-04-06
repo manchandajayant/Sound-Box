@@ -2,7 +2,7 @@ import request from "superagent";
 import superagent from "superagent";
 export const RECORDINGS_FETCHED = "RECORDINGS_FETCHED";
 export const NEW_RECORDING = "NEW_RECORDING";
-const baseUrl = "https://stoic-nightingale-f54e09.netlify.com";
+const baseUrl = "https://guarded-chamber-77848.herokuapp.com";
 const recordingsFetched = (recordings) => ({
   type: RECORDINGS_FETCHED,
   payload: recordings,

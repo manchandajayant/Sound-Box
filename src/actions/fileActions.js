@@ -3,7 +3,7 @@ import superagent from "superagent";
 
 export const FILE_FETCHED = "FILES_FETCHED";
 export const NEW_FILE = "NEW_FILE";
-const baseUrl = "https://stoic-nightingale-f54e09.netlify.com";
+const baseUrl = "https://guarded-chamber-77848.herokuapp.com";
 const fileFetched = (file) => ({
   type: FILE_FETCHED,
   payload: file,
