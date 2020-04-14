@@ -50,3 +50,6 @@ Impulse Responses from [here](https://openairlib.net)
 ## Back end
 
 You can find the repository for the back end [here](https://github.com/manchandajayant/Verber-Back-End)
+
+#current state
+[![Netlify Status](https://api.netlify.com/api/v1/badges/16384a1f-17d8-4f3c-a1f6-8c7d0b1fc9b5/deploy-status)](https://app.netlify.com/sites/verberapp/deploys)
