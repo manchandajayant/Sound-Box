@@ -37,7 +37,7 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 
 ## Demo
 
-<img src="https://imgur.com/mCYGK2J"/>
+<img src="https://imgur.com/mCYGK2J">
 
 ## About the project
 
