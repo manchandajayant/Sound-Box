@@ -37,7 +37,7 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 
 ## Demo GIF
 
-[Imgur](https://i.imgur.com/mCYGK2J.mp4)
+![Imgur](https://i.imgur.com/mCYGK2J.mp4)
 
 ## About the project
 
