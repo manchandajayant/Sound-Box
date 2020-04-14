@@ -37,7 +37,7 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 
 ## Demo GIF
 
-![](https://imgur.com/mCYGK2J)
+[Imgur](https://i.imgur.com/mCYGK2J.mp4)
 
 ## About the project
 
@@ -45,7 +45,7 @@ I made this project for my portfolio at codaisseur, where i completed an
 11 week long code bootcamp and also using my skills and experience in the past as
 a sound designer.
 
-Impulse Responses from [https://openairlib.net]
+Impulse Responses from [here](https://openairlib.net)
 
 ## Back end
 
