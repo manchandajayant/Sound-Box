@@ -37,7 +37,7 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 
 ## Demo
 
-![DEMO](/demo.gif)
+![DEMO](Demo/demo.gif)
 
 ## About the project
 
