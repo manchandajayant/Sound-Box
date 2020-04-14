@@ -10,10 +10,10 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 ## User stories
 
 - As a user, I should be able to listen to myself in the available catalogue of spaces.:heavy_check_mark:
-- As a user, I should be able to listen to available field recordings from the site
-- As a user after sign up/login, I should be able to create a new historical site with a picture, some information andd add the Impulse response to the site:white_check_mark:
+- As a user, I should be able to listen to available field recordings from the site.:heavy_check_mark:
+- As a user after sign up/login, I should be able to create a new historical site with a picture, some information andd add the Impulse response to the site:heavy_check_mark:
 - As a user, after sign up/login, I should be able to add field recordings to the site :heavy_check_mark:
-- As a user/listener I can rate the recordings, its value based on quality parameters and post comments on them.
+- As a user/listener I can rate the recordings, its value based on quality parameters and post comments on them.:white_check_mark:
 
 ### Legend:
 
