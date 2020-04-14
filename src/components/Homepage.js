@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { showAllSpaces } from "../actions/spaceActions";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
@@ -16,16 +16,16 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   gridList: {
     width: 1200,
     height: 1100,
-    paddingLeft: "1.5%"
+    paddingLeft: "1.5%",
   },
   icon: {
-    color: "rgba(255, 255, 255, 0.54)"
-  }
+    color: "rgba(255, 255, 255, 0.54)",
+  },
 };
 
 export class Homepage extends Component {
@@ -47,7 +47,7 @@ export class Homepage extends Component {
                   variant="h4"
                   style={{
                     color: "black",
-                    fontWeight: "2px"
+                    fontWeight: "2px",
                   }}
                 >
                   SPACES
@@ -64,7 +64,7 @@ export class Homepage extends Component {
                       <Link
                         style={{
                           color: "rgba(255,255,255,0.7)",
-                          textDecoration: "inherit"
+                          textDecoration: "inherit",
                         }}
                         to={`/spaces/${space.id}`}
                       >
@@ -82,16 +82,16 @@ export class Homepage extends Component {
   }
 }
 Homepage.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   spaces: state.spaces,
-  user: state.users
+  user: state.users,
 });
 
 const mapDispatchToProps = {
-  showAllSpaces
+  showAllSpaces,
 };
 
 export default connect(

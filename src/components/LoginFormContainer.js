@@ -4,48 +4,67 @@ import { connect } from "react-redux";
 import { login } from "../actions/userActions";
 import { Redirect } from "react-router-dom";
 import "../CSS/login.css";
+import { withStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+};
 
 export class LoginFormContainer extends Component {
   state = { email: "", password: "" };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.login(this.state);
     this.setState({
       email: "",
-      password: ""
+      password: "",
     });
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
   render() {
+    const { classes } = this.props;
     //console.log("user", this.props);
     if (this.props.user.auth) {
       return <Redirect to="/spaces"></Redirect>;
     } else {
       return (
-        <div>
+        <Grid
+          item
+          // xs={12}
+          // sm={6}
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
           <LoginForm
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             values={this.state}
           />
-        </div>
+        </Grid>
       );
     }
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.users
+const mapStateToProps = (state) => ({
+  user: state.users,
 });
 
 const mapDispatchToProps = {
-  login
+  login,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(LoginFormContainer));

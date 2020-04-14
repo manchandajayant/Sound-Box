@@ -13,12 +13,11 @@ export default class LandingPage extends Component {
         <br />
         <br />
         <Typography variant="h4">
-          verber is an application based on expereciencing spaces and places
-          through sound simulation. You can choose from the avaiable catalogue,
-          or you can add to the catalogue by creating your own space with an
-          Impulse Response. <br />
-          The application also offers the users to upload Ambient/Field
-          Recording Data.
+          Verber is an application based on experiencing historical sites and
+          spaces through sound simulation. You can choose from the available
+          catalogue, or you can add to the catalogue by creating your own space
+          with an available Impulse Response. The application also offers the
+          users to upload Ambient/Field Recording Data related to the place.
           <br />
           <br />
           <br />
@@ -29,7 +28,7 @@ export default class LandingPage extends Component {
               style={{
                 color: "black",
                 textDecoration: "inherit",
-                fontSize: "40px"
+                fontSize: "40px",
               }}
             >
               START EXPLORING

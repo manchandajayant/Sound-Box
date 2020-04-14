@@ -4,6 +4,7 @@ import ToolBar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
 
 export default class NavBar extends Component {
   render() {
@@ -20,25 +21,26 @@ export default class NavBar extends Component {
                 marginRight: "20px",
                 border: "solid 0.5px black",
                 borderRadius: "2px",
-                backgroundColor: "rgb(120, 141, 154)"
+                backgroundColor: "rgb(120, 141, 154)",
               }}
             >
               {" "}
               <Link
                 style={{
                   color: "black",
-                  textDecoration: "inherit"
+                  textDecoration: "inherit",
                 }}
                 to="/"
               >
                 v e r b e r
               </Link>
             </Typography>
+
             <Button style={{ color: "black" }}>
               <Link
                 style={{
                   color: "black",
-                  textDecoration: "inherit"
+                  textDecoration: "inherit",
                 }}
                 to="/spaces"
               >
@@ -49,35 +51,42 @@ export default class NavBar extends Component {
               <Link
                 style={{
                   color: "black",
-                  textDecoration: "inherit"
+                  textDecoration: "inherit",
                 }}
                 to="/newspace"
               >
                 CREATE A NEW SPACE
               </Link>
             </Button>
-            <Button style={{ marginLeft: "63%", paddingRight: "1%" }}>
-              <Link
-                style={{
-                  color: "black",
-                  textDecoration: "inherit"
-                }}
-                to="/login"
-              >
-                Login
-              </Link>
-            </Button>
-            <Button>
-              <Link
-                style={{
-                  color: "black",
-                  textDecoration: "inherit"
-                }}
-                to="/about"
-              >
-                About
-              </Link>
-            </Button>
+            <Grid
+              container
+              direction="row"
+              justify="flex-end"
+              alignItems="flex-end"
+            >
+              <Button>
+                <Link
+                  style={{
+                    color: "black",
+                    textDecoration: "inherit",
+                  }}
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </Button>
+              <Button>
+                <Link
+                  style={{
+                    color: "black",
+                    textDecoration: "inherit",
+                  }}
+                  to="/about"
+                >
+                  About
+                </Link>
+              </Button>
+            </Grid>
           </ToolBar>
         </AppBar>
       </div>
