@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import AudioFilesComponent from "./components/AudioFilesComponent";
 import LandingPage from "./components/LandingPage";
 import { Container } from "@material-ui/core";
+import About from "./components/About";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Container
         style={{
           backgroundColor: "rgba(138, 138, 148, 0.4)",
-          marginBottom: "5%"
+          marginBottom: "5%",
         }}
       >
         {/* ROUTES DEFINED */}
@@ -34,6 +35,7 @@ function App() {
           path="/spaces/:id/audiofiles"
           component={AudioFilesComponent}
         />
+        <Route exact path="/about" component={About} />
       </Container>
     </div>
   );
