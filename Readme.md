@@ -35,9 +35,9 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 - Express
 - Sequelize
 
-## Demo GIF
+## Demo
 
-![Imgur](https://i.imgur.com/mCYGK2J.png)
+<img src="https://i.imgur.com/mCYGK2J.png"/>
 
 ## About the project
 
