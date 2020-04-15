@@ -37,14 +37,7 @@ export class LoginFormContainer extends Component {
       return <Redirect to="/spaces"></Redirect>;
     } else {
       return (
-        <Grid
-          item
-          // xs={12}
-          // sm={6}
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
+        <Grid>
           <LoginForm
             onSubmit={this.onSubmit}
             onChange={this.onChange}

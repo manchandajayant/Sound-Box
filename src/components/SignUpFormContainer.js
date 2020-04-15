@@ -8,25 +8,25 @@ import { Typography } from "@material-ui/core";
 export class SignUpFormContainer extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.signUpUser(this.state);
     this.setState({
       email: "",
-      password: ""
+      password: "",
     });
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
   render() {
-    console.log(this.props.user);
+    // console.log(this.props.user);
     if (!this.props.user.newUser) {
       return (
         <div>
@@ -48,12 +48,12 @@ export class SignUpFormContainer extends Component {
     }
   }
 }
-const mapStateToProps = state => ({
-  user: state.users
+const mapStateToProps = (state) => ({
+  user: state.users,
 });
 
 const mapDispatchToProps = {
-  signUpUser
+  signUpUser,
 };
 
 export default connect(

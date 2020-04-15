@@ -10,11 +10,11 @@ let button2;
 let con;
 
 export default function sketch(p) {
-  p.setup = function() {
+  p.setup = function () {
     p.soundFormats("mp3", "wav");
     p.loadSound(convolverFile);
     p.createCanvas(1, 1);
-    console.log("insetup", convolverFile);
+    // console.log("insetup", convolverFile);
 
     button = p.createButton("Mic On");
     button2 = p.createButton("Mic Off");
@@ -26,16 +26,16 @@ export default function sketch(p) {
     button.mousePressed(p.buttonPressed);
     button2.mousePressed(p.buttonStops);
 
-    console.log("setup");
+    // console.log("setup");
   };
-  p.myCustomRedrawAccordingToNewPropsHandler = function(props) {
+  p.myCustomRedrawAccordingToNewPropsHandler = function (props) {
     convolverFile = props.space.file.location;
 
-    console.log("props", props);
+    // console.log("props", props);
   };
 
   p.pressed = () => {
-    console.log("hello");
+    // console.log("hello");
   };
 
   p.buttonPressed = () => {
@@ -49,7 +49,7 @@ export default function sketch(p) {
     mic.disconnect();
   };
 
-  p.touchStarted = function() {
+  p.touchStarted = function () {
     p.getAudioContext().resume();
   };
 }

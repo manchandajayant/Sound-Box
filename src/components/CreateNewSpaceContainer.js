@@ -18,18 +18,18 @@ export class CreateNewSpaceContainer extends Component {
     description2: "",
     spaceId: 0,
     redirect: false,
-    fileLoad: false
+    fileLoad: false,
   };
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
-  onChangeForFile = e => {
+  onChangeForFile = (e) => {
     console.log("e", e.target.files);
     this.setState({ file: e.target.files[0] });
   };
-  submit = async event => {
+  submit = async (event) => {
     event.preventDefault();
     const { file } = this.state;
 
@@ -41,19 +41,19 @@ export class CreateNewSpaceContainer extends Component {
       `https://api.cloudinary.com/v1_1/manjay/raw/upload`,
       formData
     );
-    console.log("response", response.data);
+    // console.log("response", response.data);
 
     this.setState({
       location: response.data.secure_url,
       name2: response.data.original_filename,
       description2: response.data.public_id,
       spaceId: this.props.spaces.length,
-      redirect: true
+      redirect: true,
     });
     this.props.newFile(this.state);
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.newSpace(this.state);
     this.setState({
@@ -61,19 +61,19 @@ export class CreateNewSpaceContainer extends Component {
       description: "",
       builtIn: "",
       url: "",
-      spaceMade: true
+      spaceMade: true,
     });
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     if (!this.props.user.auth) {
       return (
         <Typography variant="h4">
           <Link
             style={{
               color: "black",
-              textDecoration: "inherit"
+              textDecoration: "inherit",
             }}
             to="/login"
           >
@@ -130,15 +130,15 @@ export class CreateNewSpaceContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   spaces: state.spaces,
   user: state.users,
-  recordings: state.recordings
+  recordings: state.recordings,
 });
 
 const mapDispatchToProps = {
   newSpace,
-  newFile
+  newFile,
 };
 
 export default connect(

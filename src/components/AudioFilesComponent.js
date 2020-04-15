@@ -27,7 +27,7 @@ class AudioFilesComponent extends Component {
     src: null,
   };
   onPlay = (id) => {
-    console.log("click", id);
+    // console.log("click", id);
     const b = this.props.recordings.filter(
       (n) => n.spaceId === this.props.space.id
     );
@@ -36,7 +36,7 @@ class AudioFilesComponent extends Component {
     });
   };
   onChange = (e) => {
-    console.log("e", e.target.files);
+    // console.log("e", e.target.files);
     this.setState({ file: e.target.files[0] });
   };
 
@@ -66,12 +66,12 @@ class AudioFilesComponent extends Component {
     //console.log("thos", this.state);
   };
   render() {
-    console.log("render of afc", this.state);
+    // console.log("render of afc", this.state);
     const b = this.props.recordings.filter(
       (n) => n.spaceId === this.props.space.id
     );
     const { classes } = this.props;
-    console.log("b", b);
+    // console.log("b", b);
     if (!this.props.user.auth) {
       return (
         <div>

@@ -5,11 +5,11 @@ export default function usersReducer(state = initialState, action) {
   // console.log(action);
   switch (action.type) {
     case JWT: {
-      console.log("user", action.payload);
+      // console.log("user", action.payload);
       return {
         ...state,
         auth: action.payload.jwt,
-        loggedInUser: action.payload.id
+        loggedInUser: action.payload.id,
       };
     }
     case NEW_USER: {
