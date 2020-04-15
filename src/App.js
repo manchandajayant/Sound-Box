@@ -1,12 +1,13 @@
 import React from "react";
 import { Route } from "react-router";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import SpaceDetailContainer from "./components/SpaceDetailContainer";
 import Homepage from "./components/Homepage";
 import SignUpFormContainer from "./components/SignUpFormContainer";
 import LoginFormContainer from "./components/LoginFormContainer";
 import CreateNewSpaceContainer from "./components/CreateNewSpaceContainer";
-import NavBar from "./components/NavBar";
+import NavBarComponent from "./components/NavBarComponent";
 import AudioFilesComponent from "./components/AudioFilesComponent";
 import LandingPage from "./components/LandingPage";
 import { Container } from "@material-ui/core";
@@ -15,10 +16,10 @@ import About from "./components/About";
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <NavBarComponent />
       <Container
         style={{
-          backgroundColor: "rgba(138, 138, 148, 0.4)",
+          backgroundColor: "rgba(138, 128, 148, 0.4)",
           marginBottom: "5%",
         }}
       >
