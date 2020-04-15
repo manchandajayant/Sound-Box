@@ -45,49 +45,59 @@ export default class NavBarComponent extends Component {
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav>
-              <Nav.Item>
-                <Nav.Link
-                  href="/spaces"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>Spaces</Typography>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link
-                  href="/newspace"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>Create a New Space</Typography>
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-            <Nav className="ml-auto">
-              <Nav.Item>
-                <Nav.Link
-                  href="/login"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>Login</Typography>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link
-                  href="/about"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>About</Typography>
-                </Nav.Link>
-              </Nav.Item>
+            <Nav variant="tabs" className="ml-auto">
+              <Nav>
+                <Nav.Item>
+                  <Nav.Link>
+                    <Link
+                      to="/spaces"
+                      style={{
+                        color: "black",
+                      }}
+                    >
+                      <Typography>Spaces</Typography>
+                    </Link>
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link>
+                    <Link
+                      to="/newspace"
+                      style={{
+                        color: "black",
+                      }}
+                    >
+                      <Typography>Create a New Space</Typography>
+                    </Link>
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
+              <Nav className="ml-auto">
+                <Nav.Item>
+                  <Nav.Link>
+                    <Link
+                      to="/login"
+                      style={{
+                        color: "black",
+                      }}
+                    >
+                      <Typography>Login</Typography>
+                    </Link>
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link>
+                    <Link
+                      to="/about"
+                      style={{
+                        color: "black",
+                      }}
+                    >
+                      <Typography>About</Typography>
+                    </Link>
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

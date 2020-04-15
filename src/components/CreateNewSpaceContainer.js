@@ -6,7 +6,8 @@ import { newFile } from "../actions/fileActions";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
-export class CreateNewSpaceContainer extends Component {
+
+class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
     description: "",
@@ -66,7 +67,7 @@ export class CreateNewSpaceContainer extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     if (!this.props.user.auth) {
       return (
         <Typography variant="h4">
