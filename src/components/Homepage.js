@@ -9,12 +9,13 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import IconButton from "@material-ui/core/IconButton";
+import InfoIcon from "@material-ui/icons/Info";
 import { Typography } from "@material-ui/core";
 
 const styles = {
   root: {
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "nowrap",
     justifyContent: "space-around",
     overflow: "hidden",
   },
@@ -33,15 +34,16 @@ export class Homepage extends Component {
     this.props.showAllSpaces();
   }
   render() {
-    const { classes } = this.props;
+    const { classes, width } = this.props;
+
     console.log(this.props);
     if (!this.props.spaces) {
       return <h1>Loading...</h1>;
     } else {
       return (
-        <div>
+        <div className={classes.root}>
           <GridList cellHeight={300} className={classes.gridList}>
-            <GridListTile key="Subheader" cols={2} style={{ height: "180" }}>
+            <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
               <ListSubheader component="div">
                 <Typography
                   variant="h4"
@@ -68,7 +70,7 @@ export class Homepage extends Component {
                         }}
                         to={`/spaces/${space.id}`}
                       >
-                        Listen
+                        <InfoIcon />
                       </Link>
                     </IconButton>
                   }

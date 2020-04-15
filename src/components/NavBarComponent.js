@@ -53,7 +53,7 @@ export default class NavBarComponent extends Component {
                     color: "black",
                   }}
                 >
-                  Spaces
+                  <Typography>Spaces</Typography>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
@@ -63,7 +63,7 @@ export default class NavBarComponent extends Component {
                     color: "black",
                   }}
                 >
-                  Create a New Space
+                  <Typography>Create a New Space</Typography>
                 </Nav.Link>
               </Nav.Item>
             </Nav>
@@ -75,7 +75,7 @@ export default class NavBarComponent extends Component {
                     color: "black",
                   }}
                 >
-                  Login
+                  <Typography>Login</Typography>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
@@ -85,7 +85,7 @@ export default class NavBarComponent extends Component {
                     color: "black",
                   }}
                 >
-                  About
+                  <Typography>About</Typography>
                 </Nav.Link>
               </Nav.Item>
             </Nav>
