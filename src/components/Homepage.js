@@ -34,7 +34,7 @@ export class Homepage extends Component {
     this.props.showAllSpaces();
   }
   render() {
-    const { classes, width } = this.props;
+    const { classes } = this.props;
 
     console.log(this.props);
     if (!this.props.spaces) {

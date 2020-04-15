@@ -14,23 +14,23 @@ class AudioFilesComponent extends Component {
     location: "",
     description: "",
     spaceId: this.props.space.id,
-    src: null
+    src: null,
   };
-  onPlay = id => {
+  onPlay = (id) => {
     console.log("click", id);
     const b = this.props.recordings.filter(
-      n => n.spaceId === this.props.space.id
+      (n) => n.spaceId === this.props.space.id
     );
     this.setState({
-      src: b[id].location
+      src: b[id].location,
     });
   };
-  onChange = e => {
+  onChange = (e) => {
     console.log("e", e.target.files);
     this.setState({ file: e.target.files[0] });
   };
 
-  submit = async event => {
+  submit = async (event) => {
     event.preventDefault();
     const { file } = this.state;
 
@@ -49,7 +49,7 @@ class AudioFilesComponent extends Component {
       location: response.data.secure_url,
       name: response.data.original_filename,
       description: response.data.public_id,
-      spaceId: this.state.spaceId
+      spaceId: this.state.spaceId,
     });
 
     this.props.newRecording(this.state);
@@ -58,7 +58,7 @@ class AudioFilesComponent extends Component {
   render() {
     console.log("render of afc", this.state);
     const b = this.props.recordings.filter(
-      n => n.spaceId === this.props.space.id
+      (n) => n.spaceId === this.props.space.id
     );
 
     console.log("b", b);
@@ -71,7 +71,7 @@ class AudioFilesComponent extends Component {
           <br />
           {b.map((filtered, index) => {
             return (
-              <div key={index} onClick={e => this.onPlay(index)}>
+              <div key={index} onClick={(e) => this.onPlay(index)}>
                 <Button style={{ color: "white" }} variant="outlined">
                   {filtered.name}
                 </Button>
@@ -83,11 +83,11 @@ class AudioFilesComponent extends Component {
           <AudioPlayer Play src={this.state.src} />
           <br />
           <br />
-          <Typography variant="subTitle1">
+          <Typography variant="h6">
             <Link
               style={{
                 color: "black",
-                textDecoration: "inherit"
+                textDecoration: "inherit",
               }}
               to="/"
             >
@@ -105,7 +105,7 @@ class AudioFilesComponent extends Component {
           <br />
           {b.map((filtered, index) => {
             return (
-              <div key={index} onClick={e => this.onPlay(index)}>
+              <div key={index} onClick={(e) => this.onPlay(index)}>
                 <Button style={{ color: "white" }} variant="outlined">
                   {filtered.name}
                 </Button>
@@ -138,15 +138,15 @@ class AudioFilesComponent extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   spaces: state.spaces,
   space: state.space,
   user: state.users,
-  recordings: state.recordings
+  recordings: state.recordings,
 });
 
 const mapDispatchToProps = {
-  newRecording
+  newRecording,
 };
 
 export default connect(

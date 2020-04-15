@@ -1,12 +1,29 @@
 import React, { Component } from "react";
 import { Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import { createMuiThem } from "@material-ui/core/styles";
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  grid: {
+    fontSize: 87,
+  },
+};
 
-export default class LandingPage extends Component {
+class LandingPage extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div>
-        <Typography variant="h1">V e r b e r</Typography>
+      <div className={classes.root}>
+        <Grid>
+          <Typography variant="h1" className={classes.grid}>
+            V e r b e r
+          </Typography>
+        </Grid>
         <br />
         <br />
         <br />
@@ -39,3 +56,8 @@ export default class LandingPage extends Component {
     );
   }
 }
+LandingPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(LandingPage);
