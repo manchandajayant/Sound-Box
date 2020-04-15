@@ -7,7 +7,17 @@ import "../CSS/AudioPlayer.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import { Typography, Box, Container } from "@material-ui/core";
+import { Typography, Box, Container, Grid } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+const styles = {
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    overflow: "hidden",
+  },
+};
+
 class AudioFilesComponent extends Component {
   state = {
     name: "",
@@ -60,7 +70,7 @@ class AudioFilesComponent extends Component {
     const b = this.props.recordings.filter(
       (n) => n.spaceId === this.props.space.id
     );
-
+    const { classes } = this.props;
     console.log("b", b);
     if (!this.props.user.auth) {
       return (
@@ -80,7 +90,11 @@ class AudioFilesComponent extends Component {
           })}
           <br />
           <br />
-          <AudioPlayer Play src={this.state.src} />
+          <Container>
+            <Grid className={classes.root}>
+              <AudioPlayer Play src={this.state.src} />
+            </Grid>
+          </Container>
           <br />
           <br />
           <Typography variant="h6">
@@ -89,7 +103,7 @@ class AudioFilesComponent extends Component {
                 color: "black",
                 textDecoration: "inherit",
               }}
-              to="/"
+              to="/login"
             >
               PLEASE LOGIN TO UPLOAD A RECORDING
             </Link>
@@ -114,7 +128,14 @@ class AudioFilesComponent extends Component {
           })}
           <br />
           <br />
-          <AudioPlayer Play src={this.state.src} />
+          <Container
+            style={{
+              backgroundColor: "rgba(138, 108, 148, 0.4)",
+              marginBottom: "5%",
+            }}
+          >
+            <AudioPlayer Play src={this.state.src} />
+          </Container>
           <br />
           <br />
           Upload A Recording{"   "}
@@ -137,6 +158,9 @@ class AudioFilesComponent extends Component {
     }
   }
 }
+AudioFilesComponent.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   spaces: state.spaces,
@@ -152,4 +176,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AudioFilesComponent);
+)(withStyles(styles)(AudioFilesComponent));

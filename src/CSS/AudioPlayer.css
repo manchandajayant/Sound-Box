@@ -1,8 +1,6 @@
 .rhap_container {
   box-sizing: border-box;
   display: block;
-  flex-direction: column;
-  margin-left: 38%;
   line-height: 1;
   font-family: inherit;
   width: 10%;
