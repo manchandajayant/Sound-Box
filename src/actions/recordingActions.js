@@ -28,7 +28,7 @@ export function newRecording(data) {
 
       const action = newRecordingCreated(res.body);
       dispatch(action);
-      console.log("action", action);
+      // console.log("action", action);
     } catch (error) {
       console.error(error);
     }

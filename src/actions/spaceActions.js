@@ -36,7 +36,7 @@ export const showOneSpace = (id) => (dispatch, getState) => {
     .then((res) => {
       const action = OneSpaceFetched(res.body);
       dispatch(action);
-      console.log(res.body);
+      // console.log(res.body);
     })
     .catch(console.error);
 };
@@ -53,7 +53,7 @@ export function newSpace(data) {
 
       const action = newSpaceCreated(res.body);
       dispatch(action);
-      console.log("action", action);
+      // console.log("action", action);
     } catch (error) {
       console.error(error);
     }

@@ -22,7 +22,7 @@ export const login = (data) => (dispatch, getState) => {
       .then((res) => {
         const action = userLogin(res.body);
         dispatch(action);
-        console.log(res.body);
+        // console.log(res.body);
       })
       .catch(console.error);
   }

@@ -36,7 +36,7 @@ export class Homepage extends Component {
   render() {
     const { classes } = this.props;
 
-    console.log(this.props);
+    // console.log(this.props);
     if (!this.props.spaces) {
       return <h1>Loading...</h1>;
     } else {
@@ -58,7 +58,11 @@ export class Homepage extends Component {
             </GridListTile>
             {this.props.spaces.map((space, index) => (
               <GridListTile key={index}>
-                <img src={space.url} alt="No Image" />
+                <img
+                  src={space.url}
+                  alt="No Image"
+                  style={{ filter: "grayscale(20%)" }}
+                />
                 <GridListTileBar
                   title={space.name}
                   actionIcon={

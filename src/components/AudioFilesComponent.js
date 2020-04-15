@@ -71,12 +71,19 @@ class AudioFilesComponent extends Component {
       (n) => n.spaceId === this.props.space.id
     );
     const { classes } = this.props;
+
+    const recordingsList =
+      this.props.recordings.length === 0 ? (
+        <Typography>No recordings yet</Typography>
+      ) : (
+        <Typography>Recordings</Typography>
+      );
     // console.log("b", b);
     if (!this.props.user.auth) {
       return (
         <div>
           <br />
-          <Typography variant="h4">Ambient Recordings</Typography>
+          <Typography variant="h4">{recordingsList}</Typography>
           <br />
           <br />
           {b.map((filtered, index) => {
@@ -97,6 +104,7 @@ class AudioFilesComponent extends Component {
           </Container>
           <br />
           <br />
+
           <Typography variant="h6">
             <Link
               style={{
@@ -108,13 +116,15 @@ class AudioFilesComponent extends Component {
               PLEASE LOGIN TO UPLOAD A RECORDING
             </Link>
           </Typography>
+          <br />
+          <br />
         </div>
       );
     } else {
       return (
         <div>
           <br />
-          <Typography variant="h4">Ambient Recordings</Typography>
+          <Typography variant="h4">{recordingsList}</Typography>
           <br />
           <br />
           {b.map((filtered, index) => {

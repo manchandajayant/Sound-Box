@@ -31,7 +31,11 @@ export class SpaceDetailContainer extends Component {
           <br />
           <img
             src={this.props.space.url}
-            style={{ maxWidth: "100%", height: "auto" }}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              filter: "grayscale(20%)",
+            }}
             alt="loading"
           />
 
