@@ -5,7 +5,16 @@ import { fetchRecordings } from "../actions/recordingActions";
 import P5sketchComponent from "./P5sketchComponent";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Typography } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+const styles = {
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    overflow: "hidden",
+  },
+};
 export class SpaceDetailContainer extends Component {
   componentDidMount() {
     this.props.showOneSpace(Number(this.props.match.params.id));
@@ -22,7 +31,7 @@ export class SpaceDetailContainer extends Component {
           <br />
           <img
             src={this.props.space.url}
-            style={{ width: "450px", height: "450px" }}
+            style={{ maxWidth: "100%", height: "auto" }}
             alt="loading"
           />
 
@@ -31,7 +40,7 @@ export class SpaceDetailContainer extends Component {
             <Link
               style={{
                 color: "black",
-                textDecoration: "inherit"
+                textDecoration: "inherit",
               }}
               to={`/spaces/${this.props.space.id}/audiofiles`}
             >
@@ -45,19 +54,22 @@ export class SpaceDetailContainer extends Component {
     }
   }
 }
+SpaceDetailContainer.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   space: state.space,
   user: state.users,
-  recordings: state.recordings
+  recordings: state.recordings,
 });
 
 const mapDispatchToProps = {
   showOneSpace,
-  fetchRecordings
+  fetchRecordings,
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SpaceDetailContainer);
+)(withStyles(styles)(SpaceDetailContainer));

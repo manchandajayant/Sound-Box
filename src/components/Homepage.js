@@ -11,7 +11,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
 import { Typography } from "@material-ui/core";
-
+import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 const styles = {
   root: {
     display: "flex",
@@ -70,7 +70,7 @@ export class Homepage extends Component {
                         }}
                         to={`/spaces/${space.id}`}
                       >
-                        <InfoIcon />
+                        <RecordVoiceOverIcon />
                       </Link>
                     </IconButton>
                   }

@@ -128,13 +128,10 @@ class AudioFilesComponent extends Component {
           })}
           <br />
           <br />
-          <Container
-            style={{
-              backgroundColor: "rgba(138, 108, 148, 0.4)",
-              marginBottom: "5%",
-            }}
-          >
-            <AudioPlayer Play src={this.state.src} />
+          <Container>
+            <Grid className={classes.root}>
+              <AudioPlayer Play src={this.state.src} />
+            </Grid>
           </Container>
           <br />
           <br />
