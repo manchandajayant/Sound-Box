@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showOneSpace } from "../actions/spaceActions";
-import { fetchRecordings } from "../actions/recordingActions";
+
 import P5sketchComponent from "./P5sketchComponent";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 const styles = {
@@ -18,7 +18,6 @@ const styles = {
 export class SpaceDetailContainer extends Component {
   componentDidMount() {
     this.props.showOneSpace(Number(this.props.match.params.id));
-    this.props.fetchRecordings();
   }
   render() {
     //console.log(this.props);
@@ -70,7 +69,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   showOneSpace,
-  fetchRecordings,
 };
 
 export default connect(

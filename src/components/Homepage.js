@@ -9,7 +9,6 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import IconButton from "@material-ui/core/IconButton";
-import InfoIcon from "@material-ui/icons/Info";
 import { Typography } from "@material-ui/core";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 const styles = {
@@ -60,7 +59,7 @@ export class Homepage extends Component {
               <GridListTile key={index}>
                 <img
                   src={space.url}
-                  alt="No Image"
+                  alt="Not loading"
                   style={{ filter: "grayscale(20%)" }}
                 />
                 <GridListTileBar

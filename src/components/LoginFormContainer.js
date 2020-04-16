@@ -31,7 +31,7 @@ export class LoginFormContainer extends Component {
     });
   };
   render() {
-    const { classes } = this.props;
+    // const { classes } = this.props;
     //console.log("user", this.props);
     if (this.props.user.auth) {
       return <Redirect to="/spaces"></Redirect>;

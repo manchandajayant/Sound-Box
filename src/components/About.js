@@ -4,7 +4,6 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import ReactPlayer from "react-player";
 import { withStyles } from "@material-ui/core/styles";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import InstagramIcon from "@material-ui/icons/Instagram";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import IconButton from "@material-ui/core/IconButton";
 import PropTypes from "prop-types";

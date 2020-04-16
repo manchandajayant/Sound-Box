@@ -3,11 +3,12 @@ import AudioPlayer from "react-h5-audio-player";
 import { connect } from "react-redux";
 import axios from "axios";
 import { newRecording } from "../actions/recordingActions";
+import { fetchRecordings } from "../actions/recordingActions";
 import "../CSS/AudioPlayer.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import { Typography, Box, Container, Grid } from "@material-ui/core";
+import { Typography, Container, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 const styles = {
@@ -23,13 +24,16 @@ class AudioFilesComponent extends Component {
     name: "",
     location: "",
     description: "",
-    spaceId: this.props.space.id,
+    spaceId: this.props.match.params.id,
     src: null,
   };
+  componentDidMount() {
+    this.props.fetchRecordings();
+  }
   onPlay = (id) => {
     // console.log("click", id);
     const b = this.props.recordings.filter(
-      (n) => n.spaceId === this.props.space.id
+      (n) => n.spaceId === this.props.match.params.id
     );
     this.setState({
       src: b[id].location,
@@ -66,9 +70,9 @@ class AudioFilesComponent extends Component {
     //console.log("thos", this.state);
   };
   render() {
-    // console.log("render of afc", this.state);
+    //console.log("render of afc", this.props);
     const b = this.props.recordings.filter(
-      (n) => n.spaceId === this.props.space.id
+      (n) => n.spaceId === this.props.match.params.id
     );
     const { classes } = this.props;
 
@@ -178,6 +182,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   newRecording,
+  fetchRecordings,
 };
 
 export default connect(
