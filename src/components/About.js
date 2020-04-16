@@ -50,7 +50,7 @@ export class About extends Component {
         <br />
         <Container>
           <Grid className={classes.root}>
-            <ReactPlayer url="https://www.youtube.com/watch?v=1egKAtC16e8" />
+            <ReactPlayer url="https://youtu.be/IKpnD2BnwOU" />
           </Grid>
         </Container>
         <br />
