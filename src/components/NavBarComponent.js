@@ -45,55 +45,47 @@ export default class NavBarComponent extends Component {
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav variant="tabs" className="ml-auto">
-              <Nav.Item>
-                <Nav.Link>
-                  <Link
-                    to="/spaces"
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    <Typography>Spaces</Typography>
-                  </Link>
-                </Nav.Link>
+            <Nav className="ml-auto">
+              <Nav.Item style={{ marginRight: "10px" }}>
+                <Link
+                  to="/spaces"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  <Typography>Spaces</Typography>
+                </Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link>
-                  <Link
-                    to="/newspace"
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    <Typography>Create a New Space</Typography>
-                  </Link>
-                </Nav.Link>
+              <Nav.Item style={{ marginRight: "10px" }}>
+                <Link
+                  to="/newspace"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  <Typography>Create a New Space</Typography>
+                </Link>
               </Nav.Item>
 
-              <Nav.Item>
-                <Nav.Link>
-                  <Link
-                    to="/login"
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    <Typography>Login</Typography>
-                  </Link>
-                </Nav.Link>
+              <Nav.Item style={{ marginRight: "10px" }}>
+                <Link
+                  to="/login"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  <Typography>Login</Typography>
+                </Link>
               </Nav.Item>
-              <Nav.Item>
-                <Nav.Link>
-                  <Link
-                    to="/about"
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    <Typography>About</Typography>
-                  </Link>
-                </Nav.Link>
+              <Nav.Item style={{ marginRight: "10px" }}>
+                <Link
+                  to="/about"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  <Typography>About</Typography>
+                </Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

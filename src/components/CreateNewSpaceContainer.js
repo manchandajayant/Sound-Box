@@ -67,7 +67,7 @@ class CreateNewSpaceContainer extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     if (!this.props.user.auth) {
       return (
         <Typography variant="h4">
@@ -119,6 +119,12 @@ class CreateNewSpaceContainer extends Component {
           <Typography variant="h3">Space Details </Typography>
           <br />
           <br />
+          <br />
+          <Typography>
+            *To create a new space, you will need an impulse response, if you
+            are not aware what that is, you could go to the{" "}
+            <Link to="/about">About</Link> page
+          </Typography>
           <br />
           <CreateNewSpace
             onSubmit={this.onSubmit}
