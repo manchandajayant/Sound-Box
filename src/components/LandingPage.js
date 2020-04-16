@@ -10,7 +10,7 @@ const styles = {
     flexGrow: 1,
   },
   grid: {
-    fontSize: 87,
+    fontSize: 85,
   },
 };
 
