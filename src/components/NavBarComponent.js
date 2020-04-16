@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
 import { Navbar, Nav } from "react-bootstrap";
+import { Button } from "@material-ui/core";
 
 export default class NavBarComponent extends Component {
   render() {
@@ -47,45 +48,53 @@ export default class NavBarComponent extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Item style={{ marginRight: "10px" }}>
-                <Link
-                  to="/spaces"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>Spaces</Typography>
-                </Link>
+                <Button>
+                  <Link
+                    to="/spaces"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    <Typography>Spaces</Typography>
+                  </Link>
+                </Button>
               </Nav.Item>
               <Nav.Item style={{ marginRight: "10px" }}>
-                <Link
-                  to="/newspace"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>Create a New Space</Typography>
-                </Link>
+                <Button>
+                  <Link
+                    to="/newspace"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    <Typography>Create a New Space</Typography>
+                  </Link>
+                </Button>
               </Nav.Item>
 
               <Nav.Item style={{ marginRight: "10px" }}>
-                <Link
-                  to="/login"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>Login</Typography>
-                </Link>
+                <Button>
+                  <Link
+                    to="/login"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    <Typography>Login</Typography>
+                  </Link>
+                </Button>
               </Nav.Item>
               <Nav.Item style={{ marginRight: "10px" }}>
-                <Link
-                  to="/about"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography>About</Typography>
-                </Link>
+                <Button>
+                  <Link
+                    to="/about"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    <Typography>About</Typography>
+                  </Link>
+                </Button>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
