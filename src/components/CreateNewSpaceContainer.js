@@ -12,7 +12,6 @@ class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
     description: "",
-    builtIn: "",
     url: "",
     spaceMade: false,
     location: "",
@@ -58,6 +57,7 @@ class CreateNewSpaceContainer extends Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.newSpace(this.state);
+
     this.setState({
       name: "",
       description: "",

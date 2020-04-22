@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import SignUpForm from "./SignUpForm";
 import { connect } from "react-redux";
 import { signUpUser } from "../actions/userActions";
-import { Redirect } from "react-router";
+import LoginFormContainer from "./LoginFormContainer";
 import "../CSS/login.css";
 import { Typography } from "@material-ui/core";
 export class SignUpFormContainer extends Component {
   state = {
     email: "",
     password: "",
+    userName: "",
   };
 
   onSubmit = (event) => {
@@ -17,6 +18,7 @@ export class SignUpFormContainer extends Component {
     this.setState({
       email: "",
       password: "",
+      userName: "",
     });
   };
 
@@ -41,8 +43,11 @@ export class SignUpFormContainer extends Component {
     } else {
       return (
         <div>
-          {/* <h1>You have signed up {this.props.users[0].email}</h1> */}
-          <Redirect to="/">CLICK HERE TO LOGIN</Redirect>
+          <Typography varaint="h4">
+            Welcome {this.props.user.newUser.email} <br />
+            Now Login to conitnue
+          </Typography>
+          <LoginFormContainer />
         </div>
       );
     }

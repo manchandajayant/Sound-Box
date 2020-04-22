@@ -8,6 +8,18 @@ export default class SignUpForm extends Component {
         <br />
         <br />
         <form onSubmit={this.props.onSubmit}>
+          <Typography variant="h5">Username</Typography>
+          <TextField
+            type="text"
+            name="userName"
+            placeholder="username"
+            onChange={this.props.onChange}
+            values={this.props.values}
+            variant="filled"
+          />
+          <br />
+          <br />
+
           <Typography variant="h5">Email</Typography>
           <TextField
             type="text"
@@ -30,6 +42,7 @@ export default class SignUpForm extends Component {
           />
           <br />
           <br />
+
           <Button onClick={this.props.onSubmit}>SUBMIT</Button>
         </form>
       </Container>

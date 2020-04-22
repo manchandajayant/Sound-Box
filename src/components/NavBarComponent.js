@@ -1,14 +1,27 @@
 import React, { Component } from "react";
 
 import Typography from "@material-ui/core/Typography";
-
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { Navbar, Nav } from "react-bootstrap";
 import { Button } from "@material-ui/core";
 
-export default class NavBarComponent extends Component {
+export class NavBarComponent extends Component {
   render() {
+    console.log("this", this.props);
+    const log = !this.props.user.auth ? (
+      <Link
+        to="/login"
+        style={{
+          color: "black",
+        }}
+      >
+        <Typography>Login</Typography>
+      </Link>
+    ) : (
+      <Typography>{this.props.user.userName}</Typography>
+    );
     return (
       <div>
         <Navbar
@@ -75,18 +88,6 @@ export default class NavBarComponent extends Component {
               <Nav.Item style={{ marginRight: "10px" }}>
                 <Button>
                   <Link
-                    to="/login"
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    <Typography>Login</Typography>
-                  </Link>
-                </Button>
-              </Nav.Item>
-              <Nav.Item style={{ marginRight: "10px" }}>
-                <Button>
-                  <Link
                     to="/about"
                     style={{
                       color: "black",
@@ -95,6 +96,9 @@ export default class NavBarComponent extends Component {
                     <Typography>About</Typography>
                   </Link>
                 </Button>
+              </Nav.Item>
+              <Nav.Item style={{ marginRight: "10px" }}>
+                <Button>{log}</Button>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
@@ -107,3 +111,5 @@ export default class NavBarComponent extends Component {
 const mapStateToProps = (state) => ({
   user: state.users,
 });
+
+export default connect(mapStateToProps)(NavBarComponent);

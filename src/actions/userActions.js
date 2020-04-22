@@ -4,7 +4,7 @@ export const JWT = "JWT";
 export const NEW_USER = "NEW_USER";
 export const USER_FETCHED = "USER_FETCHED";
 
-const baseUrl = "https://guarded-chamber-77848.herokuapp.com";
+const baseUrl = "https://pure-temple-48518.herokuapp.com";
 
 const userLogin = (payload) => ({
   type: JWT,
@@ -22,7 +22,7 @@ export const login = (data) => (dispatch, getState) => {
       .then((res) => {
         const action = userLogin(res.body);
         dispatch(action);
-        // console.log(res.body);
+        console.log(res.body);
       })
       .catch(console.error);
   }

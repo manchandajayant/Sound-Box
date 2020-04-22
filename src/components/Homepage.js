@@ -62,6 +62,7 @@ export class Homepage extends Component {
                   alt="Not loading"
                   style={{ filter: "grayscale(20%)" }}
                 />
+
                 <GridListTileBar
                   title={space.name}
                   actionIcon={

@@ -10,6 +10,7 @@ export default function usersReducer(state = initialState, action) {
         ...state,
         auth: action.payload.jwt,
         loggedInUser: action.payload.id,
+        userName: action.payload.userName,
       };
     }
     case NEW_USER: {
