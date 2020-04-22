@@ -49,7 +49,6 @@ export default function sketch(p) {
     mic.stop();
     mic.disconnect();
   };
-
   p.touchStarted = function () {
     p.getAudioContext().resume();
   };

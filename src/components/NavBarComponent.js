@@ -103,3 +103,7 @@ export default class NavBarComponent extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  user: state.users,
+});

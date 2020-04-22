@@ -4,8 +4,9 @@ import { newSpace } from "../actions/spaceActions";
 import CreateNewSpace from "./CreateNewSpace";
 import { newFile } from "../actions/fileActions";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
+import LoginFormContainer from "./LoginFormContainer";
 
 class CreateNewSpaceContainer extends Component {
   state = {
@@ -70,17 +71,12 @@ class CreateNewSpaceContainer extends Component {
     // console.log(this.props);
     if (!this.props.user.auth) {
       return (
-        <Typography variant="h4">
-          <Link
-            style={{
-              color: "black",
-              textDecoration: "inherit",
-            }}
-            to="/login"
-          >
-            PLEASE LOGIN TO CREATE A NEW SPACE
-          </Link>
-        </Typography>
+        <div>
+          <Typography variant="h5">
+            Please login/sign up to create a new space
+          </Typography>
+          <LoginFormContainer />
+        </div>
       );
     } else if (this.state.redirect) {
       return (
