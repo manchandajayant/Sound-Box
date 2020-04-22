@@ -44,7 +44,7 @@ export class SignUpFormContainer extends Component {
       return (
         <div>
           <Typography varaint="h4">
-            Welcome {this.props.user.newUser.email} <br />
+            Welcome {this.props.user.newUser.userName} <br />
             Now Login to conitnue
           </Typography>
           <LoginFormContainer />
