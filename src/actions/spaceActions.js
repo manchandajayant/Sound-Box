@@ -3,7 +3,10 @@ import superagent from "superagent";
 export const SPACES_FETCHED = "SPACES_FETCHED";
 export const SPACE_FETCHED = "SPACE_FETCHED";
 export const SPACE_CREATED = "SPACE_CREATED";
+
 const baseUrl = "https://pure-temple-48518.herokuapp.com";
+
+//const baseUrl = "https://localhost:4000";
 
 const allSpacesFetched = (spaces) => ({
   type: SPACES_FETCHED,
