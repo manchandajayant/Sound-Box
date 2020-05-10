@@ -13,6 +13,7 @@ let fft;
 var analyzer;
 var numSamples = 1024;
 var samples = [];
+let sound1Gain;
 
 export default function sketch(p) {
   p.setup = function () {
@@ -31,6 +32,7 @@ export default function sketch(p) {
     mic = new p5.AudioIn();
     analyzer = new p5.FFT(0.5, numSamples);
     analyzer.setInput(mic);
+    sound1Gain = new p5.Gain();
 
     button.mousePressed(p.buttonPressed);
     button2.mousePressed(p.buttonStops);
@@ -78,6 +80,7 @@ export default function sketch(p) {
   p.buttonStops = () => {
     mic.stop();
     mic.disconnect();
+    sound1Gain.amp(0);
   };
   p.touchStarted = function () {
     p.getAudioContext().resume();
