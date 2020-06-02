@@ -17,7 +17,9 @@ export class NavBarComponent extends Component {
           color: "black",
         }}
       >
-        <Typography>Login</Typography>
+        <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+          Login
+        </Typography>
       </Link>
     ) : (
       <Typography>{this.props.user.userName}</Typography>
@@ -42,6 +44,7 @@ export class NavBarComponent extends Component {
                 border: "solid 0.5px black",
                 borderRadius: "2px",
                 backgroundColor: "rgb(120, 141, 154)",
+                fontFamily: "IBM Plex Serif,serif",
               }}
             >
               {" "}
@@ -68,7 +71,9 @@ export class NavBarComponent extends Component {
                       color: "black",
                     }}
                   >
-                    <Typography>Spaces</Typography>
+                    <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+                      Spaces
+                    </Typography>
                   </Link>
                 </Button>
               </Nav.Item>
@@ -80,7 +85,9 @@ export class NavBarComponent extends Component {
                       color: "black",
                     }}
                   >
-                    <Typography>Create a New Space</Typography>
+                    <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+                      Create a New Space
+                    </Typography>
                   </Link>
                 </Button>
               </Nav.Item>
@@ -93,7 +100,9 @@ export class NavBarComponent extends Component {
                       color: "black",
                     }}
                   >
-                    <Typography>About</Typography>
+                    <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+                      About
+                    </Typography>
                   </Link>
                 </Button>
               </Nav.Item>
