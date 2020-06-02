@@ -24,9 +24,19 @@ export class SpaceDetailContainer extends Component {
     if (this.props.space) {
       return (
         <div>
-          <Typography variant="h2">{this.props.space.name}</Typography>
+          <Typography
+            variant="h2"
+            style={{ fontFamily: "IBM Plex Serif,serif" }}
+          >
+            {this.props.space.name}
+          </Typography>
           <br />
-          <Typography variant="h5">{this.props.space.description}</Typography>
+          <Typography
+            variant="h5"
+            style={{ fontFamily: "IBM Plex Serif,serif" }}
+          >
+            {this.props.space.description}
+          </Typography>
           <br />
           <img
             src={this.props.space.url}
@@ -44,6 +54,7 @@ export class SpaceDetailContainer extends Component {
               style={{
                 color: "black",
                 textDecoration: "inherit",
+                fontFamily: "IBM Plex Serif,serif",
               }}
               to={`/spaces/${this.props.space.id}/audiofiles`}
             >

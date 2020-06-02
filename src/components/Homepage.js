@@ -48,6 +48,7 @@ export class Homepage extends Component {
                   style={{
                     color: "black",
                     fontWeight: "2px",
+                    fontFamily: "IBM Plex Serif,serif",
                   }}
                 >
                   SPACES
@@ -68,6 +69,7 @@ export class Homepage extends Component {
                   style={{
                     color: "rgba(255,255,255,0.7)",
                     textDecoration: "inherit",
+                    fontFamily: "IBM Plex Serif,serif",
                   }}
                   to={`/spaces/${space.id}`}
                 >
