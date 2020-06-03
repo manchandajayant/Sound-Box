@@ -31,6 +31,7 @@ export class Homepage extends Component {
   componentDidMount() {
     this.props.showAllSpaces();
   }
+
   render() {
     const { classes } = this.props;
 
@@ -63,6 +64,7 @@ export class Homepage extends Component {
                   style={{
                     filter: "grayscale(20%)",
                   }}
+                  // onClick={() =>}
                 />
                 {/* </Link> */}{" "}
                 <Link
