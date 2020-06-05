@@ -8,7 +8,9 @@ export default class SignUpForm extends Component {
         <br />
         <br />
         <form onSubmit={this.props.onSubmit}>
-          <Typography variant="h5">Username</Typography>
+          <Typography variant="h5" style={{ color: "white" }}>
+            Username
+          </Typography>
           <TextField
             type="text"
             name="userName"
@@ -16,11 +18,14 @@ export default class SignUpForm extends Component {
             onChange={this.props.onChange}
             values={this.props.values}
             variant="filled"
+            style={{ backgroundColor: "white" }}
           />
           <br />
           <br />
 
-          <Typography variant="h5">Email</Typography>
+          <Typography variant="h5" style={{ color: "white" }}>
+            Email
+          </Typography>
           <TextField
             type="text"
             name="email"
@@ -28,10 +33,13 @@ export default class SignUpForm extends Component {
             onChange={this.props.onChange}
             values={this.props.values}
             variant="filled"
+            style={{ backgroundColor: "white" }}
           />
           <br />
           <br />
-          <Typography variant="h5">Password</Typography>
+          <Typography variant="h5" style={{ color: "white" }}>
+            Password
+          </Typography>
           <TextField
             type="password"
             name="password"
@@ -39,6 +47,7 @@ export default class SignUpForm extends Component {
             onChange={this.props.onChange}
             values={this.props.values}
             variant="filled"
+            style={{ backgroundColor: "white" }}
           />
           <br />
           <br />

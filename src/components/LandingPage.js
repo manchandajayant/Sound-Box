@@ -20,8 +20,12 @@ class LandingPage extends Component {
     return (
       <div className={classes.root}>
         <Grid>
-          <Typography variant="h1" className={classes.grid}>
-            V e r b e r
+          <Typography
+            variant="h1"
+            className={classes.grid}
+            style={{ color: "white" }}
+          >
+            HERA'S WRATH
           </Typography>
         </Grid>
         <br />
@@ -29,7 +33,10 @@ class LandingPage extends Component {
         <br />
         <br />
         <br />
-        <Typography variant="h4" style={{ fontFamily: "IBM Plex Serif,serif" }}>
+        <Typography
+          variant="h4"
+          style={{ fontFamily: "IBM Plex Serif,serif", color: "white" }}
+        >
           Verber is an application based on experiencing historical sites and
           spaces through sound simulation. You can choose from the available
           catalogue, or you can add to the catalogue by creating your own space
@@ -45,7 +52,7 @@ class LandingPage extends Component {
             <Link
               to="/spaces"
               style={{
-                color: "black",
+                color: "white",
                 textDecoration: "inherit",
                 fontSize: "40px",
                 fontFamily: "IBM Plex Serif,serif",

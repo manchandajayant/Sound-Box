@@ -72,7 +72,7 @@ class CreateNewSpaceContainer extends Component {
     if (!this.props.user.auth) {
       return (
         <div>
-          <Typography variant="h5">
+          <Typography variant="h5" style={{ color: "white" }}>
             Please login/sign up to create a new space
           </Typography>
           <LoginFormContainer />

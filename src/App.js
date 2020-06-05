@@ -19,7 +19,7 @@ function App() {
       <NavBarComponent />
       <Container
         style={{
-          backgroundColor: "rgba(138, 128, 148, 0.4)",
+          backgroundColor: "transparent",
           marginBottom: "5%",
         }}
       >

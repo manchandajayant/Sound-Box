@@ -14,7 +14,9 @@ export default class LoginForm extends Component {
 
         <br />
         <form onSubmit={this.props.onSubmit}>
-          <Typography variant="h5">Email</Typography>
+          <Typography variant="h5" style={{ color: "white" }}>
+            Email
+          </Typography>
           <TextField
             type="text"
             name="email"
@@ -22,10 +24,13 @@ export default class LoginForm extends Component {
             onChange={this.props.onChange}
             values={this.props.values}
             variant="filled"
+            style={{ backgroundColor: "white" }}
           />
           <br />
           <br />
-          <Typography variant="h5">Password</Typography>
+          <Typography variant="h5" style={{ color: "white" }}>
+            Password
+          </Typography>
           <TextField
             type="password"
             name="password"
@@ -33,6 +38,7 @@ export default class LoginForm extends Component {
             onChange={this.props.onChange}
             values={this.props.values}
             variant="filled"
+            style={{ backgroundColor: "white" }}
           />
           <br />
           <br />
@@ -40,7 +46,7 @@ export default class LoginForm extends Component {
         </form>
         <Typography>
           <Link
-            style={{ color: "black", textDecoration: "inherit" }}
+            style={{ color: "white", textDecoration: "inherit" }}
             to="/signup"
           >
             SIGN UP FOR A NEW ACCOUNT

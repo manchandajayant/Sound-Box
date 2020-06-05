@@ -23,7 +23,7 @@ const styles = {
     paddingLeft: "1.5%",
   },
   icon: {
-    color: "rgba(255, 255, 255, 0.54)",
+    color: "#fff",
   },
 };
 
@@ -62,7 +62,7 @@ export class Homepage extends Component {
                   src={space.url}
                   alt="Not loading"
                   style={{
-                    filter: "grayscale(20%)",
+                    filter: "sepia(100%)",
                   }}
                   // onClick={() =>}
                 />

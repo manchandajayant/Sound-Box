@@ -14,7 +14,7 @@ export class NavBarComponent extends Component {
       <Link
         to="/login"
         style={{
-          color: "black",
+          color: "white",
         }}
       >
         <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
@@ -39,23 +39,23 @@ export class NavBarComponent extends Component {
           <Navbar.Brand>
             <Typography
               style={{
-                color: "black",
+                color: "white",
                 marginRight: "20px",
                 border: "solid 0.5px black",
                 borderRadius: "2px",
-                backgroundColor: "rgb(120, 141, 154)",
+                backgroundColor: "transparent",
                 fontFamily: "IBM Plex Serif,serif",
               }}
             >
               {" "}
               <Link
                 style={{
-                  color: "black",
+                  color: "white",
                   textDecoration: "inherit",
                 }}
                 to="/"
               >
-                v e r b e r
+                Hera's Wrath
               </Link>
             </Typography>
           </Navbar.Brand>
@@ -68,7 +68,7 @@ export class NavBarComponent extends Component {
                   <Link
                     to="/spaces"
                     style={{
-                      color: "black",
+                      color: "white",
                     }}
                   >
                     <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
@@ -82,7 +82,7 @@ export class NavBarComponent extends Component {
                   <Link
                     to="/newspace"
                     style={{
-                      color: "black",
+                      color: "white",
                     }}
                   >
                     <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
@@ -97,7 +97,7 @@ export class NavBarComponent extends Component {
                   <Link
                     to="/about"
                     style={{
-                      color: "black",
+                      color: "white",
                     }}
                   >
                     <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>

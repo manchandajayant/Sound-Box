@@ -8,14 +8,12 @@
 }
 
 .App-div {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgba(240, 225, 220, 0.6);
 }
 
 .App-link {
@@ -28,5 +26,5 @@ h1 {
 }
 
 body {
-  background-color: rgba(240, 225, 220, 0.6);
+  background-image: url("./Assets/1.jpg");
 }
