@@ -27,9 +27,8 @@ export class About extends Component {
 
         <Typography>
           I am super enthusiastic about audio and sound, and using it for
-          experiential purposes.This application was made as a part of my final
-          project at a coding bootcamp. You can email me incase you are
-          interested in the resources i used.
+          interacticve and experiential purposes. You can email me incase you
+          are interested in the resources i used.
           <br />
           <br />
           If you are interested in creating your own impulse responses, here is
@@ -83,6 +82,9 @@ export class About extends Component {
 
         <AlternateEmailIcon fontSize="large" />
         <Typography>maanjayant@gmail.com</Typography>
+        <Typography onClick={() => window.open("https://jayantmanchanda.com/")}>
+          www.jayantmanchanda.com
+        </Typography>
       </div>
     );
   }
