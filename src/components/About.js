@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Typography, Container, Grid } from "@material-ui/core";
+import { Typography, Container, Grid, Button } from "@material-ui/core";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import ReactPlayer from "react-player";
 import { withStyles } from "@material-ui/core/styles";
@@ -24,7 +24,6 @@ export class About extends Component {
         <br />
         <br />
         <br />
-
         <Typography>
           I am super enthusiastic about audio and sound, and using it for
           interacticve and experiential purposes. You can email me incase you
@@ -79,12 +78,12 @@ export class About extends Component {
           <GitHubIcon fontSize="large" />
         </IconButton>
         <br />
-
         <AlternateEmailIcon fontSize="large" />
-        <Typography>maanjayant@gmail.com</Typography>
-        <Typography onClick={() => window.open("https://jayantmanchanda.com/")}>
-          jayantmanchanda.com
-        </Typography>
+        <Typography>maanjayant@gmail.com</Typography>{" "}
+        <Button onClick={() => window.open("https://jayantmanchanda.com/")}>
+          {" "}
+          <Typography>jayantmanchanda.com</Typography>
+        </Button>
       </div>
     );
   }
