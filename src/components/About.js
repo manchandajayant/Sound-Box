@@ -65,7 +65,7 @@ export class About extends Component {
           >
             <img
               alt="Creative Commons License"
-              style="border-width:0"
+              style={{ borderWidth: "0" }}
               src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png"
             />
           </a>
