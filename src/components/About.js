@@ -83,7 +83,7 @@ export class About extends Component {
         <AlternateEmailIcon fontSize="large" />
         <Typography>maanjayant@gmail.com</Typography>
         <Typography onClick={() => window.open("https://jayantmanchanda.com/")}>
-          www.jayantmanchanda.com
+          jayantmanchanda.com
         </Typography>
       </div>
     );
