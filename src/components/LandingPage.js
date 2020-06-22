@@ -30,11 +30,11 @@ class LandingPage extends Component {
         <br />
         <br />
         <Typography variant="h4" style={{ fontFamily: "IBM Plex Serif,serif" }}>
-          Verber is an application based on experiencing historical sites and
-          spaces through sound simulation. You can choose from the available
-          catalogue, or you can add to the catalogue by creating your own space
-          with an available Impulse Response.The app connects to your microphone
-          and gives you an impression of being in a space while being at your
+          Verber is an application based on experiencing sites and spaces
+          through sound simulation. You can choose from the available catalogue,
+          or you can add to the catalogue by creating your own space with an
+          available Impulse Response.The app connects to your microphone and
+          gives you an impression of being in a space while being at your
           computer.The application also offers the users to upload Ambient/Field
           Recording Data related to the place.
           <br />
