@@ -26,8 +26,8 @@ export class About extends Component {
         <br />
         <Typography>
           I am super enthusiastic about audio and sound, and using it for
-          interacticve and experiential purposes. You can email me incase you
-          are interested in the resources i used.
+          interactive and experiential purposes. You can email me incase you are
+          interested in the resources i used.
           <br />
           <br />
           If you are interested in creating your own impulse responses, here is
