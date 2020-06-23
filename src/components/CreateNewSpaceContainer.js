@@ -73,7 +73,7 @@ class CreateNewSpaceContainer extends Component {
       return (
         <div>
           <Typography variant="h5">
-            Please login/sign up to create a new space
+            Please login/sign up to add a space
           </Typography>
           <LoginFormContainer />
         </div>
@@ -84,7 +84,7 @@ class CreateNewSpaceContainer extends Component {
           style={{ color: "black", textDecoration: "inherit" }}
           to={`/spaces/${this.props.spaces.length}`}
         >
-          You Created a space, click to open it
+          You added a space, click to open it
         </Link>
       );
     } else if (this.state.spaceMade) {
@@ -117,8 +117,8 @@ class CreateNewSpaceContainer extends Component {
           <br />
           <br />
           <Typography>
-            *To create a new space, you will need an impulse response, if you
-            are not aware what that is, you could go to the{" "}
+            *To add a space, you will need an impulse response, if you are not
+            aware what that is, you could go to the{" "}
             <Link to="/about">About</Link> page
           </Typography>
           <br />
