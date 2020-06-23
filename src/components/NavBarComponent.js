@@ -86,7 +86,7 @@ export class NavBarComponent extends Component {
                     }}
                   >
                     <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
-                      Create a New Space
+                      Add a Space
                     </Typography>
                   </Link>
                 </Button>
