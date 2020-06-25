@@ -1,0 +1,14 @@
+img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: block;
+  object-fit: contain !important;
+}
+
+@media only screen and (max-width: 780px) {
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}

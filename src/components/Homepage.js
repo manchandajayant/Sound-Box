@@ -9,7 +9,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import { Typography } from "@material-ui/core";
-
+import "../CSS/Homepage.css";
 const styles = {
   root: {
     display: "flex",
@@ -58,14 +58,16 @@ export class Homepage extends Component {
             </GridListTile>
             {this.props.spaces.map((space, index) => (
               <GridListTile key={index}>
-                <img
-                  src={space.url}
-                  alt="Not loading"
-                  style={{
-                    filter: "grayscale(20%)",
-                  }}
-                  // onClick={() =>}
-                />
+                <Link>
+                  <img
+                    src={space.url}
+                    alt="Not loading"
+                    style={{
+                      filter: "grayscale(20%)",
+                    }}
+                    // onClick={() =>}
+                  />
+                </Link>
                 {/* </Link> */}{" "}
                 <Link
                   style={{
