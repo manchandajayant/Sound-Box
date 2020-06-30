@@ -14,7 +14,7 @@ export class NavBarComponent extends Component {
       <Link
         to="/login"
         style={{
-          color: "white",
+          color: "black",
         }}
       >
         <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
@@ -50,7 +50,7 @@ export class NavBarComponent extends Component {
               {" "}
               <Link
                 style={{
-                  color: "white",
+                  color: "black",
                   textDecoration: "inherit",
                 }}
                 to="/"
@@ -68,7 +68,7 @@ export class NavBarComponent extends Component {
                   <Link
                     to="/spaces"
                     style={{
-                      color: "white",
+                      color: "black",
                     }}
                   >
                     <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
@@ -82,7 +82,7 @@ export class NavBarComponent extends Component {
                   <Link
                     to="/newspace"
                     style={{
-                      color: "white",
+                      color: "black",
                     }}
                   >
                     <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
@@ -97,7 +97,7 @@ export class NavBarComponent extends Component {
                   <Link
                     to="/about"
                     style={{
-                      color: "white",
+                      color: "black",
                     }}
                   >
                     <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
