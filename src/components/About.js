@@ -63,12 +63,13 @@ export class About extends Component {
         <br />
         <Typography>
           <a
-            rel="license"
             href="http://creativecommons.org/licenses/by-sa/3.0/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               alt="Creative Commons License"
-              style={{ borderWidth: "0" }}
+              style={{ borderWidth: "0", height: "40px", width: "40px" }}
               src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png"
             />
           </a>
