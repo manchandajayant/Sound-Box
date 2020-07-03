@@ -25,6 +25,14 @@ const Homepage = () => {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
           />
+          {spaces.map((coord) => {
+            return (
+              <Marker
+                key={coord.id}
+                position={[coord.latitude, coord.longitude]}
+              />
+            );
+          })}
         </Map>
       </div>
     );

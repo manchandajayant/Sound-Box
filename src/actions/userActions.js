@@ -4,8 +4,8 @@ export const JWT = "JWT";
 export const NEW_USER = "NEW_USER";
 export const USER_FETCHED = "USER_FETCHED";
 
-const baseUrl = "https://pure-temple-48518.herokuapp.com";
-//const baseUrl = "http://localhost:4000";
+//const baseUrl = "https://pure-temple-48518.herokuapp.com";
+const baseUrl = "http://localhost:4000";
 
 const userLogin = (payload) => ({
   type: JWT,

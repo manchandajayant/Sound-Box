@@ -46,7 +46,7 @@ export default class LoginForm extends Component {
         </form>
         <Typography>
           <Link
-            style={{ color: "white", textDecoration: "inherit" }}
+            style={{ color: "black", textDecoration: "inherit" }}
             to="/signup"
           >
             SIGN UP FOR A NEW ACCOUNT

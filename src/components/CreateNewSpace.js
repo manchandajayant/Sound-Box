@@ -41,6 +41,24 @@ export default class CreateNewSpace extends Component {
         />
         <br />
         <br />
+        <TextField
+          type="text"
+          name="latitude"
+          placeholder="longitude"
+          onChange={this.props.onChange}
+          values={this.props.values}
+          variant="filled"
+        />
+        <br />
+        <br />
+        <TextField
+          type="text"
+          name="longitude"
+          placeholder="longitude"
+          onChange={this.props.onChange}
+          values={this.props.values}
+          variant="filled"
+        />
         <Button onClick={this.props.onSubmit}>CREATE</Button>
       </div>
     );

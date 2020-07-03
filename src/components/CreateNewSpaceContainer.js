@@ -13,6 +13,8 @@ class CreateNewSpaceContainer extends Component {
     name: "",
     description: "",
     url: "",
+    latitude: "",
+    longitude: "",
     spaceMade: false,
     location: "",
     name2: "",
@@ -63,6 +65,8 @@ class CreateNewSpaceContainer extends Component {
       description: "",
       builtIn: "",
       url: "",
+      latitude: "",
+      longitude: "",
       spaceMade: true,
     });
   };
