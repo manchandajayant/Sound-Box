@@ -21,6 +21,7 @@ function App() {
         style={{
           backgroundColor: "transparent",
           marginBottom: "5%",
+          marginTop: "3%",
         }}
       >
         {/* ROUTES DEFINED */}

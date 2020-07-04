@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "rgba(100,100,100)",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -124,6 +124,10 @@ const SignUp = () => {
               variant="contained"
               color="primary"
               onClick={onSubmit}
+              style={{
+                backgroundColor: "rgba(100,100,100)",
+                color: "white",
+              }}
             >
               Sign Up
             </Button>

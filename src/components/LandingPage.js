@@ -26,7 +26,7 @@ class LandingPage extends Component {
             className={classes.grid}
             style={{ color: "black" }}
           >
-            HERA'S WRATH
+            v e r b e r
           </Typography>
         </Grid>
         <br />
