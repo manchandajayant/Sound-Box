@@ -1,67 +1,153 @@
-import React, { Component } from "react";
-import SignUpForm from "./SignUpForm";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { signUpUser } from "../actions/userActions";
+import { Redirect } from "react-router-dom";
 import LoginFormContainer from "./LoginFormContainer";
-import "../CSS/login.css";
 import { Typography } from "@material-ui/core";
-export class SignUpFormContainer extends Component {
-  state = {
-    email: "",
-    password: "",
-    userName: "",
-  };
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
-  onSubmit = (event) => {
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+const SignUp = () => {
+  const classes = useStyles();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.users);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userName, setuserName] = useState("");
+
+  const data = { password, email, userName };
+  const onSubmit = (event) => {
     event.preventDefault();
-    this.props.signUpUser(this.state);
-    this.setState({
-      email: "",
-      password: "",
-      userName: "",
-    });
+    dispatch(signUpUser(data));
   };
 
-  onChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-  render() {
-    // console.log(this.props.user);
-    if (!this.props.user.newUser) {
-      return (
-        <div>
-          <Typography variant="h4">SIGN UP</Typography>
-          <SignUpForm
-            onSubmit={this.onSubmit}
-            onChange={this.onChange}
-            values={this.state}
-          />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <Typography varaint="h4">
-            Welcome {this.props.user.newUser.userName} <br />
-            Now Login to conitnue
+  if (!user.newUser) {
+    return (
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
           </Typography>
-          <LoginFormContainer />
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="uname"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  label="FirstName"
+                  autoFocus
+                  name="username"
+                  onChange={(e) => setuserName(e.target.value)}
+                  value={userName}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="lname"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  autoComplete="email"
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  name="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+              </Grid>
+              <Grid item xs={12}></Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              onClick={onSubmit}
+            >
+              Sign Up
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </form>
         </div>
-      );
-    }
+      </Container>
+    );
+  } else {
+    return (
+      <div>
+        <Typography varaint="h4">
+          Welcome {user.newUser.userName} <br />
+          <Link href="/login"> Now Login to conitnue</Link>
+        </Typography>
+      </div>
+    );
   }
-}
-const mapStateToProps = (state) => ({
-  user: state.users,
-});
-
-const mapDispatchToProps = {
-  signUpUser,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignUpFormContainer);
+export default SignUp;

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import "../CSS/Homepage.css";
 
 const iconSpace = new Icon({
-  iconUrl: "/historic-theatre.png",
+  iconUrl: "/pin.png",
   iconSize: [20, 20],
 });
 
@@ -53,7 +53,6 @@ const Homepage = () => {
             >
               <Link to={`/spaces/${activeSpace.id}`}>
                 <h2>{activeSpace.name}</h2>
-                <img src="/microphone.png" />
               </Link>
             </Popup>
           )}
