@@ -22,6 +22,7 @@ class CreateNewSpaceContainer extends Component {
     spaceId: 0,
     redirect: false,
     fileLoad: false,
+    buttonClicked: false,
   };
   onChange = (event) => {
     this.setState({
@@ -52,6 +53,8 @@ class CreateNewSpaceContainer extends Component {
       description2: response.data.public_id,
       spaceId: this.props.spaces.length,
       redirect: true,
+      fileLoad: true,
+      buttonclicked: true,
     });
     this.props.newFile(this.state);
   };
@@ -108,9 +111,14 @@ class CreateNewSpaceContainer extends Component {
             onChange={this.onChangeForFile}
             values={this.state}
           />
+          {this.state.fileLoad == true ? <h5>loading...</h5> : <h5></h5>}
           <br />
           <br />
-          <Button onClick={this.submit}>Upload</Button>
+          {this.state.buttonClicked == false ? (
+            <Button onClick={this.submit}>Upload</Button>
+          ) : (
+            <p></p>
+          )}
         </div>
       );
     } else {

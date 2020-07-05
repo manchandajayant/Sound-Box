@@ -78,8 +78,13 @@ export default class CreateNewSpace extends Component {
           </Grid>
           <br />
           <br />
+          <br />
         </Grid>
-        <Button onClick={this.props.onSubmit}>CREATE</Button>
+        <div style={{ paddingTop: "5%" }}>
+          <Button variant="contained" onClick={this.props.onSubmit}>
+            CREATE
+          </Button>
+        </div>
       </div>
     );
   }
