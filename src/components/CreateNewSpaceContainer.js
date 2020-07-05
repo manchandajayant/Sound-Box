@@ -7,6 +7,7 @@ import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
+import MapComp from "./MapComp";
 
 class CreateNewSpaceContainer extends Component {
   state = {
@@ -139,6 +140,8 @@ class CreateNewSpaceContainer extends Component {
             onChange={this.onChange}
             values={this.state}
           />
+
+          <MapComp />
         </div>
       );
     }
