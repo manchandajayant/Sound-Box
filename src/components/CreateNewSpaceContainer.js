@@ -7,12 +7,14 @@ import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
-
+import Map from "./Map";
 class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
     description: "",
     url: "",
+    latitude: 0,
+    longitude: 0,
     spaceMade: false,
     location: "",
     name2: "",
@@ -20,6 +22,7 @@ class CreateNewSpaceContainer extends Component {
     spaceId: 0,
     redirect: false,
     fileLoad: false,
+    buttonClicked: false,
   };
   onChange = (event) => {
     this.setState({
@@ -50,30 +53,47 @@ class CreateNewSpaceContainer extends Component {
       description2: response.data.public_id,
       spaceId: this.props.spaces.length,
       redirect: true,
+      fileLoad: true,
+      buttonclicked: true,
     });
     this.props.newFile(this.state);
   };
 
   onSubmit = (event) => {
     event.preventDefault();
+
     this.props.newSpace(this.state);
 
     this.setState({
-      name: "",
+      name: this.state.name,
       description: "",
       builtIn: "",
       url: "",
+      latitude: this.state.latitude,
+      longitude: this.state.longitude,
       spaceMade: true,
+    });
+    console.log(this.state);
+  };
+
+  addAPlace = (p) => {
+    console.log("place: ", p.latlng);
+    this.setState({
+      name: p.text,
+      latitude: p.latlng.lat,
+      longitude: p.latlng.lng,
     });
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props.spaces);
     if (!this.props.user.auth) {
       return (
         <div>
-          <Typography variant="h5">
-            Please login/sign up to add a space
+
+          <Typography variant="h5" style={{ color: "white" }}>
+            Please login/sign up to create a new space
+
           </Typography>
           <LoginFormContainer />
         </div>
@@ -104,15 +124,21 @@ class CreateNewSpaceContainer extends Component {
             onChange={this.onChangeForFile}
             values={this.state}
           />
+          {this.state.fileLoad == true ? <h5>loading...</h5> : <h5></h5>}
           <br />
           <br />
-          <Button onClick={this.submit}>Upload</Button>
+          {this.state.buttonClicked == false ? (
+            <Button onClick={this.submit}>Upload</Button>
+          ) : (
+            <p></p>
+          )}
         </div>
       );
     } else {
       return (
         <div>
           <Typography variant="h3">Space Details </Typography>
+
           <br />
           <br />
           <br />
@@ -121,6 +147,9 @@ class CreateNewSpaceContainer extends Component {
             aware what that is, you could go to the{" "}
             <Link to="/about">About</Link> page
           </Typography>
+          <br />
+          <Map place={this.addAPlace} />
+          <br />
           <br />
           <CreateNewSpace
             onSubmit={this.onSubmit}

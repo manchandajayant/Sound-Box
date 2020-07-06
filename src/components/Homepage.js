@@ -1,106 +1,72 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { showAllSpaces } from "../actions/spaceActions";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import { Typography } from "@material-ui/core";
+
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
+import { Link } from "react-router-dom";
 import "../CSS/Homepage.css";
-const styles = {
-  root: {
-    display: "flex",
-    flexWrap: "nowrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-  },
-  gridList: {
-    width: 1200,
-    height: 1100,
-    paddingLeft: "1.5%",
-  },
-  icon: {
-    color: "rgba(255, 255, 255, 0.54)",
-  },
-};
+import { Grid, Paper } from "@material-ui/core";
 
-export class Homepage extends Component {
-  componentDidMount() {
-    this.props.showAllSpaces();
-  }
-
-  render() {
-    const { classes } = this.props;
-
-    // console.log(this.props);
-    if (!this.props.spaces) {
-      return <h1>Loading...</h1>;
-    } else {
-      return (
-        <div className={classes.root}>
-          <GridList cellHeight={300} className={classes.gridList}>
-            <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
-              <ListSubheader component="div">
-                <Typography
-                  variant="h4"
-                  style={{
-                    color: "black",
-                    fontWeight: "2px",
-                    fontFamily: "IBM Plex Serif,serif",
-                  }}
-                >
-                  SPACES
-                </Typography>
-              </ListSubheader>
-            </GridListTile>
-            {this.props.spaces.map((space, index) => (
-              <GridListTile key={index}>
-                <Link>
-                  <img
-                    src={space.url}
-                    alt="Not loading"
-                    style={{
-                      filter: "grayscale(20%)",
-                    }}
-                    // onClick={() =>}
-                  />
-                </Link>
-                {/* </Link> */}{" "}
-                <Link
-                  style={{
-                    color: "rgba(255,255,255,0.7)",
-                    textDecoration: "inherit",
-                    fontFamily: "IBM Plex Serif,serif",
-                  }}
-                  to={`/spaces/${space.id}`}
-                >
-                  <GridListTileBar title={space.name} />
-                </Link>
-              </GridListTile>
-            ))}{" "}
-          </GridList>
-        </div>
-      );
-    }
-  }
-}
-Homepage.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  spaces: state.spaces,
-  user: state.users,
+const iconSpace = new Icon({
+  iconUrl: "/pin.png",
+  iconSize: [20, 20],
 });
 
-const mapDispatchToProps = {
-  showAllSpaces,
+
+const Homepage = () => {
+  const dispatch = useDispatch();
+  const spaces = useSelector((state) => state.spaces);
+  const [activeSpace, setactiveSpace] = useState(null);
+
+  useEffect(() => {
+    dispatch(showAllSpaces());
+  }, [dispatch]);
+  console.log("ssp", spaces);
+
+
+  if (!spaces) {
+    return <h1>Loading...</h1>;
+  } else {
+    return (
+      <div>
+        <h1>Spaces</h1>
+        <Grid item xs={12} md={12} component={Paper} elevation={14} square>
+          <Map center={[56.992882804633986, 10.04150390625]} zoom={4}>
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
+            />
+            {spaces.map((coord) => {
+              return (
+                <Marker
+                  key={coord.id}
+                  position={[coord.latitude, coord.longitude]}
+                  onclick={() => {
+                    setactiveSpace(coord);
+                  }}
+                  icon={iconSpace}
+                />
+              );
+            })}
+            {activeSpace && (
+              <Popup
+                position={[activeSpace.latitude, activeSpace.longitude]}
+                onClose={() => {
+                  setactiveSpace(null);
+                }}
+              >
+                <Link to={`/spaces/${activeSpace.id}`}>
+                  <h2>{activeSpace.name}</h2>
+
+                </Link>
+              </Popup>
+            )}
+          </Map>
+        </Grid>
+      </div>
+    );
+  }
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(Homepage));
+export default Homepage;
