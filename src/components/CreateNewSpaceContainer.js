@@ -69,20 +69,24 @@ class CreateNewSpaceContainer extends Component {
       description: "",
       builtIn: "",
       url: "",
-      latitude: "",
-      longitude: "",
+      latitude: this.state.latitude,
+      longitude: this.state.longitude,
       spaceMade: true,
     });
     console.log(this.state);
   };
 
   addAPlace = (p) => {
-    console.log("place: ", p);
-    this.setState({ name: p });
+    console.log("place: ", p.latlng);
+    this.setState({
+      name: p.text,
+      latitude: p.latlng.lat,
+      longitude: p.latlng.lng,
+    });
   };
 
   render() {
-    console.log(this.state.name);
+    console.log(this.props.spaces);
     if (!this.props.user.auth) {
       return (
         <div>
@@ -143,6 +147,8 @@ class CreateNewSpaceContainer extends Component {
           </Typography>
           <br />
           <Map place={this.addAPlace} />
+          <br />
+          <br />
           <CreateNewSpace
             onSubmit={this.onSubmit}
             onChange={this.onChange}

@@ -40,10 +40,15 @@ class MapComp extends Component {
     });
   }
 
+  // buttonClick =()=>{
+  //   this.setState({button(true)})
+  // }
+
   render() {
     const center = [37.7833, -122.4167];
     //console.log(this.props.place, "place");
     //console.log(result);
+
     return (
       <div>
         <Grid item xs={12} md={12} component={Paper} elevation={14} square>
@@ -70,8 +75,7 @@ class MapComp extends Component {
             variant="contained"
             color="primary"
             onClick={() => {
-              //console.log("button", this.state.place.text);
-              this.props.place(this.state.place.text);
+              this.props.place(this.state.place);
             }}
           >
             Add {this.state.place.text}
