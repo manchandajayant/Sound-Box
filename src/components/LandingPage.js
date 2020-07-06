@@ -11,6 +11,7 @@ const styles = {
   grid: {
     fontSize: 85,
     fontFamily: "IBM Plex Serif,serif",
+    color: "black",
   },
 };
 
@@ -20,8 +21,12 @@ class LandingPage extends Component {
     return (
       <div className={classes.root}>
         <Grid>
-          <Typography variant="h1" className={classes.grid}>
-            V e r b e r
+          <Typography
+            variant="h1"
+            className={classes.grid}
+            style={{ color: "black" }}
+          >
+            v e r b e r
           </Typography>
         </Grid>
         <br />
@@ -29,12 +34,16 @@ class LandingPage extends Component {
         <br />
         <br />
         <br />
-        <Typography variant="h4" style={{ fontFamily: "IBM Plex Serif,serif" }}>
-          Verber is an application based on experiencing sites and spaces
-          through sound simulation. You can choose from the available catalogue,
-          or you can add to the catalogue by creating your own space with an
-          available Impulse Response.The app connects to your microphone and
-          gives you an impression of being in a space while being at your
+
+        <Typography
+          variant="h4"
+          style={{ fontFamily: "IBM Plex Serif,serif", color: "black" }}
+        >
+          Verber is an application based on experiencing historical sites and
+          spaces through sound simulation. You can choose from the available
+          catalogue, or you can add to the catalogue by creating your own space
+          with an available Impulse Response.The app connects to your microphone
+          and gives you an impression of being in a space while being at your
           computer.The application also offers the users to upload Ambient/Field
           Recording Data related to the place.
           <br />

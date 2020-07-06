@@ -1,33 +1,35 @@
-import React, { Component } from "react";
-
+import React from "react";
+import { useSelector } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
 import { Navbar, Nav } from "react-bootstrap";
-import { Button } from "@material-ui/core";
+import { Button, Paper } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-export class NavBarComponent extends Component {
-  render() {
-    console.log("this", this.props);
-    const log = !this.props.user.auth ? (
-      <Link
-        to="/login"
-        style={{
-          color: "black",
-        }}
-      >
-        <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
-          Login
-        </Typography>
-      </Link>
-    ) : (
-      <Typography>{this.props.user.userName}</Typography>
-    );
-    return (
-      <div>
+export const NavBarComponent = () => {
+  const user = useSelector((state) => state.users);
+
+  const log = !user.auth ? (
+    <Link
+      to="/login"
+      style={{
+        color: "black",
+      }}
+    >
+      <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+        Login
+      </Typography>
+    </Link>
+  ) : (
+    <Typography>{user.userName}</Typography>
+  );
+  return (
+    <div>
+      <Paper elevation={2}>
         <Navbar
           collapseOnSelect
+          sticky="top"
           expand="lg"
           style={{
             backgroundColor: "transparent",
@@ -39,11 +41,11 @@ export class NavBarComponent extends Component {
           <Navbar.Brand>
             <Typography
               style={{
-                color: "black",
+                color: "white",
                 marginRight: "20px",
-                border: "solid 0.5px black",
+
                 borderRadius: "2px",
-                backgroundColor: "rgb(120, 141, 154)",
+                backgroundColor: "transparent",
                 fontFamily: "IBM Plex Serif,serif",
               }}
             >
@@ -53,9 +55,9 @@ export class NavBarComponent extends Component {
                   color: "black",
                   textDecoration: "inherit",
                 }}
-                to="/"
+                to="/spaces"
               >
-                v e r b e r
+                VERBER
               </Link>
             </Typography>
           </Navbar.Brand>
@@ -112,13 +114,9 @@ export class NavBarComponent extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </div>
-    );
-  }
-}
+      </Paper>
+    </div>
+  );
+};
 
-const mapStateToProps = (state) => ({
-  user: state.users,
-});
-
-export default connect(mapStateToProps)(NavBarComponent);
+export default NavBarComponent;
