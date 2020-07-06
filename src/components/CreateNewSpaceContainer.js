@@ -7,14 +7,14 @@ import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
-
+import Map from "./Map";
 class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
     description: "",
     url: "",
-    latitude: "",
-    longitude: "",
+    latitude: 0,
+    longitude: 0,
     spaceMade: false,
     location: "",
     name2: "",
@@ -61,9 +61,11 @@ class CreateNewSpaceContainer extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+
     this.props.newSpace(this.state);
 
     this.setState({
+      name: this.state.name,
       description: "",
       builtIn: "",
       url: "",
@@ -71,15 +73,16 @@ class CreateNewSpaceContainer extends Component {
       longitude: "",
       spaceMade: true,
     });
+    console.log(this.state);
   };
 
-  addAPlace = () => {
-    this.setState({ name: "" });
-    console.log("click");
+  addAPlace = (p) => {
+    console.log("place: ", p);
+    this.setState({ name: p });
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.state.name);
     if (!this.props.user.auth) {
       return (
         <div>
@@ -139,11 +142,11 @@ class CreateNewSpaceContainer extends Component {
             <Link to="/about">About</Link> page
           </Typography>
           <br />
+          <Map place={this.addAPlace} />
           <CreateNewSpace
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             values={this.state}
-            addAPlace={this.addAPlace}
           />
         </div>
       );

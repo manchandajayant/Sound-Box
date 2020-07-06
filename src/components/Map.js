@@ -42,7 +42,7 @@ class MapComp extends Component {
 
   render() {
     const center = [37.7833, -122.4167];
-    console.log(this.state.place.text);
+    //console.log(this.props.place, "place");
     //console.log(result);
     return (
       <div>
@@ -69,7 +69,10 @@ class MapComp extends Component {
             fullWidth
             variant="contained"
             color="primary"
-            onClick={this.props.place}
+            onClick={() => {
+              //console.log("button", this.state.place.text);
+              this.props.place(this.state.place.text);
+            }}
           >
             Add {this.state.place.text}
           </Button>
