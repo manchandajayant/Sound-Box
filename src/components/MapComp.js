@@ -3,7 +3,11 @@ import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Map, TileLayer } from "react-leaflet";
 import "../CSS/Map.css";
-import { Button } from "@material-ui/core";
+import { Button, Grid, Paper } from "@material-ui/core";
+import "leaflet/dist/leaflet.css";
+import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
+import "leaflet/dist/leaflet.js";
+import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -18,6 +22,7 @@ class MapComp extends Component {
   state = {
     place: "",
   };
+
   componentDidMount() {
     const map = this.leafletMap.leafletElement;
     const searchControl = new ELG.Geosearch().addTo(map);
@@ -28,7 +33,6 @@ class MapComp extends Component {
       for (let i = data.results.length - 1; i >= 0; i--) {
         results.addLayer(L.marker(data.results[i].latlng));
       }
-
       console.log("res", data.results);
       if (data.results.length > 0) {
         this.setState({ place: data.results[0] });
@@ -39,23 +43,37 @@ class MapComp extends Component {
   render() {
     const center = [37.7833, -122.4167];
     console.log(this.state.place.text);
+    //console.log(result);
     return (
       <div>
-        <Button>Add {this.state.place.text}</Button>
-        <Map
-          style={{ height: "100vh" }}
-          center={center}
-          zoom="10"
-          ref={(m) => {
-            this.leafletMap = m;
-          }}
-        >
-          <TileLayer
-            attribution="&copy; <a href='https://osm.org/copyright'>OpenStreetMap</a> contributors"
-            url={"http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
-          />
-          <div className="pointer" />
-        </Map>
+        <Grid item xs={12} md={12} component={Paper} elevation={14} square>
+          <Map
+            style={{ height: "50vh", width: "100%" }}
+            center={center}
+            zoom="10"
+            ref={(m) => {
+              this.leafletMap = m;
+            }}
+          >
+            <TileLayer
+              attribution="&copy; <a href='https://osm.org/copyright'>OpenStreetMap</a> contributors"
+              url={"http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
+            />
+            <div className="pointer" />
+          </Map>
+        </Grid>
+        <br />
+        <div style={{ paddingTop: "2%" }}>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={this.props.place}
+          >
+            Add {this.state.place.text}
+          </Button>
+        </div>
       </div>
     );
   }

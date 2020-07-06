@@ -7,7 +7,6 @@ import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
-import MapComp from "./MapComp";
 
 class CreateNewSpaceContainer extends Component {
   state = {
@@ -65,7 +64,6 @@ class CreateNewSpaceContainer extends Component {
     this.props.newSpace(this.state);
 
     this.setState({
-      name: "",
       description: "",
       builtIn: "",
       url: "",
@@ -73,6 +71,11 @@ class CreateNewSpaceContainer extends Component {
       longitude: "",
       spaceMade: true,
     });
+  };
+
+  addAPlace = () => {
+    this.setState({ name: "" });
+    console.log("click");
   };
 
   render() {
@@ -126,6 +129,7 @@ class CreateNewSpaceContainer extends Component {
       return (
         <div>
           <Typography variant="h3">Space Details </Typography>
+
           <br />
           <br />
           <br />
@@ -139,9 +143,8 @@ class CreateNewSpaceContainer extends Component {
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             values={this.state}
+            addAPlace={this.addAPlace}
           />
-
-          <MapComp />
         </div>
       );
     }

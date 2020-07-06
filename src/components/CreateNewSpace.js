@@ -2,86 +2,80 @@ import React, { Component } from "react";
 import { TextField, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-
+import MapComp from "./MapComp";
 export default class CreateNewSpace extends Component {
   render() {
+    console.log(this.props.addAPlace);
     return (
       <div>
+        <MapComp place={this.props.addAPlace} values={this.props.values} />
+        <br />
+        <br />
+
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <Typography>Name</Typography>
             <br />
             <TextField
-              type="text"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              color="primary"
               name="name"
               placeholder="Name"
               onChange={this.props.onChange}
               values={this.props.values}
-              variant="filled"
             />
-          </Grid>
+          </Grid> */}
           <br />
           <br />
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography>Description</Typography>
             <br />
             <TextField
-              type="text"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              color="primary"
               name="description"
               placeholder="Description"
               onChange={this.props.onChange}
               values={this.props.values}
-              variant="filled"
             />
           </Grid>
           <br />
           <br />
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6}>
             <Typography>Image Url</Typography>
             <br />
             <TextField
               type="text"
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              color="primary"
               name="url"
               placeholder="Image Url"
               onChange={this.props.onChange}
               values={this.props.values}
-              variant="filled"
             />
           </Grid>
           <br />
-          <br />
-          <Grid item xs={12} sm={4}>
-            <Typography>Location Latitude</Typography>
-            <br />
-            <TextField
-              type="text"
-              name="latitude"
-              placeholder="longitude"
-              onChange={this.props.onChange}
-              values={this.props.values}
-              variant="filled"
-            />
-          </Grid>
-          <br />
-          <br />
-          <Grid item xs={12} sm={4}>
-            <Typography>Location longitude</Typography>
-            <br />
-            <TextField
-              type="text"
-              name="longitude"
-              placeholder="longitude"
-              onChange={this.props.onChange}
-              values={this.props.values}
-              variant="filled"
-            />
-          </Grid>
-          <br />
+
           <br />
           <br />
         </Grid>
         <div style={{ paddingTop: "5%" }}>
-          <Button variant="contained" onClick={this.props.onSubmit}>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={this.props.onSubmit}
+          >
             CREATE
           </Button>
         </div>
