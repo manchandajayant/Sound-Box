@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Typography, Container, Grid } from "@material-ui/core";
+import { Typography, Container, Grid, Button } from "@material-ui/core";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import ReactPlayer from "react-player";
 import { withStyles } from "@material-ui/core/styles";
@@ -24,11 +24,9 @@ export class About extends Component {
         <br />
         <br />
         <br />
-
         <Typography>
           I am super enthusiastic about audio and sound, and using it for
-          experiential purposes.This application was made as a part of my final
-          project at a coding bootcamp. You can email me incase you are
+          interactive and experiential purposes. You can email me incase you are
           interested in the resources i used.
           <br />
           <br />
@@ -63,6 +61,30 @@ export class About extends Component {
           </Link>
         </Typography>
         <br />
+        <Typography>
+          <a
+            href="http://creativecommons.org/licenses/by-sa/3.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              alt="Creative Commons License"
+              style={{ borderWidth: "0", height: "40px", width: "40px" }}
+              src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png"
+            />
+          </a>
+          <br />
+          <br />
+          Licensed Under
+          <a
+            rel="license"
+            href="http://creativecommons.org/licenses/by-sa/3.0/"
+          >
+            {" "}
+            A Creative Commons Attribution-ShareAlike 3.0 Unported License
+          </a>
+        </Typography>
+        <br />
         <br />
         <Typography variant="h6">Get in touch</Typography>
         <IconButton
@@ -80,9 +102,12 @@ export class About extends Component {
           <GitHubIcon fontSize="large" />
         </IconButton>
         <br />
-
         <AlternateEmailIcon fontSize="large" />
-        <Typography>maanjayant@gmail.com</Typography>
+        <Typography>maanjayant@gmail.com</Typography>{" "}
+        <Button onClick={() => window.open("https://jayantmanchanda.com/")}>
+          {" "}
+          <Typography>jayantmanchanda.com</Typography>
+        </Button>
       </div>
     );
   }

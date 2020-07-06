@@ -34,6 +34,7 @@ class LandingPage extends Component {
         <br />
         <br />
         <br />
+
         <Typography
           variant="h4"
           style={{ fontFamily: "IBM Plex Serif,serif", color: "black" }}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showAllSpaces } from "../actions/spaceActions";
+
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import { Link } from "react-router-dom";
@@ -12,6 +13,7 @@ const iconSpace = new Icon({
   iconSize: [20, 20],
 });
 
+
 const Homepage = () => {
   const dispatch = useDispatch();
   const spaces = useSelector((state) => state.spaces);
@@ -21,6 +23,7 @@ const Homepage = () => {
     dispatch(showAllSpaces());
   }, [dispatch]);
   console.log("ssp", spaces);
+
 
   if (!spaces) {
     return <h1>Loading...</h1>;
@@ -55,6 +58,7 @@ const Homepage = () => {
               >
                 <Link to={`/spaces/${activeSpace.id}`}>
                   <h2>{activeSpace.name}</h2>
+
                 </Link>
               </Popup>
             )}
