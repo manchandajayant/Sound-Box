@@ -63,7 +63,7 @@ export class NavBarComponent extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Item style={{ marginRight: "10px" }}>
+              <Nav.Item style={{ marginRight: "11px" }}>
                 <Button>
                   <Link
                     to="/spaces"
