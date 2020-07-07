@@ -9380,7 +9380,7 @@ react-audio-player@^0.11.1:
   dependencies:
     prop-types "^15.7.2"
 
-react-bootstrap@^1.1.0:
+react-bootstrap@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.1.0.tgz#7a427b5d2853e37b210006feb13bbe4da0b3b13a"
   integrity sha512-TOzLlYQRyQnMeYycqA9telJMZy4FGB3/jPi9q6xruVjGfHjnTIMWKCz547fmnEF/ewSD0YaY/mXc5TridvqUAQ==
