@@ -7,7 +7,7 @@ import Homepage from "./components/Homepage";
 import SignUpFormContainer from "./components/SignUpFormContainer";
 import LoginFormContainer from "./components/LoginFormContainer";
 import CreateNewSpaceContainer from "./components/CreateNewSpaceContainer";
-import NavBarComponent from "./components/NavBarComponent";
+//import NavBarComponent from "./components/NavBarComponent";
 import AudioFilesComponent from "./components/AudioFilesComponent";
 import LandingPage from "./components/LandingPage";
 import { Container } from "@material-ui/core";
@@ -16,7 +16,7 @@ import About from "./components/About";
 function App() {
   return (
     <div className="App">
-      <NavBarComponent />
+      {/* <NavBarComponent /> */}
       <Container
         style={{
           backgroundColor: "transparent",
