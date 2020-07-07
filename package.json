@@ -11,7 +11,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "esri-leaflet-geocoder": "^2.3.3",
-    "jquery": "^1.9.1",
+    "jquery": "^3.5.0",
     "leaflet": "^1.6.0",
     "leaflet-geosearch": "^2.7.0",
     "p5": "^0.5.16",
