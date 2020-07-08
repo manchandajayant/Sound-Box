@@ -21,8 +21,8 @@ class CreateNewSpaceContainer extends Component {
     description2: "",
     spaceId: 0,
     redirect: false,
-    fileLoad: false,
-    buttonClicked: false,
+    uploadPercentage: null,
+    buttonClick: false,
   };
   onChange = (event) => {
     this.setState({
@@ -31,7 +31,7 @@ class CreateNewSpaceContainer extends Component {
   };
   onChangeForFile = (e) => {
     console.log("e", e.target.files);
-    this.setState({ file: e.target.files[0] });
+    this.setState({ file: e.target.files[0], fileLoad: true });
   };
   submit = async (event) => {
     event.preventDefault();
@@ -41,9 +41,22 @@ class CreateNewSpaceContainer extends Component {
     formData.append("file", file);
     formData.append("upload_preset", "ipspnq0s");
 
+    const options = {
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent;
+        let percent = Math.floor((loaded * 100) / total);
+        console.log(`${loaded}kb of ${total}kb | ${percent}%`);
+
+        if (percent < 100) {
+          this.setState({ uploadPercentage: percent });
+        }
+      },
+    };
+
     const response = await axios.post(
       `https://api.cloudinary.com/v1_1/manjay/raw/upload`,
-      formData
+      formData,
+      options
     );
     // console.log("response", response.data);
 
@@ -53,8 +66,7 @@ class CreateNewSpaceContainer extends Component {
       description2: response.data.public_id,
       spaceId: this.props.spaces.length,
       redirect: true,
-      fileLoad: true,
-      buttonclicked: true,
+      buttonClick: true,
     });
     this.props.newFile(this.state);
   };
@@ -86,14 +98,12 @@ class CreateNewSpaceContainer extends Component {
   };
 
   render() {
-    console.log(this.props.spaces);
+    console.log(this.state);
     if (!this.props.user.auth) {
       return (
         <div>
-
           <Typography variant="h5" style={{ color: "white" }}>
             Please login/sign up to create a new space
-
           </Typography>
           <LoginFormContainer />
         </div>
@@ -124,14 +134,12 @@ class CreateNewSpaceContainer extends Component {
             onChange={this.onChangeForFile}
             values={this.state}
           />
-          {this.state.fileLoad == true ? <h5>loading...</h5> : <h5></h5>}
           <br />
           <br />
-          {this.state.buttonClicked == false ? (
-            <Button onClick={this.submit}>Upload</Button>
-          ) : (
-            <p></p>
-          )}
+          <Button onClick={this.submit}>Upload</Button>
+          <br />
+          <br />
+          <h6>Uploading {this.state.uploadPercentage} %</h6>
         </div>
       );
     } else {

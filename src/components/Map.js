@@ -21,6 +21,7 @@ L.Icon.Default.mergeOptions({
 class MapComp extends Component {
   state = {
     place: "",
+    buttonClicked: false,
   };
 
   componentDidMount() {
@@ -47,7 +48,7 @@ class MapComp extends Component {
   render() {
     const center = [37.7833, -122.4167];
     //console.log(this.props.place, "place");
-    //console.log(result);
+    console.log(this.state);
 
     return (
       <div>
@@ -75,11 +76,18 @@ class MapComp extends Component {
             variant="contained"
             color="primary"
             onClick={() => {
+              this.setState({ buttonClicked: true });
               this.props.place(this.state.place);
             }}
           >
             Add {this.state.place.text}
           </Button>
+          <br />
+          {this.state.buttonClicked ? (
+            <p>{this.state.place.text}, Added </p>
+          ) : (
+            <h4></h4>
+          )}
         </div>
       </div>
     );
