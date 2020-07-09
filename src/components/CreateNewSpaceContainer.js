@@ -8,6 +8,7 @@ import { Link, Redirect } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
 import Map from "./Map";
+
 class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
