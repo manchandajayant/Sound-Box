@@ -13,7 +13,6 @@ const iconSpace = new Icon({
   iconSize: [20, 20],
 });
 
-
 const Homepage = () => {
   const dispatch = useDispatch();
   const spaces = useSelector((state) => state.spaces);
@@ -22,8 +21,7 @@ const Homepage = () => {
   useEffect(() => {
     dispatch(showAllSpaces());
   }, [dispatch]);
-  console.log("ssp", spaces);
-
+  //console.log("ssp", spaces);
 
   if (!spaces) {
     return <h1>Loading...</h1>;
@@ -58,7 +56,6 @@ const Homepage = () => {
               >
                 <Link to={`/spaces/${activeSpace.id}`}>
                   <h2>{activeSpace.name}</h2>
-
                 </Link>
               </Popup>
             )}

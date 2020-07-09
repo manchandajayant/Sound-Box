@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../actions/userActions";
-import { useParams, Redirect } from "react-router-dom";
-import { Typography, Container, Paper } from "@material-ui/core";
+import { Redirect } from "react-router-dom";
+import { Typography, Container } from "@material-ui/core";
 import { Link } from "@material-ui/core";
 import "../CSS/login.css";
 import Avatar from "@material-ui/core/Avatar";

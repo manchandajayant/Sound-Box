@@ -8,6 +8,10 @@ export default function spaceReducer(state = initialState, action) {
       // console.log("new", action.payload);
       return action.payload;
     }
+    // case SPACE_DELETED: {
+    //   // console.log("new", action.payload);
+    //   return action.payload;
+    // }
 
     default: {
       return state;

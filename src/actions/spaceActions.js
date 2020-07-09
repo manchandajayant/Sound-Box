@@ -3,7 +3,7 @@ import superagent from "superagent";
 export const SPACES_FETCHED = "SPACES_FETCHED";
 export const SPACE_FETCHED = "SPACE_FETCHED";
 export const SPACE_CREATED = "SPACE_CREATED";
-
+// export const SPACE_DELETED = "SPACE_DELETED";
 const baseUrl = "https://pure-temple-48518.herokuapp.com";
 
 //const baseUrl = "http://localhost:4000";
@@ -43,6 +43,23 @@ export const showOneSpace = (id) => (dispatch, getState) => {
     })
     .catch(console.error);
 };
+
+// const OneSpaceDeleted = (space) => ({
+//   type: SPACE_DELETED,
+//   payload: space,
+// });
+
+// export const deleteOneSpace = (id) => (dispatch, getState) => {
+//   request
+//     .delete(`${baseUrl}/space/${id}`)
+//     .send(id)
+//     .then((res) => {
+//       const action = OneSpaceDeleted(res.body);
+//       dispatch(action);
+//       // console.log(res.body);
+//     })
+//     .catch(console.error);
+// };
 
 const newSpaceCreated = (space) => ({
   type: SPACE_CREATED,

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Map, TileLayer } from "react-leaflet";
@@ -34,7 +34,7 @@ class MapComp extends Component {
       for (let i = data.results.length - 1; i >= 0; i--) {
         results.addLayer(L.marker(data.results[i].latlng));
       }
-      console.log("res", data.results);
+      //console.log("res", data.results);
       if (data.results.length > 0) {
         this.setState({ place: data.results[0] });
       }
@@ -48,7 +48,7 @@ class MapComp extends Component {
   render() {
     const center = [37.7833, -122.4167];
     //console.log(this.props.place, "place");
-    console.log(this.state);
+    //console.log(this.state);
 
     return (
       <div>
@@ -86,7 +86,9 @@ class MapComp extends Component {
           {this.state.buttonClicked ? (
             <p>{this.state.place.text}, Added </p>
           ) : (
-            <h4></h4>
+            <h4>
+              <Fragment></Fragment>
+            </h4>
           )}
         </div>
       </div>

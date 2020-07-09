@@ -4,7 +4,7 @@ import { newSpace } from "../actions/spaceActions";
 import CreateNewSpace from "./CreateNewSpace";
 import { newFile } from "../actions/fileActions";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
 import Map from "./Map";
@@ -24,6 +24,7 @@ class CreateNewSpaceContainer extends Component {
     redirect: false,
     uploadPercentage: null,
     buttonClick: false,
+    fileLoad: false,
   };
   onChange = (event) => {
     this.setState({
@@ -31,7 +32,7 @@ class CreateNewSpaceContainer extends Component {
     });
   };
   onChangeForFile = (e) => {
-    console.log("e", e.target.files);
+    //console.log("e", e.target.files);
     this.setState({ file: e.target.files[0], fileLoad: true });
   };
   submit = async (event) => {
@@ -46,7 +47,7 @@ class CreateNewSpaceContainer extends Component {
       onUploadProgress: (progressEvent) => {
         const { loaded, total } = progressEvent;
         let percent = Math.floor((loaded * 100) / total);
-        console.log(`${loaded}kb of ${total}kb | ${percent}%`);
+        //console.log(`${loaded}kb of ${total}kb | ${percent}%`);
 
         if (percent < 100) {
           this.setState({ uploadPercentage: percent });
@@ -86,11 +87,11 @@ class CreateNewSpaceContainer extends Component {
       longitude: this.state.longitude,
       spaceMade: true,
     });
-    console.log(this.state);
+    //console.log(this.state);
   };
 
   addAPlace = (p) => {
-    console.log("place: ", p.latlng);
+    //console.log("place: ", p.latlng);
     this.setState({
       name: p.text,
       latitude: p.latlng.lat,
@@ -99,7 +100,7 @@ class CreateNewSpaceContainer extends Component {
   };
 
   render() {
-    console.log(this.state);
+    //console.log(this.props.spaces.length - 1);
     if (!this.props.user.auth) {
       return (
         <div>
@@ -137,10 +138,21 @@ class CreateNewSpaceContainer extends Component {
           />
           <br />
           <br />
-          <Button onClick={this.submit}>Upload</Button>
+          <Button
+            onClick={this.submit}
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+          >
+            {this.state.uploadPercentage > 0 ? (
+              <Typography>Uploading {this.state.uploadPercentage} %</Typography>
+            ) : (
+              <Typography>Upload</Typography>
+            )}
+          </Button>
           <br />
           <br />
-          <h6>Uploading {this.state.uploadPercentage} %</h6>
         </div>
       );
     } else {
