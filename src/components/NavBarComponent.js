@@ -64,13 +64,13 @@ export const NavBarComponent = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Item style={{ marginRight: "11px" }}>
-                <Button>
-                  <Link
-                    to="/spaces"
-                    style={{
-                      color: "black",
-                    }}
-                  >
+                <Link
+                  to="/spaces"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  <Button>
                     <Typography
                       style={{
                         fontFamily: "Dosis, sans-serif",
@@ -79,37 +79,37 @@ export const NavBarComponent = () => {
                     >
                       Spaces
                     </Typography>
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </Nav.Item>
               <Nav.Item style={{ marginRight: "10px" }}>
-                <Button>
-                  <Link
-                    to="/newspace"
-                    style={{
-                      color: "black",
-                    }}
-                  >
+                <Link
+                  to="/newspace"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  <Button>
                     <Typography style={{ fontFamily: "Dosis, sans-serif" }}>
                       Add a Space
                     </Typography>
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </Nav.Item>
 
               <Nav.Item style={{ marginRight: "10px" }}>
-                <Button>
-                  <Link
-                    to="/about"
-                    style={{
-                      color: "black",
-                    }}
-                  >
+                <Link
+                  to="/about"
+                  style={{
+                    color: "black",
+                  }}
+                >
+                  <Button>
                     <Typography style={{ fontFamily: "Dosis, sans-serif" }}>
                       About
                     </Typography>
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </Nav.Item>
               <Nav.Item style={{ marginRight: "10px" }}>
                 <Button>{log}</Button>

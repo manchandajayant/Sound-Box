@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showAllSpaces } from "../actions/spaceActions";
-
+import { withStyles } from "@material-ui/core/styles";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import { Link } from "react-router-dom";
 import "../CSS/Homepage.css";
 import { Grid, Paper, Typography } from "@material-ui/core";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const ColorLinearProgress = withStyles({
+  colorPrimary: {
+    backgroundColor: "#ffffff",
+  },
+  barColorPrimary: {
+    backgroundColor: "#000000",
+  },
+})(LinearProgress);
 
 const iconSpace = new Icon({
   iconUrl: "/pin.png",
@@ -24,7 +34,23 @@ const Homepage = () => {
   //console.log("ssp", spaces);
 
   if (spaces.length < 1) {
-    return <h1>Loading...</h1>;
+    return (
+      <div>
+        <Typography
+          variant="h4"
+          style={{
+            fontFamily: "Dosis, sans-serif",
+
+            letterSpacing: "5px",
+          }}
+        >
+          Relax, The map takes time to load up
+        </Typography>
+        <div style={{ paddingTop: "15%" }}>
+          <ColorLinearProgress />
+        </div>
+      </div>
+    );
   } else {
     return (
       <div>
