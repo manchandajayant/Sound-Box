@@ -58,7 +58,11 @@ export default class CreateNewSpace extends Component {
         </Grid>
         <div style={{ paddingTop: "5%" }}>
           <Button
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+            style={{
+              fontFamily: "Dosis, sans-serif",
+              letterSpacing: "5px",
+              backgroundColor: "rgba(100,100,100)",
+            }}
             type="submit"
             fullWidth
             variant="contained"

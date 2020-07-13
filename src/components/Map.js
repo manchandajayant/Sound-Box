@@ -71,7 +71,11 @@ class MapComp extends Component {
         <br />
         <div style={{ paddingTop: "2%" }}>
           <Button
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+            style={{
+              fontFamily: "Dosis, sans-serif",
+              letterSpacing: "5px",
+              backgroundColor: "rgba(100,100,100)",
+            }}
             type="submit"
             fullWidth
             variant="contained"
