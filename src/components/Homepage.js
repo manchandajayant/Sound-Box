@@ -32,7 +32,7 @@ const Homepage = () => {
           style={{
             fontFamily: "Dosis, sans-serif",
             paddingBottom: "10px",
-            letterSpacing: "3px",
+            letterSpacing: "5px",
           }}
           variant="h3"
         >
