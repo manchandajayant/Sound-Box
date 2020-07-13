@@ -23,7 +23,7 @@ const Homepage = () => {
   }, [dispatch]);
   //console.log("ssp", spaces);
 
-  if (!spaces) {
+  if (spaces.length < 1) {
     return <h1>Loading...</h1>;
   } else {
     return (

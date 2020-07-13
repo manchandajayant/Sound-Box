@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { signUpUser } from "../actions/userActions";
-
 //import LoginFormContainer from "./LoginFormContainer";
 import { Typography } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
