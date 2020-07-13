@@ -16,9 +16,7 @@ export const NavBarComponent = () => {
         color: "black",
       }}
     >
-      <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
-        Login
-      </Typography>
+      <Typography style={{ fontFamily: "Dosis, sans-serif" }}>Login</Typography>
     </Link>
   ) : (
     <Typography>{user.userName}</Typography>
@@ -45,7 +43,7 @@ export const NavBarComponent = () => {
 
                 borderRadius: "2px",
                 backgroundColor: "transparent",
-                fontFamily: "IBM Plex Serif,serif",
+                fontFamily: "Dosis, sans-serif",
               }}
             >
               {" "}
@@ -53,8 +51,9 @@ export const NavBarComponent = () => {
                 style={{
                   color: "black",
                   textDecoration: "inherit",
+                  letterSpacing: "3px",
                 }}
-                to="/spaces"
+                to="/"
               >
                 VERBER
               </Link>
@@ -72,7 +71,12 @@ export const NavBarComponent = () => {
                       color: "black",
                     }}
                   >
-                    <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+                    <Typography
+                      style={{
+                        fontFamily: "Dosis, sans-serif",
+                        letterSpacing: "2px",
+                      }}
+                    >
                       Spaces
                     </Typography>
                   </Link>
@@ -86,7 +90,7 @@ export const NavBarComponent = () => {
                       color: "black",
                     }}
                   >
-                    <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+                    <Typography style={{ fontFamily: "Dosis, sans-serif" }}>
                       Add a Space
                     </Typography>
                   </Link>
@@ -101,7 +105,7 @@ export const NavBarComponent = () => {
                       color: "black",
                     }}
                   >
-                    <Typography style={{ fontFamily: "IBM Plex Serif,serif" }}>
+                    <Typography style={{ fontFamily: "Dosis, sans-serif" }}>
                       About
                     </Typography>
                   </Link>

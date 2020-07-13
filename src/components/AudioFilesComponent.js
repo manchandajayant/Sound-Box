@@ -78,22 +78,42 @@ class AudioFilesComponent extends Component {
 
     const recordingsList =
       this.props.recordings.length === 0 ? (
-        <Typography>No recordings yet</Typography>
+        <Typography
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
+          No recordings yet
+        </Typography>
       ) : (
-        <Typography>Recordings</Typography>
+        <Typography
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
+          Recordings
+        </Typography>
       );
     // console.log("b", b);
     if (!this.props.user.auth) {
       return (
         <div>
           <br />
-          <Typography variant="h4">{recordingsList}</Typography>
+          <Typography
+            variant="h4"
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+          >
+            {recordingsList}
+          </Typography>
           <br />
           <br />
           {b.map((filtered, index) => {
             return (
               <div key={index} onClick={(e) => this.onPlay(index)}>
-                <Button style={{ color: "white" }} variant="outlined">
+                <Button
+                  style={{ color: "white" }}
+                  variant="outlined"
+                  style={{
+                    fontFamily: "Dosis, sans-serif",
+                    letterSpacing: "3px",
+                  }}
+                >
                   {filtered.name}
                 </Button>
               </div>
@@ -114,6 +134,8 @@ class AudioFilesComponent extends Component {
               style={{
                 color: "black",
                 textDecoration: "inherit",
+                fontFamily: "Dosis, sans-serif",
+                letterSpacing: "3px",
               }}
               to="/login"
             >

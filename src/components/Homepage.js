@@ -6,7 +6,7 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import { Link } from "react-router-dom";
 import "../CSS/Homepage.css";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper, Typography } from "@material-ui/core";
 
 const iconSpace = new Icon({
   iconUrl: "/pin.png",
@@ -28,8 +28,17 @@ const Homepage = () => {
   } else {
     return (
       <div>
-        <h1>Spaces</h1>
-        <Grid item xs={12} md={12} component={Paper} elevation={14} square>
+        <Typography
+          style={{
+            fontFamily: "Dosis, sans-serif",
+            paddingBottom: "10px",
+            letterSpacing: "3px",
+          }}
+          variant="h3"
+        >
+          Spaces
+        </Typography>
+        <Grid item xs={12} md={12} component={Paper} elevation={14}>
           <Map center={[56.992882804633986, 10.04150390625]} zoom={4}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -44,6 +53,9 @@ const Homepage = () => {
                     setactiveSpace(coord);
                   }}
                   icon={iconSpace}
+                  style={{
+                    fontFamily: "Dosis, sans-serif",
+                  }}
                 />
               );
             })}

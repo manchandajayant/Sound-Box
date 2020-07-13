@@ -20,14 +20,27 @@ export class About extends Component {
     const { classes } = this.props;
     return (
       <div>
-        <Typography variant="h4">About</Typography>
+        <Typography
+          variant="h4"
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
+          About
+        </Typography>
         <br />
         <br />
         <br />
-        <Typography>
+        <Typography
+          variant="h6"
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
           I am super enthusiastic about audio and sound, and using it for
-          interactive and experiential purposes. You can email me incase you are
-          interested in the resources i used.
+          interactive and experiential purposes. I made this during the corona
+          lockdown and as such had impulse response data available for very few
+          places, mostly through openair library recorded by researchers at
+          university of york. As things get normal i intend to record impulse
+          responses for more sites and catalogue them. Incase you you want to
+          contribute with any impulse response data for any space, then you
+          could mail me and i will accredit you here on the page
           <br />
           <br />
           If you are interested in creating your own impulse responses, here is
@@ -54,14 +67,18 @@ export class About extends Component {
         <br />
         <br />
         <br />
-        <Typography>
+        <Typography
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
           Impulse Responses from{" "}
           <Link href="#" onClick={() => window.open("https://openairlib.net")}>
             openairlib
           </Link>
         </Typography>
         <br />
-        <Typography>
+        <Typography
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
           <a
             href="http://creativecommons.org/licenses/by-sa/3.0/"
             target="_blank"
@@ -86,7 +103,12 @@ export class About extends Component {
         </Typography>
         <br />
         <br />
-        <Typography variant="h6">Get in touch</Typography>
+        <Typography
+          variant="h6"
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
+          Get in touch
+        </Typography>
         <IconButton
           aria-label="Linkedin.com"
           onClick={() =>
@@ -103,10 +125,18 @@ export class About extends Component {
         </IconButton>
         <br />
         <AlternateEmailIcon fontSize="large" />
-        <Typography>maanjayant@gmail.com</Typography>{" "}
+        <Typography
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
+          maanjayant@gmail.com
+        </Typography>{" "}
         <Button onClick={() => window.open("https://jayantmanchanda.com/")}>
           {" "}
-          <Typography>jayantmanchanda.com</Typography>
+          <Typography
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+          >
+            jayantmanchanda.com
+          </Typography>
         </Button>
       </div>
     );

@@ -57,11 +57,16 @@ const LoginPage = () => {
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+          >
             Sign in
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
+              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
               variant="outlined"
               margin="normal"
               required
@@ -75,6 +80,7 @@ const LoginPage = () => {
               value={email}
             />
             <TextField
+              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
               variant="outlined"
               margin="normal"
               required
@@ -98,13 +104,23 @@ const LoginPage = () => {
               style={{
                 backgroundColor: "rgba(100,100,100)",
                 color: "white",
+                fontFamily: "Dosis, sans-serif",
+                letterSpacing: "3px",
               }}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/signup" variant="body2" style={{ color: "black" }}>
+                <Link
+                  href="/signup"
+                  variant="body2"
+                  style={{
+                    color: "black",
+                    fontFamily: "Dosis, sans-serif",
+                    letterSpacing: "3px",
+                  }}
+                >
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

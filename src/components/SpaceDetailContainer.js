@@ -26,14 +26,14 @@ export class SpaceDetailContainer extends Component {
         <div>
           <Typography
             variant="h2"
-            style={{ fontFamily: "IBM Plex Serif,serif" }}
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
           >
             {this.props.space.name}
           </Typography>
           <br />
           <Typography
             variant="h5"
-            style={{ fontFamily: "IBM Plex Serif,serif" }}
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
           >
             {this.props.space.description}
           </Typography>
@@ -54,7 +54,8 @@ export class SpaceDetailContainer extends Component {
               style={{
                 color: "black",
                 textDecoration: "inherit",
-                fontFamily: "IBM Plex Serif,serif",
+                fontFamily: "Dosis, sans-serif",
+                letterSpacing: "5px",
               }}
               to={`/spaces/${this.props.space.id}/audiofiles`}
             >
@@ -64,7 +65,14 @@ export class SpaceDetailContainer extends Component {
         </div>
       );
     } else {
-      return <h1>Loading....</h1>;
+      return (
+        <Typography
+          variant="h3"
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+        >
+          Loading....
+        </Typography>
+      );
     }
   }
 }

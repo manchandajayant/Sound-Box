@@ -10,8 +10,9 @@ const styles = {
   },
   grid: {
     fontSize: 85,
-    fontFamily: "IBM Plex Serif,serif",
+    fontFamily: "Dosis, sans-serif",
     color: "black",
+    letterSpacing: "3px",
   },
 };
 
@@ -22,7 +23,7 @@ class LandingPage extends Component {
       <div className={classes.root}>
         <Grid>
           <Typography
-            variant="h1"
+            variant="h3"
             className={classes.grid}
             style={{ color: "black" }}
           >
@@ -36,8 +37,12 @@ class LandingPage extends Component {
         <br />
 
         <Typography
-          variant="h4"
-          style={{ fontFamily: "IBM Plex Serif,serif", color: "black" }}
+          variant="h5"
+          style={{
+            fontFamily: "Dosis, sans-serif",
+            color: "black",
+            letterSpacing: "5px",
+          }}
         >
           Verber is an application based on experiencing historical sites and
           spaces through sound simulation. You can choose from the available
@@ -57,7 +62,8 @@ class LandingPage extends Component {
                 color: "black",
                 textDecoration: "inherit",
                 fontSize: "40px",
-                fontFamily: "IBM Plex Serif,serif",
+                fontFamily: "Dosis, sans-serif",
+                letterSpacing: "3px",
               }}
             >
               START EXPLORING

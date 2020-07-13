@@ -57,13 +57,24 @@ const SignUp = () => {
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{
+              fontFamily: "Dosis, sans-serif",
+              letterSpacing: "3px",
+            }}
+          >
             Sign up
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  style={{
+                    fontFamily: "Dosis, sans-serif",
+                    letterSpacing: "3px",
+                  }}
                   autoComplete="uname"
                   variant="outlined"
                   required
@@ -77,6 +88,10 @@ const SignUp = () => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  style={{
+                    fontFamily: "Dosis, sans-serif",
+                    letterSpacing: "3px",
+                  }}
                   variant="outlined"
                   required
                   fullWidth
@@ -101,6 +116,10 @@ const SignUp = () => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  style={{
+                    fontFamily: "Dosis, sans-serif",
+                    letterSpacing: "3px",
+                  }}
                   variant="outlined"
                   required
                   fullWidth
@@ -124,13 +143,22 @@ const SignUp = () => {
               style={{
                 backgroundColor: "rgba(100,100,100)",
                 color: "white",
+                fontFamily: "Dosis, sans-serif",
+                letterSpacing: "3px",
               }}
             >
               Sign Up
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link
+                  href="/login"
+                  variant="body2"
+                  style={{
+                    fontFamily: "Dosis, sans-serif",
+                    letterSpacing: "3px",
+                  }}
+                >
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -142,7 +170,10 @@ const SignUp = () => {
   } else {
     return (
       <div>
-        <Typography varaint="h4">
+        <Typography
+          varaint="h4"
+          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+        >
           Welcome {user.newUser.userName} <br />
           <Link href="/login"> Now Login to conitnue</Link>
         </Typography>

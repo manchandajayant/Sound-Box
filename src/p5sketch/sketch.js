@@ -41,9 +41,9 @@ export default function sketch(p) {
   };
   p.draw = function () {
     p.background("rgba(230, 250, 230, 0.01)");
-    //p.fill(4, 20);
 
-    //let spectrum = fft.analyze();
+    p.cssFunction();
+    p.cssFunctionButton2();
 
     samples = analyzer.waveform();
     var bufLen = samples.length;
@@ -66,9 +66,9 @@ export default function sketch(p) {
     // console.log("props", props);
   };
 
-  p.pressed = () => {
-    // console.log("hello");
-  };
+  // p.pressed = () => {
+  //   // console.log("hello");
+  // };
 
   p.buttonPressed = () => {
     mic.start();
@@ -84,5 +84,52 @@ export default function sketch(p) {
   };
   p.touchStarted = function () {
     p.getAudioContext().resume();
+  };
+
+  p.hover = () => {
+    button.style("border", "2px solid black");
+  };
+  p.out = () => {
+    button.style("border", "0.12px solid black");
+  };
+  p.hoverButton2 = () => {
+    button2.style("border", "2px solid black");
+  };
+  p.outButton2 = () => {
+    button2.style("border", "0.12px solid black");
+  };
+
+  p.cssFunction = () => {
+    button.style("font-family", "Dosis, sans-serif");
+    button.style("display", "inline-block");
+    button.style("padding", "0.35em 1.2em");
+    button.style("border", "0.12px solid black");
+    button.style("margin", "0 0.3em 0.3em 0");
+    button.style("border-radius", "0.12em;");
+    button.style("box-sizing", "border-box");
+    button.style("text-decoration", "none");
+    button.style("font-weight", "300");
+    button.style("text-align", "center");
+    button.style("transition", "all 0.2s");
+    button.style("background-color", "transparent");
+    button.mouseOver(p.hover);
+    button.mouseOut(p.out);
+  };
+
+  p.cssFunctionButton2 = () => {
+    button2.style("font-family", "Dosis, sans-serif");
+    button2.style("display", "inline-block");
+    button2.style("padding", "0.35em 1.2em");
+    button2.style("border", "0.12px solid black");
+    button2.style("margin", "0 0.3em 0.3em 0");
+    button2.style("border-radius", "0.12em;");
+    button2.style("box-sizing", "border-box");
+    button2.style("text-decoration", "none");
+    button2.style("font-weight", "300");
+    button2.style("text-align", "center");
+    button2.style("transition", "all 0.2s");
+    button2.style("background-color", "transparent");
+    button2.mouseOver(p.hoverButton2);
+    button2.mouseOut(p.outButton2);
   };
 }

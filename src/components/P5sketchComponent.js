@@ -15,7 +15,15 @@ class P5sketchComponent extends React.Component {
     //console.log("lll", this.props);
     return (
       <div className="sketch">
-        <Typography variant="subtitle1">
+        <Typography
+          variant="subtitle1"
+          style={{
+            color: "black",
+            textDecoration: "inherit",
+            fontFamily: "Dosis, sans-serif",
+            letterSpacing: "3px",
+          }}
+        >
           Please Use Headphones for using the Mic
         </Typography>
         <P5Wrapper
@@ -28,13 +36,13 @@ class P5sketchComponent extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   spaces: state.spaces,
-  space: state.space
+  space: state.space,
 });
 
 const mapDispatchToProps = {
-  showAllSpaces
+  showAllSpaces,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(P5sketchComponent);
