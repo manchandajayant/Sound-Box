@@ -28,12 +28,9 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 - Redux
 - Material-UI
 - p5.js
+- Leaflet Maps
 
 ### For the back end
-
-
-
-
 
 - Node.Js
 - PostgreSQL Database
@@ -43,7 +40,7 @@ The application also offers the users to upload Ambient/Field Recording Data rel
 
 ## Demo
 
-![DEMO](Demo/demo.gif)
+![DEMO](https://media.giphy.com/media/jnhm3utNTvtJYIjSOl/giphy.gif)
 
 ## About the project
 
