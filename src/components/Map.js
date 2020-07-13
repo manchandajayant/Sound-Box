@@ -3,7 +3,7 @@ import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Map, TileLayer } from "react-leaflet";
 import "../CSS/Map.css";
-import { Button, Grid, Paper } from "@material-ui/core";
+import { Button, Grid, Paper, Typography } from "@material-ui/core";
 import "leaflet/dist/leaflet.css";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "leaflet/dist/leaflet.js";
@@ -71,6 +71,7 @@ class MapComp extends Component {
         <br />
         <div style={{ paddingTop: "2%" }}>
           <Button
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
             type="submit"
             fullWidth
             variant="contained"
@@ -84,7 +85,12 @@ class MapComp extends Component {
           </Button>
           <br />
           {this.state.buttonClicked ? (
-            <p>{this.state.place.text}, Added </p>
+            <Typography
+              variant="p"
+              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+            >
+              Added {this.state.place.text}
+            </Typography>
           ) : (
             <h4>
               <Fragment></Fragment>

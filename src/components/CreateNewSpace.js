@@ -11,7 +11,11 @@ export default class CreateNewSpace extends Component {
           <br />
           <br />
           <Grid item xs={12} sm={6}>
-            <Typography>Description</Typography>
+            <Typography
+              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+            >
+              Description
+            </Typography>
             <br />
             <TextField
               variant="outlined"
@@ -28,7 +32,11 @@ export default class CreateNewSpace extends Component {
           <br />
           <br />
           <Grid item xs={12} sm={6}>
-            <Typography>Image Url</Typography>
+            <Typography
+              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+            >
+              Image Url
+            </Typography>
             <br />
             <TextField
               type="text"
@@ -50,6 +58,7 @@ export default class CreateNewSpace extends Component {
         </Grid>
         <div style={{ paddingTop: "5%" }}>
           <Button
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
             type="submit"
             fullWidth
             variant="contained"

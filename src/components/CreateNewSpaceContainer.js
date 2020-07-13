@@ -104,8 +104,15 @@ class CreateNewSpaceContainer extends Component {
     if (!this.props.user.auth) {
       return (
         <div>
-          <Typography variant="h5" style={{ color: "white" }}>
-            Please login/sign up to create a new space
+          <Typography
+            variant="h5"
+            style={{
+              color: "white",
+              fontFamily: "Dosis, sans-serif",
+              letterSpacing: "5px",
+            }}
+          >
+            Please login/sign up to add a new space
           </Typography>
           <LoginFormContainer />
         </div>
@@ -113,7 +120,12 @@ class CreateNewSpaceContainer extends Component {
     } else if (this.state.redirect) {
       return (
         <Link
-          style={{ color: "black", textDecoration: "inherit" }}
+          style={{
+            color: "black",
+            textDecoration: "inherit",
+            fontFamily: "Dosis, sans-serif",
+            letterSpacing: "5px",
+          }}
           to={`/spaces/${this.props.spaces.length}`}
         >
           You added a space, click to open it
@@ -126,7 +138,11 @@ class CreateNewSpaceContainer extends Component {
           <br />
           <br />
           <br />
-          <Typography>Impulse Response</Typography>
+          <Typography
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+          >
+            Impulse Response
+          </Typography>
           <br />
           <br />
           <TextField
@@ -146,9 +162,23 @@ class CreateNewSpaceContainer extends Component {
             color="primary"
           >
             {this.state.uploadPercentage > 0 ? (
-              <Typography>Uploading {this.state.uploadPercentage} %</Typography>
+              <Typography
+                style={{
+                  fontFamily: "Dosis, sans-serif",
+                  letterSpacing: "5px",
+                }}
+              >
+                Uploading {this.state.uploadPercentage} %
+              </Typography>
             ) : (
-              <Typography>Upload</Typography>
+              <Typography
+                style={{
+                  fontFamily: "Dosis, sans-serif",
+                  letterSpacing: "5px",
+                }}
+              >
+                Upload
+              </Typography>
             )}
           </Button>
           <br />
@@ -158,14 +188,22 @@ class CreateNewSpaceContainer extends Component {
     } else {
       return (
         <div>
-          <Typography variant="h3">Space Details </Typography>
+          <Typography
+            variant="h3"
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+          >
+            Space Details{" "}
+          </Typography>
 
           <br />
           <br />
           <br />
-          <Typography>
+          <Typography
+            variant="h6"
+            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+          >
             *To add a space, you will need an impulse response, if you are not
-            aware what that is, you could go to the{" "}
+            aware of what that is, you could go to the{" "}
             <Link to="/about">About</Link> page
           </Typography>
           <br />
