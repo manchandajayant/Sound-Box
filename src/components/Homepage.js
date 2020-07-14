@@ -28,9 +28,9 @@ const Homepage = () => {
   const spaces = useSelector((state) => state.spaces);
   const [activeSpace, setactiveSpace] = useState(null);
 
-  // useEffect(() => {
-  //   dispatch(showAllSpaces());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(showAllSpaces());
+  }, [dispatch]);
   //console.log("ssp", spaces);
 
   if (spaces.length < 1) {
