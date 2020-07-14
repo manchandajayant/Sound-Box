@@ -42,6 +42,8 @@ class LandingPage extends Component {
             fontFamily: "Dosis, sans-serif",
             color: "black",
             letterSpacing: "5px",
+            textAlign: "justify",
+            textJustify: "inter-word ",
           }}
         >
           Verber is an application based on experiencing historical sites and
@@ -55,21 +57,21 @@ class LandingPage extends Component {
           <br />
           <br />
           <br />
-          <Button>
-            <Link
-              to="/spaces"
-              style={{
-                color: "black",
-                textDecoration: "inherit",
-                fontSize: "40px",
-                fontFamily: "Dosis, sans-serif",
-                letterSpacing: "3px",
-              }}
-            >
-              START EXPLORING
-            </Link>
-          </Button>
         </Typography>
+        <Button>
+          <Link
+            to="/spaces"
+            style={{
+              color: "black",
+              textDecoration: "inherit",
+              fontSize: "50px",
+              fontFamily: "Dosis, sans-serif",
+              letterSpacing: "3px",
+            }}
+          >
+            <Typography variant="h4">START EXPLORING</Typography>
+          </Link>
+        </Button>
       </div>
     );
   }
