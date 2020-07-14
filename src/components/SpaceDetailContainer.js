@@ -33,7 +33,12 @@ export class SpaceDetailContainer extends Component {
           <br />
           <Typography
             variant="h5"
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
+            style={{
+              fontFamily: "Dosis, sans-serif",
+              letterSpacing: "5px",
+              textAlign: "justify",
+              textJustify: "inter-word ",
+            }}
           >
             {this.props.space.description}
           </Typography>
