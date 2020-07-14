@@ -31,7 +31,12 @@ export class About extends Component {
         <br />
         <Typography
           variant="h6"
-          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+          style={{
+            fontFamily: "Dosis, sans-serif",
+            letterSpacing: "3px",
+            textAlign: "justify",
+            textJustify: "inter-word ",
+          }}
         >
           I am super enthusiastic about audio and sound, and using it for
           interactive and experiential purposes. I made this during the corona
