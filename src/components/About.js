@@ -129,7 +129,6 @@ export class About extends Component {
           <GitHubIcon fontSize="large" />
         </IconButton>
         <br />
-        <AlternateEmailIcon fontSize="large" />
         <Typography
           style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
         >

@@ -3,11 +3,22 @@ import { connect } from "react-redux";
 import { newSpace } from "../actions/spaceActions";
 import CreateNewSpace from "./CreateNewSpace";
 import { newFile } from "../actions/fileActions";
+import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
 import Map from "./Map";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const ColorLinearProgress = withStyles({
+  colorPrimary: {
+    backgroundColor: "#ffffff",
+  },
+  barColorPrimary: {
+    backgroundColor: "rgba(100,100,100)",
+  },
+})(LinearProgress);
 //import Map2 from "./Map2";
 
 class CreateNewSpaceContainer extends Component {
@@ -161,8 +172,13 @@ class CreateNewSpaceContainer extends Component {
             fullWidth
             variant="contained"
             color="primary"
+            style={{ backgroundColor: "rgb(100,100,100)" }}
           >
-            {this.state.uploadPercentage > 0 ? (
+            Upload
+          </Button>
+          {this.state.uploadPercentage > 0 ? (
+            <div style={{ paddingTop: "10%" }}>
+              <ColorLinearProgress value={this.state.uploadPercentage} />
               <Typography
                 style={{
                   fontFamily: "Dosis, sans-serif",
@@ -171,17 +187,15 @@ class CreateNewSpaceContainer extends Component {
               >
                 Uploading {this.state.uploadPercentage} %
               </Typography>
-            ) : (
-              <Typography
-                style={{
-                  fontFamily: "Dosis, sans-serif",
-                  letterSpacing: "5px",
-                }}
-              >
-                Upload
-              </Typography>
-            )}
-          </Button>
+            </div>
+          ) : (
+            <Typography
+              style={{
+                fontFamily: "Dosis, sans-serif",
+                letterSpacing: "5px",
+              }}
+            ></Typography>
+          )}
           <br />
           <br />
         </div>
@@ -208,8 +222,8 @@ class CreateNewSpaceContainer extends Component {
             <Link to="/about">About</Link> page
           </Typography>
           <br />
-          {/* <Map place={this.addAPlace} /> */}
-          <Map />
+          <Map place={this.addAPlace} />
+
           {/* <Map2 /> */}
           <br />
           <br />

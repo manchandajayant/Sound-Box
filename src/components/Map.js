@@ -90,7 +90,7 @@ class MapComp extends Component {
           <br />
           {this.state.buttonClicked ? (
             <Typography
-              variant="p"
+              variant="h6"
               style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
             >
               Added {this.state.place.text}
