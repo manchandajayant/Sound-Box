@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
 import Map from "./Map";
-import Map2 from "./Map2";
+//import Map2 from "./Map2";
 
 class CreateNewSpaceContainer extends Component {
   state = {
@@ -210,7 +210,7 @@ class CreateNewSpaceContainer extends Component {
           <br />
           {/* <Map place={this.addAPlace} /> */}
           <Map />
-          <Map2 />
+          {/* <Map2 /> */}
           <br />
           <br />
           <CreateNewSpace
