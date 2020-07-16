@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { showAllSpaces } from "../actions/spaceActions";
-import { withStyles } from "@material-ui/core/styles";
+import { showAllSpaces } from "../Store/actions/spaceActions";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import { Link } from "react-router-dom";
 import "../CSS/Homepage.css";
 import { Grid, Paper, Typography } from "@material-ui/core";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {
@@ -18,12 +19,37 @@ const ColorLinearProgress = withStyles({
   },
 })(LinearProgress);
 
+const useStyles = makeStyles((theme) => ({
+  load: {
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "5px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "20px",
+    },
+  },
+  bar: {
+    paddingTop: "15%",
+  },
+  heading: {
+    fontFamily: "Dosis, sans-serif",
+    paddingBottom: "10px",
+    letterSpacing: "5px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "25px",
+    },
+  },
+}));
+
 const iconSpace = new Icon({
   iconUrl: "/pin.png",
   iconSize: [20, 20],
 });
 
 const Homepage = () => {
+  const classes = useStyles();
+  const matches = useMediaQuery("(max-width:600px)");
+  const zoom = matches ? 2.5 : 4;
+  console.log(zoom);
   const dispatch = useDispatch();
   const spaces = useSelector((state) => state.spaces);
   const [activeSpace, setactiveSpace] = useState(null);
@@ -36,17 +62,10 @@ const Homepage = () => {
   if (spaces.length < 1) {
     return (
       <div>
-        <Typography
-          variant="h4"
-          style={{
-            fontFamily: "Dosis, sans-serif",
-
-            letterSpacing: "5px",
-          }}
-        >
+        <Typography variant="h4" style={{}} className={classes.load}>
           Relax, The map takes time to load up
         </Typography>
-        <div style={{ paddingTop: "15%" }}>
+        <div style={{}} className={classes.bar}>
           <ColorLinearProgress />
         </div>
       </div>
@@ -54,18 +73,11 @@ const Homepage = () => {
   } else {
     return (
       <div>
-        <Typography
-          style={{
-            fontFamily: "Dosis, sans-serif",
-            paddingBottom: "10px",
-            letterSpacing: "5px",
-          }}
-          variant="h3"
-        >
+        <Typography className={classes.heading} variant="h3">
           Spaces
         </Typography>
         <Grid item xs={12} md={12} component={Paper} elevation={14}>
-          <Map center={[56.992882804633986, 10.04150390625]} zoom={4}>
+          <Map center={[56.992882804633986, 10.04150390625]} zoom={zoom}>
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../actions/userActions";
+import { login } from "../Store/actions/userActions";
 import { Redirect } from "react-router-dom";
 import { Typography, Container } from "@material-ui/core";
 import { Link } from "@material-ui/core";
@@ -45,6 +45,8 @@ const LoginPage = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(login(data));
+    let s = sessionStorage.setItem("mySession", user);
+    console.log(s);
   };
 
   if (user.auth) {
