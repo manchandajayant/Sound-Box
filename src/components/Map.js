@@ -41,14 +41,8 @@ class MapComp extends Component {
     });
   }
 
-  // buttonClick =()=>{
-  //   this.setState({button(true)})
-  // }
-
   render() {
-    const center = [37.7833, -122.4167];
-    //console.log(this.props.place, "place");
-    //console.log(this.state);
+    const center = [56.992882804633986, 10.04150390625];
 
     return (
       <div>
@@ -56,7 +50,7 @@ class MapComp extends Component {
           <Map
             style={{ height: "50vh", width: "100%" }}
             center={center}
-            zoom="10"
+            zoom="3"
             ref={(m) => {
               this.leafletMap = m;
             }}

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { newSpace } from "../actions/spaceActions";
+import { newSpace } from "../Store/actions/spaceActions";
 import CreateNewSpace from "./CreateNewSpace";
-import { newFile } from "../actions/fileActions";
+import { newFile } from "../Store/actions/fileActions";
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -10,6 +10,46 @@ import { Typography, TextField, Button } from "@material-ui/core";
 import LoginFormContainer from "./LoginFormContainer";
 import Map from "./Map";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import PropTypes from "prop-types";
+const styles = (theme) => ({
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    overflow: "hidden",
+  },
+  login: {
+    color: "white",
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "5px",
+  },
+  Link: {
+    color: "black",
+    textDecoration: "inherit",
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "5px",
+  },
+  description: {
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "5px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "12px",
+    },
+  },
+  button: {
+    backgroundColor: "rgb(100,100,100)",
+  },
+  typography: {
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "5px",
+  },
+  heading: {
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "5px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "30px",
+    },
+  },
+});
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {
@@ -113,17 +153,11 @@ class CreateNewSpaceContainer extends Component {
 
   render() {
     //console.log(this.props.spaces.length - 1);
+    const { classes, theme } = this.props;
     if (!this.props.user.auth) {
       return (
         <div>
-          <Typography
-            variant="h5"
-            style={{
-              color: "white",
-              fontFamily: "Dosis, sans-serif",
-              letterSpacing: "5px",
-            }}
-          >
+          <Typography variant="h5" className={classes.login}>
             Please login/sign up to add a new space
           </Typography>
           <LoginFormContainer />
@@ -132,12 +166,7 @@ class CreateNewSpaceContainer extends Component {
     } else if (this.state.redirect) {
       return (
         <Link
-          style={{
-            color: "black",
-            textDecoration: "inherit",
-            fontFamily: "Dosis, sans-serif",
-            letterSpacing: "5px",
-          }}
+          className={classes.Link}
           to={`/spaces/${this.props.spaces.length}`}
         >
           You added a space, click to open it
@@ -150,9 +179,7 @@ class CreateNewSpaceContainer extends Component {
           <br />
           <br />
           <br />
-          <Typography
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
-          >
+          <Typography className={classes.typography}>
             Impulse Response
           </Typography>
           <br />
@@ -172,29 +199,19 @@ class CreateNewSpaceContainer extends Component {
             fullWidth
             variant="contained"
             color="primary"
-            style={{ backgroundColor: "rgb(100,100,100)" }}
+            className={classes.button}
           >
             Upload
           </Button>
           {this.state.uploadPercentage > 0 ? (
             <div style={{ paddingTop: "10%" }}>
               <ColorLinearProgress value={this.state.uploadPercentage} />
-              <Typography
-                style={{
-                  fontFamily: "Dosis, sans-serif",
-                  letterSpacing: "5px",
-                }}
-              >
+              <Typography className={classes.typography}>
                 Uploading {this.state.uploadPercentage} %
               </Typography>
             </div>
           ) : (
-            <Typography
-              style={{
-                fontFamily: "Dosis, sans-serif",
-                letterSpacing: "5px",
-              }}
-            ></Typography>
+            <Typography className={classes.typography}></Typography>
           )}
           <br />
           <br />
@@ -203,20 +220,14 @@ class CreateNewSpaceContainer extends Component {
     } else {
       return (
         <div>
-          <Typography
-            variant="h3"
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
-          >
+          <Typography variant="h3" className={classes.heading}>
             Space Details{" "}
           </Typography>
 
           <br />
           <br />
           <br />
-          <Typography
-            variant="h6"
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
-          >
+          <Typography variant="h6" className={classes.description}>
             *To add a space, you will need an impulse response, if you are not
             aware of what that is, you could go to the{" "}
             <Link to="/about">About</Link> page
@@ -238,6 +249,11 @@ class CreateNewSpaceContainer extends Component {
   }
 }
 
+CreateNewSpaceContainer.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   spaces: state.spaces,
   user: state.users,
@@ -252,4 +268,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CreateNewSpaceContainer);
+)(withStyles(styles, { withTheme: true })(CreateNewSpaceContainer));
