@@ -32,6 +32,27 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  Typography: {
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "3px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+    },
+  },
+  button: {
+    backgroundColor: "rgba(100,100,100)",
+    color: "white",
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "3px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+    },
+  },
+  Link: {
+    color: "black",
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "3px",
+  },
 }));
 
 const LoginPage = () => {
@@ -62,13 +83,13 @@ const LoginPage = () => {
           <Typography
             component="h1"
             variant="h5"
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+            className={classes.Typography}
           >
             Sign in
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
-              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+              className={classes.Typography}
               variant="outlined"
               margin="normal"
               required
@@ -82,7 +103,7 @@ const LoginPage = () => {
               value={email}
             />
             <TextField
-              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
+              className={classes.Typography}
               variant="outlined"
               margin="normal"
               required
@@ -103,26 +124,13 @@ const LoginPage = () => {
               variant="contained"
               color="primary"
               onClick={onSubmit}
-              style={{
-                backgroundColor: "rgba(100,100,100)",
-                color: "white",
-                fontFamily: "Dosis, sans-serif",
-                letterSpacing: "3px",
-              }}
+              className={classes.button}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item>
-                <Link
-                  href="/signup"
-                  variant="body2"
-                  style={{
-                    color: "black",
-                    fontFamily: "Dosis, sans-serif",
-                    letterSpacing: "3px",
-                  }}
-                >
+                <Link href="/signup" variant="body2" className={classes.Link}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

@@ -33,6 +33,22 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  Typography: {
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "3px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+    },
+  },
+  button: {
+    backgroundColor: "rgba(100,100,100)",
+    color: "white",
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "3px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+    },
+  },
 }));
 
 const SignUp = () => {
@@ -60,10 +76,7 @@ const SignUp = () => {
           <Typography
             component="h1"
             variant="h5"
-            style={{
-              fontFamily: "Dosis, sans-serif",
-              letterSpacing: "3px",
-            }}
+            className={classes.Typography}
           >
             Sign up
           </Typography>
@@ -71,10 +84,7 @@ const SignUp = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  style={{
-                    fontFamily: "Dosis, sans-serif",
-                    letterSpacing: "3px",
-                  }}
+                  className={classes.Typography}
                   autoComplete="uname"
                   variant="outlined"
                   required
@@ -88,10 +98,7 @@ const SignUp = () => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  style={{
-                    fontFamily: "Dosis, sans-serif",
-                    letterSpacing: "3px",
-                  }}
+                  className={classes.Typography}
                   variant="outlined"
                   required
                   fullWidth
@@ -116,10 +123,7 @@ const SignUp = () => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  style={{
-                    fontFamily: "Dosis, sans-serif",
-                    letterSpacing: "3px",
-                  }}
+                  className={classes.Typography}
                   variant="outlined"
                   required
                   fullWidth
@@ -140,12 +144,7 @@ const SignUp = () => {
               variant="contained"
               color="primary"
               onClick={onSubmit}
-              style={{
-                backgroundColor: "rgba(100,100,100)",
-                color: "white",
-                fontFamily: "Dosis, sans-serif",
-                letterSpacing: "3px",
-              }}
+              className={classes.button}
             >
               Sign Up
             </Button>
@@ -154,10 +153,7 @@ const SignUp = () => {
                 <Link
                   href="/login"
                   variant="body2"
-                  style={{
-                    fontFamily: "Dosis, sans-serif",
-                    letterSpacing: "3px",
-                  }}
+                  className={classes.Typography}
                 >
                   Already have an account? Sign in
                 </Link>
@@ -170,10 +166,7 @@ const SignUp = () => {
   } else {
     return (
       <div>
-        <Typography
-          varaint="h4"
-          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
-        >
+        <Typography varaint="h4" className={classes.Typography}>
           Welcome {user.newUser.userName} <br />
           <Link href="/login"> Now Login to conitnue</Link>
         </Typography>
