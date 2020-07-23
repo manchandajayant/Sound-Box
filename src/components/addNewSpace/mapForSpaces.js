@@ -11,7 +11,7 @@ import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "leaflet/dist/leaflet.js";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js";
 
-import "../../CSS/Map.css";
+import "./Map.css";
 
 delete L.Icon.Default.prototype._getIconUrl;
 

@@ -16,7 +16,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
 import { login } from "../../Store/actions/userActions";
-import "../../CSS/login.css";
+import "./login.css";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

@@ -15,7 +15,7 @@ import {
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 import { showAllSpaces } from "../../Store/actions/spaceActions";
-import "../../CSS/Homepage.css";
+import "./Homepage.css";
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {

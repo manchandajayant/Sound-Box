@@ -10,9 +10,9 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 
 import { newSpace } from "../../Store/actions/spaceActions";
 import { newFile } from "../../Store/actions/fileActions";
-import addNewSpace from "./addNewSpace";
-import loginFormContainer from "../login/loginFormContainer";
-import mapForSpaces from "./mapForSpaces";
+import AddNewSpace from "./addNewSpace";
+import LoginFormContainer from "../login/loginFormContainer";
+import MapForSpaces from "./mapForSpaces";
 
 const styles = (theme) => ({
   root: {
@@ -158,7 +158,7 @@ class CreateNewSpaceContainer extends Component {
           <Typography variant="h5" className={classes.login}>
             Please login/sign up to add a new space
           </Typography>
-          <loginFormContainer />
+          <LoginFormContainer />
         </div>
       );
     } else if (this.state.redirect) {
@@ -231,11 +231,11 @@ class CreateNewSpaceContainer extends Component {
             <Link to="/about">About</Link> page
           </Typography>
           <br />
-          <mapForSpaces place={this.addAPlace} />
+          <MapForSpaces place={this.addAPlace} />
 
           <br />
           <br />
-          <addNewSpace
+          <AddNewSpace
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             values={this.state}

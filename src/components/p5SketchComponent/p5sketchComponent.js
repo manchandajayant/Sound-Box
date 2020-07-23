@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import sketch from "../../p5sketch/sketch";
 import { showAllSpaces } from "../../Store/actions/spaceActions";
 
-import "../../CSS/sketchComponent.css";
+import "./sketchComponent.css";
 
 const useStyles = makeStyles((theme) => ({
   description: {

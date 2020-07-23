@@ -17,7 +17,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { newRecording } from "../../Store/actions/recordingActions";
 import { fetchRecordings } from "../../Store/actions/recordingActions";
 
-import "../../CSS/AudioPlayer.css";
+import "./AudioPlayer.css";
 
 const styles = {
   root: {
