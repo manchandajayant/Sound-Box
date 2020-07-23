@@ -27,7 +27,7 @@ const styles = {
   },
 };
 
-class fieldRecordingsForSpacesComponent extends Component {
+class FieldRecordingsForSpacesComponent extends Component {
   state = {
     name: "",
     location: "",
@@ -194,7 +194,7 @@ class fieldRecordingsForSpacesComponent extends Component {
     }
   }
 }
-fieldRecordingsForSpacesComponent.propTypes = {
+FieldRecordingsForSpacesComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -213,4 +213,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(fieldRecordingsForSpacesComponent));
+)(withStyles(styles)(FieldRecordingsForSpacesComponent));

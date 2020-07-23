@@ -22,7 +22,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png",
 });
 
-class mapForSpaces extends Component {
+class MapForSpaces extends Component {
   state = {
     place: "",
     buttonClicked: false,
@@ -104,4 +104,4 @@ class mapForSpaces extends Component {
   }
 }
 
-export default mapForSpaces;
+export default MapForSpaces;

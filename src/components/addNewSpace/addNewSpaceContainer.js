@@ -63,7 +63,7 @@ const ColorLinearProgress = withStyles({
   },
 })(LinearProgress);
 
-class CreateNewSpaceContainer extends Component {
+class AddNewSpaceContainer extends Component {
   state = {
     name: "",
     description: "",
@@ -174,14 +174,9 @@ class CreateNewSpaceContainer extends Component {
       return (
         <div>
           {" "}
-          <br />
-          <br />
-          <br />
           <Typography className={classes.typography}>
             Impulse Response
           </Typography>
-          <br />
-          <br />
           <TextField
             type="file"
             name="file"
@@ -189,8 +184,6 @@ class CreateNewSpaceContainer extends Component {
             onChange={this.onChangeForFile}
             values={this.state}
           />
-          <br />
-          <br />
           <Button
             onClick={this.submit}
             type="submit"
@@ -211,8 +204,6 @@ class CreateNewSpaceContainer extends Component {
           ) : (
             <Typography className={classes.typography}></Typography>
           )}
-          <br />
-          <br />
         </div>
       );
     } else {
@@ -246,7 +237,7 @@ class CreateNewSpaceContainer extends Component {
   }
 }
 
-CreateNewSpaceContainer.propTypes = {
+AddNewSpaceContainer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
@@ -265,4 +256,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles, { withTheme: true })(CreateNewSpaceContainer));
+)(withStyles(styles, { withTheme: true })(AddNewSpaceContainer));
