@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import ReactPlayer from "react-player";
+
 import { Typography, Container, Grid, Button } from "@material-ui/core";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import ReactPlayer from "react-player";
 import { makeStyles } from "@material-ui/core/styles";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import IconButton from "@material-ui/core/IconButton";
-import PropTypes from "prop-types";
 import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({

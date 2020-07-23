@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../Store/actions/userActions";
 import { Redirect } from "react-router-dom";
-import { Typography, Container } from "@material-ui/core";
-import { Link } from "@material-ui/core";
-import "../CSS/login.css";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
+import {
+  Typography,
+  Container,
+  Link,
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Grid,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
+import { login } from "../../Store/actions/userActions";
+import "../../CSS/login.css";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -25,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgba(100,100,100)",
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(1),
     marginBottom: "28px",
   },

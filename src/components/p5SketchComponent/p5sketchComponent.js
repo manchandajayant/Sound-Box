@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
-import P5Wrapper from "react-p5-wrapper";
-import sketch from "../p5sketch/sketch";
-import { showAllSpaces } from "../Store/actions/spaceActions";
-import "../CSS/sketchComponent.css";
-import { Typography } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
+import P5Wrapper from "react-p5-wrapper";
+
+import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
+import sketch from "../../p5sketch/sketch";
+import { showAllSpaces } from "../../Store/actions/spaceActions";
+
+import "../../CSS/sketchComponent.css";
 
 const useStyles = makeStyles((theme) => ({
   description: {

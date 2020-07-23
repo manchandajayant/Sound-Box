@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { showOneSpace } from "../Store/actions/spaceActions";
 import { useSelector, useDispatch } from "react-redux";
-import P5sketchComponent from "./P5sketchComponent";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "../App.css";
+
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
+import { showOneSpace } from "../../Store/actions/spaceActions";
+import P5sketchComponent from "../p5SketchComponent/p5sketchComponent";
+
+import "../../App.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {

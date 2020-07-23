@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Typography from "@material-ui/core/Typography";
-
 import { Link } from "react-router-dom";
+
+import { Button, Paper, Typography } from "@material-ui/core";
 import { Navbar, Nav } from "react-bootstrap";
-import { Button, Paper } from "@material-ui/core";
 
 export const NavBarComponent = () => {
   const user = useSelector((state) => state.users);

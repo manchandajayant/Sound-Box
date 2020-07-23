@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { signUpUser } from "../Store/actions/userActions";
-//import LoginFormContainer from "./LoginFormContainer";
-import { Typography } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
 
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import {
+  Typography,
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Container,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
+import { signUpUser } from "../../Store/actions/userActions";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

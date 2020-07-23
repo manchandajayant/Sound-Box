@@ -1,17 +1,19 @@
 import React from "react";
 import { Route } from "react-router";
+import { Container } from "@material-ui/core";
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SpaceDetailContainer from "./components/SpaceDetailContainer";
-import Homepage from "./components/Homepage";
-import SignUpFormContainer from "./components/SignUpFormContainer";
-import LoginFormContainer from "./components/LoginFormContainer";
-import CreateNewSpaceContainer from "./components/CreateNewSpaceContainer";
-import NavBarComponent from "./components/NavBarComponent";
-import AudioFilesComponent from "./components/AudioFilesComponent";
-import LandingPage from "./components/LandingPage";
-import { Container } from "@material-ui/core";
-import About from "./components/About";
+import SpaceDetailContainer from "./components/spaces/spaceDetailContainer";
+import Homepage from "./components/spaces/listOfSpaces";
+import SignUpFormContainer from "./components/signUp/signUpFormContainer";
+import LoginFormContainer from "./components/login/loginFormContainer";
+import CreateNewSpaceContainer from "./components/addNewSpace/addNewSpaceContainer";
+import NavBarComponent from "./components/navBar/navBarComponent";
+import AudioFilesComponent from "./components/fieldRecordingsForSpaces/fieldRecordingsForSpacesComponent";
+import LandingPage from "./components/landingPage/landingPage";
+
+import About from "./components/about/about";
 
 function App() {
   return (

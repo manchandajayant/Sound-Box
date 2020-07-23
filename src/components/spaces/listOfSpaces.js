@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { showAllSpaces } from "../Store/actions/spaceActions";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
-import { Link } from "react-router-dom";
-import "../CSS/Homepage.css";
-import { Grid, Paper, Typography } from "@material-ui/core";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+
+import {
+  Grid,
+  Paper,
+  Typography,
+  LinearProgress,
+  useMediaQuery,
+} from "@material-ui/core";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+
+import { showAllSpaces } from "../../Store/actions/spaceActions";
+import "../../CSS/Homepage.css";
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {
@@ -49,7 +56,6 @@ const Homepage = () => {
   const classes = useStyles();
   const matches = useMediaQuery("(max-width:600px)");
   const zoom = matches ? 2.5 : 4;
-  console.log(zoom);
   const dispatch = useDispatch();
   const spaces = useSelector((state) => state.spaces);
   const [activeSpace, setactiveSpace] = useState(null);
@@ -57,7 +63,6 @@ const Homepage = () => {
   useEffect(() => {
     dispatch(showAllSpaces());
   }, [dispatch]);
-  //console.log("ssp", spaces);
 
   if (spaces.length < 1) {
     return (

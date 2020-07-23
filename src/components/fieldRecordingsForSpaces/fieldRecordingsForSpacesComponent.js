@@ -1,16 +1,24 @@
 import React, { Component } from "react";
-import AudioPlayer from "react-h5-audio-player";
 import { connect } from "react-redux";
-import axios from "axios";
-import { newRecording } from "../Store/actions/recordingActions";
-import { fetchRecordings } from "../Store/actions/recordingActions";
-import "../CSS/AudioPlayer.css";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import { Typography, Container, Grid } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import axios from "axios";
+import AudioPlayer from "react-h5-audio-player";
+
+import {
+  Typography,
+  Container,
+  Grid,
+  Button,
+  TextField,
+} from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+
+import { newRecording } from "../../Store/actions/recordingActions";
+import { fetchRecordings } from "../../Store/actions/recordingActions";
+
+import "../../CSS/AudioPlayer.css";
+
 const styles = {
   root: {
     display: "flex",
@@ -19,7 +27,7 @@ const styles = {
   },
 };
 
-class AudioFilesComponent extends Component {
+class fieldRecordingsForSpacesComponent extends Component {
   state = {
     name: "",
     location: "",
@@ -31,7 +39,6 @@ class AudioFilesComponent extends Component {
     this.props.fetchRecordings();
   }
   onPlay = (id) => {
-    // console.log("click", id);
     const b = this.props.recordings.filter(
       (n) => n.spaceId === this.props.match.params.id
     );
@@ -40,7 +47,6 @@ class AudioFilesComponent extends Component {
     });
   };
   onChange = (e) => {
-    // console.log("e", e.target.files);
     this.setState({ file: e.target.files[0] });
   };
 
@@ -57,7 +63,6 @@ class AudioFilesComponent extends Component {
       formData
     );
     console.log("response", response.data);
-    //console.log("response", file);
 
     this.setState({
       location: response.data.secure_url,
@@ -67,10 +72,8 @@ class AudioFilesComponent extends Component {
     });
 
     this.props.newRecording(this.state);
-    //console.log("thos", this.state);
   };
   render() {
-    //console.log("render of afc", this.props);
     const b = this.props.recordings.filter(
       (n) => n.spaceId === this.props.match.params.id
     );
@@ -90,7 +93,7 @@ class AudioFilesComponent extends Component {
           Recordings
         </Typography>
       );
-    // console.log("b", b);
+
     if (!this.props.user.auth) {
       return (
         <div>
@@ -191,7 +194,7 @@ class AudioFilesComponent extends Component {
     }
   }
 }
-AudioFilesComponent.propTypes = {
+fieldRecordingsForSpacesComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -210,4 +213,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(AudioFilesComponent));
+)(withStyles(styles)(fieldRecordingsForSpacesComponent));

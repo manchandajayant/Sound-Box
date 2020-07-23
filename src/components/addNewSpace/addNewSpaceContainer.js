@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { newSpace } from "../Store/actions/spaceActions";
-import CreateNewSpace from "./CreateNewSpace";
-import { newFile } from "../Store/actions/fileActions";
-import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Typography, TextField, Button } from "@material-ui/core";
-import LoginFormContainer from "./LoginFormContainer";
-import Map from "./Map";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import PropTypes from "prop-types";
+
+import { withStyles } from "@material-ui/core/styles";
+import { Typography, TextField, Button } from "@material-ui/core";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+import { newSpace } from "../../Store/actions/spaceActions";
+import { newFile } from "../../Store/actions/fileActions";
+import addNewSpace from "./addNewSpace";
+import loginFormContainer from "../login/loginFormContainer";
+import mapForSpaces from "./mapForSpaces";
+
 const styles = (theme) => ({
   root: {
     display: "flex",
@@ -60,7 +63,7 @@ const ColorLinearProgress = withStyles({
   },
 })(LinearProgress);
 
-const CreateNewSpaceContainer = () => {
+class CreateNewSpaceContainer extends Component {
   state = {
     name: "",
     description: "",
@@ -83,6 +86,7 @@ const CreateNewSpaceContainer = () => {
       [event.target.name]: event.target.value,
     });
   };
+
   onChangeForFile = (e) => {
     this.setState({ file: e.target.files[0], fileLoad: true });
   };
@@ -98,7 +102,6 @@ const CreateNewSpaceContainer = () => {
       onUploadProgress: (progressEvent) => {
         const { loaded, total } = progressEvent;
         let percent = Math.floor((loaded * 100) / total);
-        //console.log(`${loaded}kb of ${total}kb | ${percent}%`);
 
         if (percent < 100) {
           this.setState({ uploadPercentage: percent });
@@ -111,7 +114,6 @@ const CreateNewSpaceContainer = () => {
       formData,
       options
     );
-    // console.log("response", response.data);
 
     this.setState({
       location: response.data.secure_url,
@@ -138,11 +140,9 @@ const CreateNewSpaceContainer = () => {
       longitude: this.state.longitude,
       spaceMade: true,
     });
-    //console.log(this.state);
   };
 
   addAPlace = (p) => {
-    //console.log("place: ", p.latlng);
     this.setState({
       name: p.text,
       latitude: p.latlng.lat,
@@ -150,96 +150,101 @@ const CreateNewSpaceContainer = () => {
     });
   };
 
-  //console.log(this.props.spaces.length - 1);
-  const { classes, theme } = this.props;
-  if (!this.props.user.auth) {
-    return (
-      <div>
-        <Typography variant="h5" className={classes.login}>
-          Please login/sign up to add a new space
-        </Typography>
-        <LoginFormContainer />
-      </div>
-    );
-  } else if (this.state.redirect) {
-    return (
-      <Link className={classes.Link} to={`/spaces/${this.props.spaces.length}`}>
-        You added a space, click to open it
-      </Link>
-    );
-  } else if (this.state.spaceMade) {
-    return (
-      <div>
-        {" "}
-        <br />
-        <br />
-        <br />
-        <Typography className={classes.typography}>Impulse Response</Typography>
-        <br />
-        <br />
-        <TextField
-          type="file"
-          name="file"
-          placeholder="File"
-          onChange={this.onChangeForFile}
-          values={this.state}
-        />
-        <br />
-        <br />
-        <Button
-          onClick={this.submit}
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          className={classes.button}
+  render() {
+    const { classes, theme } = this.props;
+    if (!this.props.user.auth) {
+      return (
+        <div>
+          <Typography variant="h5" className={classes.login}>
+            Please login/sign up to add a new space
+          </Typography>
+          <loginFormContainer />
+        </div>
+      );
+    } else if (this.state.redirect) {
+      return (
+        <Link
+          className={classes.Link}
+          to={`/spaces/${this.props.spaces.length}`}
         >
-          Upload
-        </Button>
-        {this.state.uploadPercentage > 0 ? (
-          <div style={{ paddingTop: "10%" }}>
-            <ColorLinearProgress value={this.state.uploadPercentage} />
-            <Typography className={classes.typography}>
-              Uploading {this.state.uploadPercentage} %
-            </Typography>
-          </div>
-        ) : (
-          <Typography className={classes.typography}></Typography>
-        )}
-        <br />
-        <br />
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <Typography variant="h3" className={classes.heading}>
-          Space Details{" "}
-        </Typography>
+          You added a space, click to open it
+        </Link>
+      );
+    } else if (this.state.spaceMade) {
+      return (
+        <div>
+          {" "}
+          <br />
+          <br />
+          <br />
+          <Typography className={classes.typography}>
+            Impulse Response
+          </Typography>
+          <br />
+          <br />
+          <TextField
+            type="file"
+            name="file"
+            placeholder="File"
+            onChange={this.onChangeForFile}
+            values={this.state}
+          />
+          <br />
+          <br />
+          <Button
+            onClick={this.submit}
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
+            Upload
+          </Button>
+          {this.state.uploadPercentage > 0 ? (
+            <div style={{ paddingTop: "10%" }}>
+              <ColorLinearProgress value={this.state.uploadPercentage} />
+              <Typography className={classes.typography}>
+                Uploading {this.state.uploadPercentage} %
+              </Typography>
+            </div>
+          ) : (
+            <Typography className={classes.typography}></Typography>
+          )}
+          <br />
+          <br />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Typography variant="h3" className={classes.heading}>
+            Space Details{" "}
+          </Typography>
 
-        <br />
-        <br />
-        <br />
-        <Typography variant="h6" className={classes.description}>
-          *To add a space, you will need an impulse response, if you are not
-          aware of what that is, you could go to the{" "}
-          <Link to="/about">About</Link> page
-        </Typography>
-        <br />
-        <Map place={this.addAPlace} />
+          <br />
+          <br />
+          <br />
+          <Typography variant="h6" className={classes.description}>
+            *To add a space, you will need an impulse response, if you are not
+            aware of what that is, you could go to the{" "}
+            <Link to="/about">About</Link> page
+          </Typography>
+          <br />
+          <mapForSpaces place={this.addAPlace} />
 
-        {/* <Map2 /> */}
-        <br />
-        <br />
-        <CreateNewSpace
-          onSubmit={this.onSubmit}
-          onChange={this.onChange}
-          values={this.state}
-        />
-      </div>
-    );
+          <br />
+          <br />
+          <addNewSpace
+            onSubmit={this.onSubmit}
+            onChange={this.onChange}
+            values={this.state}
+          />
+        </div>
+      );
+    }
   }
-};
+}
 
 CreateNewSpaceContainer.propTypes = {
   classes: PropTypes.object.isRequired,
