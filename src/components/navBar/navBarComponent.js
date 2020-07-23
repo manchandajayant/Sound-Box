@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -60,7 +60,7 @@ export const NavBarComponent = () => {
                 </Link>
               </Nav.Item>
               <Nav.Item className="item">
-                <Link>{log}</Link>
+                <Fragment>{log}</Fragment>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

@@ -28,7 +28,7 @@ const ColorLinearProgress = withStyles({
 })(LinearProgress);
 
 const iconSpace = new Icon({
-  iconUrl: "/pin.png",
+  iconUrl: "/assets/pin.png",
   iconSize: [20, 20],
 });
 
