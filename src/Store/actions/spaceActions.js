@@ -4,8 +4,8 @@ export const SPACES_FETCHED = "SPACES_FETCHED";
 export const SPACE_FETCHED = "SPACE_FETCHED";
 export const SPACE_CREATED = "SPACE_CREATED";
 export const SPACE_DELETED = "SPACE_DELETED";
-const baseUrl = "https://pure-temple-48518.herokuapp.com";
-//const baseUrl = "http://localhost:4000";
+//const baseUrl = "https://pure-temple-48518.herokuapp.com";
+const baseUrl = "http://localhost:4000";
 
 const allSpacesFetched = (spaces) => ({
   type: SPACES_FETCHED,
@@ -38,27 +38,9 @@ export const showOneSpace = (id) => (dispatch, getState) => {
     .then((res) => {
       const action = OneSpaceFetched(res.body);
       dispatch(action);
-      // console.log(res.body);
     })
     .catch(console.error);
 };
-
-// const OneSpaceDeleted = (space) => ({
-//   type: SPACE_DELETED,
-//   payload: space,
-// });
-
-// export const deleteOneSpace = (id) => (dispatch, getState) => {
-//   request
-//     .delete(`${baseUrl}/space/${id}`)
-//     .send(id)
-//     .then((res) => {
-//       const action = OneSpaceDeleted(res.body);
-//       dispatch(action);
-//       // console.log(res.body);
-//     })
-//     .catch(console.error);
-// };
 
 const newSpaceCreated = (space) => ({
   type: SPACE_CREATED,
@@ -72,7 +54,6 @@ export function newSpace(data) {
 
       const action = newSpaceCreated(res.body);
       dispatch(action);
-      // console.log("action", action);
     } catch (error) {
       console.error(error);
     }

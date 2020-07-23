@@ -3,8 +3,8 @@ import superagent from "superagent";
 
 export const FILE_FETCHED = "FILES_FETCHED";
 export const NEW_FILE = "NEW_FILE";
-const baseUrl = "https://pure-temple-48518.herokuapp.com";
-//const baseUrl = "http://localhost:4000";
+//const baseUrl = "https://pure-temple-48518.herokuapp.com";
+const baseUrl = "http://localhost:4000";
 const fileFetched = (file) => ({
   type: FILE_FETCHED,
   payload: file,
@@ -28,12 +28,10 @@ const newFileCreated = (payload) => ({
 export function newFile(data) {
   return async function (dispatch) {
     try {
-      //const body  =  {name, description, spaceId, location}
       const res = await superagent.post(`${baseUrl}/file`).send(data);
 
       const action = newFileCreated(res.body);
       dispatch(action);
-      // console.log("action", action);
     } catch (error) {
       console.error(error);
     }
