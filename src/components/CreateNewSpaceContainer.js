@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { newSpace } from "../Store/actions/spaceActions";
 import CreateNewSpace from "./CreateNewSpace";
@@ -59,9 +59,8 @@ const ColorLinearProgress = withStyles({
     backgroundColor: "rgba(100,100,100)",
   },
 })(LinearProgress);
-//import Map2 from "./Map2";
 
-class CreateNewSpaceContainer extends Component {
+const CreateNewSpaceContainer = () => {
   state = {
     name: "",
     description: "",
@@ -78,13 +77,13 @@ class CreateNewSpaceContainer extends Component {
     buttonClick: false,
     fileLoad: false,
   };
+
   onChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
   onChangeForFile = (e) => {
-    //console.log("e", e.target.files);
     this.setState({ file: e.target.files[0], fileLoad: true });
   };
   submit = async (event) => {
@@ -151,103 +150,96 @@ class CreateNewSpaceContainer extends Component {
     });
   };
 
-  render() {
-    //console.log(this.props.spaces.length - 1);
-    const { classes, theme } = this.props;
-    if (!this.props.user.auth) {
-      return (
-        <div>
-          <Typography variant="h5" className={classes.login}>
-            Please login/sign up to add a new space
-          </Typography>
-          <LoginFormContainer />
-        </div>
-      );
-    } else if (this.state.redirect) {
-      return (
-        <Link
-          className={classes.Link}
-          to={`/spaces/${this.props.spaces.length}`}
+  //console.log(this.props.spaces.length - 1);
+  const { classes, theme } = this.props;
+  if (!this.props.user.auth) {
+    return (
+      <div>
+        <Typography variant="h5" className={classes.login}>
+          Please login/sign up to add a new space
+        </Typography>
+        <LoginFormContainer />
+      </div>
+    );
+  } else if (this.state.redirect) {
+    return (
+      <Link className={classes.Link} to={`/spaces/${this.props.spaces.length}`}>
+        You added a space, click to open it
+      </Link>
+    );
+  } else if (this.state.spaceMade) {
+    return (
+      <div>
+        {" "}
+        <br />
+        <br />
+        <br />
+        <Typography className={classes.typography}>Impulse Response</Typography>
+        <br />
+        <br />
+        <TextField
+          type="file"
+          name="file"
+          placeholder="File"
+          onChange={this.onChangeForFile}
+          values={this.state}
+        />
+        <br />
+        <br />
+        <Button
+          onClick={this.submit}
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.button}
         >
-          You added a space, click to open it
-        </Link>
-      );
-    } else if (this.state.spaceMade) {
-      return (
-        <div>
-          {" "}
-          <br />
-          <br />
-          <br />
-          <Typography className={classes.typography}>
-            Impulse Response
-          </Typography>
-          <br />
-          <br />
-          <TextField
-            type="file"
-            name="file"
-            placeholder="File"
-            onChange={this.onChangeForFile}
-            values={this.state}
-          />
-          <br />
-          <br />
-          <Button
-            onClick={this.submit}
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Upload
-          </Button>
-          {this.state.uploadPercentage > 0 ? (
-            <div style={{ paddingTop: "10%" }}>
-              <ColorLinearProgress value={this.state.uploadPercentage} />
-              <Typography className={classes.typography}>
-                Uploading {this.state.uploadPercentage} %
-              </Typography>
-            </div>
-          ) : (
-            <Typography className={classes.typography}></Typography>
-          )}
-          <br />
-          <br />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <Typography variant="h3" className={classes.heading}>
-            Space Details{" "}
-          </Typography>
+          Upload
+        </Button>
+        {this.state.uploadPercentage > 0 ? (
+          <div style={{ paddingTop: "10%" }}>
+            <ColorLinearProgress value={this.state.uploadPercentage} />
+            <Typography className={classes.typography}>
+              Uploading {this.state.uploadPercentage} %
+            </Typography>
+          </div>
+        ) : (
+          <Typography className={classes.typography}></Typography>
+        )}
+        <br />
+        <br />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Typography variant="h3" className={classes.heading}>
+          Space Details{" "}
+        </Typography>
 
-          <br />
-          <br />
-          <br />
-          <Typography variant="h6" className={classes.description}>
-            *To add a space, you will need an impulse response, if you are not
-            aware of what that is, you could go to the{" "}
-            <Link to="/about">About</Link> page
-          </Typography>
-          <br />
-          <Map place={this.addAPlace} />
+        <br />
+        <br />
+        <br />
+        <Typography variant="h6" className={classes.description}>
+          *To add a space, you will need an impulse response, if you are not
+          aware of what that is, you could go to the{" "}
+          <Link to="/about">About</Link> page
+        </Typography>
+        <br />
+        <Map place={this.addAPlace} />
 
-          {/* <Map2 /> */}
-          <br />
-          <br />
-          <CreateNewSpace
-            onSubmit={this.onSubmit}
-            onChange={this.onChange}
-            values={this.state}
-          />
-        </div>
-      );
-    }
+        {/* <Map2 /> */}
+        <br />
+        <br />
+        <CreateNewSpace
+          onSubmit={this.onSubmit}
+          onChange={this.onChange}
+          values={this.state}
+        />
+      </div>
+    );
   }
-}
+};
 
 CreateNewSpaceContainer.propTypes = {
   classes: PropTypes.object.isRequired,
