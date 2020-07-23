@@ -2,8 +2,6 @@ import React from "react";
 import { Route } from "react-router";
 import { Container } from "@material-ui/core";
 
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import SpaceDetailContainer from "./components/spaces/spaceDetailContainer";
 import ListOfSpaces from "./components/spaces/listOfSpaces";
 import SignUpFormContainer from "./components/signUp/signUpFormContainer";
@@ -12,8 +10,10 @@ import AddNewSpaceContainer from "./components/addNewSpace/addNewSpaceContainer"
 import NavBarComponent from "./components/navBar/navBarComponent";
 import FieldRecordingsForSpacesComponent from "./components/fieldRecordingsForSpaces/fieldRecordingsForSpacesComponent";
 import LandingPage from "./components/landingPage/landingPage";
-
 import About from "./components/about/about";
+
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

@@ -2,8 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { Button, Paper, Typography } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 import { Navbar, Nav } from "react-bootstrap";
+
+import "./navbar.css";
 
 export const NavBarComponent = () => {
   const user = useSelector((state) => state.users);
@@ -15,7 +17,7 @@ export const NavBarComponent = () => {
         color: "black",
       }}
     >
-      <Typography style={{ fontFamily: "Dosis, sans-serif" }}>Login</Typography>
+      <Typography className="typo">Login</Typography>
     </Link>
   ) : (
     <Typography>{user.userName}</Typography>
@@ -23,37 +25,11 @@ export const NavBarComponent = () => {
   return (
     <div>
       <Paper elevation={2}>
-        <Navbar
-          collapseOnSelect
-          sticky="top"
-          expand="lg"
-          style={{
-            backgroundColor: "transparent",
-            boxShadow:
-              "0px 2px 4px -1px, rgba(0,0,0,0.2), 0px 4px 5px 0px, rgba(0,0,0,0.14), 0px 1px 10px 0px ,rgba(0,0,0,0.12)",
-            border: "solid 1px rgba(255)",
-          }}
-        >
+        <Navbar collapseOnSelect sticky="top" expand="lg" className="navbar">
           <Navbar.Brand>
-            <Typography
-              style={{
-                color: "white",
-                marginRight: "20px",
-
-                borderRadius: "2px",
-                backgroundColor: "transparent",
-                fontFamily: "Dosis, sans-serif",
-              }}
-            >
+            <Typography className="brand">
               {" "}
-              <Link
-                style={{
-                  color: "black",
-                  textDecoration: "inherit",
-                  letterSpacing: "3px",
-                }}
-                to="/"
-              >
+              <Link className="link" to="/">
                 VERBER
               </Link>
             </Typography>
@@ -62,56 +38,29 @@ export const NavBarComponent = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Item style={{ marginRight: "11px" }}>
-                <Link
-                  to="/spaces"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Button>
-                    <Typography
-                      style={{
-                        fontFamily: "Dosis, sans-serif",
-                        letterSpacing: "2px",
-                      }}
-                    >
-                      Spaces
-                    </Typography>
-                  </Button>
+              <Nav.Item className="item">
+                <Link to="/spaces" className="link">
+                  <Typography className="typo">Spaces</Typography>
                 </Link>
               </Nav.Item>
-              <Nav.Item style={{ marginRight: "10px" }}>
+              <Nav.Item className="item">
                 <Link
                   to="/newspace"
                   style={{
                     color: "black",
                   }}
                 >
-                  <Button>
-                    <Typography style={{ fontFamily: "Dosis, sans-serif" }}>
-                      Add a Space
-                    </Typography>
-                  </Button>
+                  <Typography className="typo">Add a Space</Typography>
                 </Link>
               </Nav.Item>
 
-              <Nav.Item style={{ marginRight: "10px" }}>
-                <Link
-                  to="/about"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Button>
-                    <Typography style={{ fontFamily: "Dosis, sans-serif" }}>
-                      About
-                    </Typography>
-                  </Button>
+              <Nav.Item className="item">
+                <Link to="/about" className="link">
+                  <Typography className="typo">About</Typography>
                 </Link>
               </Nav.Item>
-              <Nav.Item style={{ marginRight: "10px" }}>
-                <Button>{log}</Button>
+              <Nav.Item className="item">
+                <Link>{log}</Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
