@@ -24,17 +24,38 @@
   font-family: Dosis, sans-serif;
 }
 
-a:hover {
-  text-decoration: underline !important;
-  color: black !important;
+.link:hover {
+  text-decoration: none;
+  color: black;
 }
 
-.item {
-  padding-right: 31px;
+.nav-item {
+  padding-right: 15px;
+  letter-spacing: 5px;
+  font-family: Dosis, sans-serif;
 }
 
 .link-brand {
   color: black;
   letter-spacing: 5px;
   font-family: Dosis, sans-serif;
+}
+
+@media (max-width: 992px) {
+  .nav-item {
+    padding-bottom: 5px;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-item {
+    padding-bottom: 5px;
+    padding-left: 10px;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
 }

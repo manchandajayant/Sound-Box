@@ -5,7 +5,7 @@ export const FILE_FETCHED = "FILES_FETCHED";
 export const NEW_FILE = "NEW_FILE";
 
 const baseUrl = "https://pure-temple-48518.herokuapp.com";
-//const baseUrl = "http://localhost:4000";
+//const baseUrl = 'http://localhost:4000';
 const fileFetched = (file) => ({
   type: FILE_FETCHED,
   payload: file,

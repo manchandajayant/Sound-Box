@@ -33,24 +33,32 @@ export const NavBarComponent = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Item className="item">
-                <Link to="/spaces" className="link">
-                  Spaces
-                </Link>
+              <Nav.Item>
+                <Typography className="nav-item">
+                  <Link to="/spaces" className="link">
+                    Spaces
+                  </Link>
+                </Typography>
               </Nav.Item>
-              <Nav.Item className="item">
-                <Link to="/newspace" className="link">
-                  Add a Space
-                </Link>
+              <Nav.Item>
+                <Typography className="nav-item">
+                  <Link to="/newspace" className="link">
+                    Add a Space
+                  </Link>
+                </Typography>
               </Nav.Item>
 
-              <Nav.Item className="item">
-                <Link to="/about" className="link">
-                  About
-                </Link>
+              <Nav.Item>
+                <Typography className="nav-item">
+                  <Fragment>{log}</Fragment>
+                </Typography>
               </Nav.Item>
-              <Nav.Item className="item">
-                <Fragment>{log}</Fragment>
+              <Nav.Item>
+                <Typography className="nav-item">
+                  <Link to="/about" className="link">
+                    About
+                  </Link>
+                </Typography>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
