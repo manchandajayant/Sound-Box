@@ -1,4 +1,5 @@
 import { FILE_FETCHED } from "../actions/fileActions";
+
 const initialState = null;
 
 export default function fileReducer(state = initialState, action) {
