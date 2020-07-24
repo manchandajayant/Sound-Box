@@ -1,11 +1,13 @@
 import request from "superagent";
 import superagent from "superagent";
+
 export const SPACES_FETCHED = "SPACES_FETCHED";
 export const SPACE_FETCHED = "SPACE_FETCHED";
 export const SPACE_CREATED = "SPACE_CREATED";
 export const SPACE_DELETED = "SPACE_DELETED";
-//const baseUrl = "https://pure-temple-48518.herokuapp.com";
-const baseUrl = "http://localhost:4000";
+
+const baseUrl = "https://pure-temple-48518.herokuapp.com";
+//const baseUrl = "http://localhost:4000";
 
 const allSpacesFetched = (spaces) => ({
   type: SPACES_FETCHED,
