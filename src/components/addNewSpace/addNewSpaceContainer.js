@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { newSpace } from "../Store/actions/spaceActions";
-import CreateNewSpace from "./CreateNewSpace";
-import { newFile } from "../Store/actions/fileActions";
-import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Typography, TextField, Button } from "@material-ui/core";
-import LoginFormContainer from "./LoginFormContainer";
-import Map from "./Map";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import PropTypes from "prop-types";
+
+import { withStyles } from "@material-ui/core/styles";
+import { Typography, TextField, Button } from "@material-ui/core";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+import { newSpace } from "../../Store/actions/spaceActions";
+import { newFile } from "../../Store/actions/fileActions";
+import AddNewSpace from "./addNewSpace";
+import LoginFormContainer from "../login/loginFormContainer";
+import MapForSpaces from "./mapForSpaces";
+
 const styles = (theme) => ({
   root: {
     display: "flex",
@@ -59,9 +62,8 @@ const ColorLinearProgress = withStyles({
     backgroundColor: "rgba(100,100,100)",
   },
 })(LinearProgress);
-//import Map2 from "./Map2";
 
-class CreateNewSpaceContainer extends Component {
+class AddNewSpaceContainer extends Component {
   state = {
     name: "",
     description: "",
@@ -78,13 +80,14 @@ class CreateNewSpaceContainer extends Component {
     buttonClick: false,
     fileLoad: false,
   };
+
   onChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
+
   onChangeForFile = (e) => {
-    //console.log("e", e.target.files);
     this.setState({ file: e.target.files[0], fileLoad: true });
   };
   submit = async (event) => {
@@ -99,7 +102,6 @@ class CreateNewSpaceContainer extends Component {
       onUploadProgress: (progressEvent) => {
         const { loaded, total } = progressEvent;
         let percent = Math.floor((loaded * 100) / total);
-        //console.log(`${loaded}kb of ${total}kb | ${percent}%`);
 
         if (percent < 100) {
           this.setState({ uploadPercentage: percent });
@@ -112,7 +114,6 @@ class CreateNewSpaceContainer extends Component {
       formData,
       options
     );
-    // console.log("response", response.data);
 
     this.setState({
       location: response.data.secure_url,
@@ -139,11 +140,9 @@ class CreateNewSpaceContainer extends Component {
       longitude: this.state.longitude,
       spaceMade: true,
     });
-    //console.log(this.state);
   };
 
   addAPlace = (p) => {
-    //console.log("place: ", p.latlng);
     this.setState({
       name: p.text,
       latitude: p.latlng.lat,
@@ -152,7 +151,6 @@ class CreateNewSpaceContainer extends Component {
   };
 
   render() {
-    //console.log(this.props.spaces.length - 1);
     const { classes, theme } = this.props;
     if (!this.props.user.auth) {
       return (
@@ -176,14 +174,9 @@ class CreateNewSpaceContainer extends Component {
       return (
         <div>
           {" "}
-          <br />
-          <br />
-          <br />
           <Typography className={classes.typography}>
             Impulse Response
           </Typography>
-          <br />
-          <br />
           <TextField
             type="file"
             name="file"
@@ -191,8 +184,6 @@ class CreateNewSpaceContainer extends Component {
             onChange={this.onChangeForFile}
             values={this.state}
           />
-          <br />
-          <br />
           <Button
             onClick={this.submit}
             type="submit"
@@ -213,8 +204,6 @@ class CreateNewSpaceContainer extends Component {
           ) : (
             <Typography className={classes.typography}></Typography>
           )}
-          <br />
-          <br />
         </div>
       );
     } else {
@@ -233,12 +222,11 @@ class CreateNewSpaceContainer extends Component {
             <Link to="/about">About</Link> page
           </Typography>
           <br />
-          <Map place={this.addAPlace} />
+          <MapForSpaces place={this.addAPlace} />
 
-          {/* <Map2 /> */}
           <br />
           <br />
-          <CreateNewSpace
+          <AddNewSpace
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             values={this.state}
@@ -249,7 +237,7 @@ class CreateNewSpaceContainer extends Component {
   }
 }
 
-CreateNewSpaceContainer.propTypes = {
+AddNewSpaceContainer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
@@ -268,4 +256,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles, { withTheme: true })(CreateNewSpaceContainer));
+)(withStyles(styles, { withTheme: true })(AddNewSpaceContainer));

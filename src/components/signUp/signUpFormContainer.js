@@ -1,55 +1,20 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { signUpUser } from "../Store/actions/userActions";
-//import LoginFormContainer from "./LoginFormContainer";
-import { Typography } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
 
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-
+import {
+  Typography,
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Container,
+} from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: "rgba(100,100,100)",
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  Typography: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-    },
-  },
-  button: {
-    backgroundColor: "rgba(100,100,100)",
-    color: "white",
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-    },
-  },
-}));
+import { signUpUser } from "../../Store/actions/userActions";
+import useStyles from "./styles";
 
 const SignUp = () => {
   const classes = useStyles();

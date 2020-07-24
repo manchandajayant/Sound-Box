@@ -2,7 +2,6 @@ import { RECORDINGS_FETCHED, NEW_RECORDING } from "../actions/recordingActions";
 const initialState = [];
 
 export default function recordingsReducer(state = initialState, action) {
-  //console.log(action);
   switch (action.type) {
     case RECORDINGS_FETCHED: {
       return action.payload;

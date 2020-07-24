@@ -1,61 +1,23 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../Store/actions/userActions";
 import { Redirect } from "react-router-dom";
-import { Typography, Container } from "@material-ui/core";
-import { Link } from "@material-ui/core";
-import "../CSS/login.css";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
+
+import {
+  Typography,
+  Container,
+  Link,
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Grid,
+} from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: "rgba(100,100,100)",
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-    marginBottom: "28px",
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  Typography: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-    },
-  },
-  button: {
-    backgroundColor: "rgba(100,100,100)",
-    color: "white",
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-    },
-  },
-  Link: {
-    color: "black",
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-  },
-}));
+import { login } from "../../Store/actions/userActions";
+import useStyles from "./styles";
 
-const LoginPage = () => {
+const LoginFormContainer = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users);
@@ -66,8 +28,6 @@ const LoginPage = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(login(data));
-    let s = sessionStorage.setItem("mySession", user);
-    console.log(s);
   };
 
   if (user.auth) {
@@ -142,4 +102,4 @@ const LoginPage = () => {
   }
 };
 
-export default LoginPage;
+export default LoginFormContainer;

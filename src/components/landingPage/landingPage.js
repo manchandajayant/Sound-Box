@@ -1,59 +1,20 @@
 import React from "react";
-import { Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  grid: {
-    fontSize: 85,
-    fontFamily: "Dosis, sans-serif",
-    color: "black",
-    letterSpacing: "3px",
-    color: "black",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "70px",
-    },
-  },
-  Typo: {
-    fontFamily: "Dosis, sans-serif",
-    color: "black",
-    letterSpacing: "5px",
-    textAlign: "justify",
-    textJustify: "inter-word ",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-    },
-  },
-  Link: {
-    color: "black",
-    textDecoration: "inherit",
-    fontSize: "50px",
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "70px",
-    },
-  },
-}));
+
+import { Typography, Button, Grid } from "@material-ui/core";
+
+import useStyles from "./styles";
 
 const LandingPage = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Grid>
+      <Grid className={classes.container}>
         <Typography variant="h3" className={classes.grid}>
-          v e r b e r
+          verber
         </Typography>
       </Grid>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <Typography variant="h5" className={classes.Typo}>
         Verber is an application based on experiencing historical sites and
@@ -63,10 +24,6 @@ const LandingPage = () => {
         and gives you an impression of being in a space while being at your
         computer.The application also offers the users to upload Ambient/Field
         Recording Data related to the place.
-        <br />
-        <br />
-        <br />
-        <br />
       </Typography>
       <Button>
         <Link to="/spaces" className={classes.Link}>

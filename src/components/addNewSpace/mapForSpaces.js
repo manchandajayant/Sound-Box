@@ -1,13 +1,17 @@
 import React, { Component, Fragment } from "react";
+
+import { Map, TileLayer } from "react-leaflet";
 import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
-import { Map, TileLayer } from "react-leaflet";
-import "../CSS/Map.css";
+
 import { Button, Grid, Paper, Typography } from "@material-ui/core";
+
 import "leaflet/dist/leaflet.css";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 import "leaflet/dist/leaflet.js";
 import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js";
+
+import "./Map.css";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -18,7 +22,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png",
 });
 
-class MapComp extends Component {
+class MapForSpaces extends Component {
   state = {
     place: "",
     buttonClicked: false,
@@ -34,7 +38,7 @@ class MapComp extends Component {
       for (let i = data.results.length - 1; i >= 0; i--) {
         results.addLayer(L.marker(data.results[i].latlng));
       }
-      //console.log("res", data.results);
+
       if (data.results.length > 0) {
         this.setState({ place: data.results[0] });
       }
@@ -100,4 +104,4 @@ class MapComp extends Component {
   }
 }
 
-export default MapComp;
+export default MapForSpaces;

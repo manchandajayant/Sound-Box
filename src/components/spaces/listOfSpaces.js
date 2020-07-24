@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { showAllSpaces } from "../Store/actions/spaceActions";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
-import { Link } from "react-router-dom";
-import "../CSS/Homepage.css";
-import { Grid, Paper, Typography } from "@material-ui/core";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+
+import {
+  Grid,
+  Paper,
+  Typography,
+  LinearProgress,
+  useMediaQuery,
+} from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+
+import { showAllSpaces } from "../../Store/actions/spaceActions";
+import useStyles from "./stylesForListOfSpaces";
+import "./Homepage.css";
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {
@@ -19,37 +27,15 @@ const ColorLinearProgress = withStyles({
   },
 })(LinearProgress);
 
-const useStyles = makeStyles((theme) => ({
-  load: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "20px",
-    },
-  },
-  bar: {
-    paddingTop: "15%",
-  },
-  heading: {
-    fontFamily: "Dosis, sans-serif",
-    paddingBottom: "10px",
-    letterSpacing: "5px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "25px",
-    },
-  },
-}));
-
 const iconSpace = new Icon({
-  iconUrl: "/pin.png",
+  iconUrl: "/assets/pin.png",
   iconSize: [20, 20],
 });
 
-const Homepage = () => {
+const ListOfSpaces = () => {
   const classes = useStyles();
   const matches = useMediaQuery("(max-width:600px)");
   const zoom = matches ? 2.5 : 4;
-  console.log(zoom);
   const dispatch = useDispatch();
   const spaces = useSelector((state) => state.spaces);
   const [activeSpace, setactiveSpace] = useState(null);
@@ -57,15 +43,14 @@ const Homepage = () => {
   useEffect(() => {
     dispatch(showAllSpaces());
   }, [dispatch]);
-  //console.log("ssp", spaces);
 
   if (spaces.length < 1) {
     return (
       <div>
-        <Typography variant="h4" style={{}} className={classes.load}>
+        <Typography variant="h4" className={classes.load}>
           Relax, The map takes time to load up
         </Typography>
-        <div style={{}} className={classes.bar}>
+        <div className={classes.bar}>
           <ColorLinearProgress />
         </div>
       </div>
@@ -105,7 +90,9 @@ const Homepage = () => {
                 }}
               >
                 <Link to={`/spaces/${activeSpace.id}`}>
-                  <h2>{activeSpace.name}</h2>
+                  <Typography classname={classes.load}>
+                    {activeSpace.name}
+                  </Typography>
                 </Link>
               </Popup>
             )}
@@ -116,4 +103,4 @@ const Homepage = () => {
   }
 };
 
-export default Homepage;
+export default ListOfSpaces;

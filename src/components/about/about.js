@@ -1,43 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
+import ReactPlayer from "react-player";
 import { Typography, Container, Grid, Button } from "@material-ui/core";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import ReactPlayer from "react-player";
-import { makeStyles } from "@material-ui/core/styles";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import IconButton from "@material-ui/core/IconButton";
-import PropTypes from "prop-types";
 import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
-  description: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    textAlign: "justify",
-    textJustify: "inter-word ",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-    },
-  },
-  About: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "30px",
-    },
-  },
-  Impulse: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "12px",
-    },
-  },
-}));
+import useStyles from "./styles";
+
 const About = () => {
   const classes = useStyles();
   return (
@@ -45,9 +15,6 @@ const About = () => {
       <Typography variant="h4" className={classes.About}>
         About
       </Typography>
-      <br />
-      <br />
-      <br />
       <Typography variant="h6" className={classes.description}>
         I am super enthusiastic about audio and sound, and using it for
         interactive and experiential purposes. I made this during the corona
@@ -70,31 +37,24 @@ const About = () => {
           HainBach
         </Link>{" "}
         explaining the process.
-        <br />
       </Typography>
-      <br />
-      <br />
-      <Container>
+      <Container className={classes.container}>
         <Grid className={classes.root}>
           <ReactPlayer url="https://youtu.be/1egKAtC16e8" />
         </Grid>
       </Container>
-      <br />
-      <br />
-      <br />
-      <br />
       <Typography className={classes.Impulse}>
         Impulse Responses from{" "}
         <Link href="#" onClick={() => window.open("https://openairlib.net")}>
           openairlib
         </Link>
       </Typography>
-      <br />
       <Typography className={classes.Impulse}>
         <a
           href="http://creativecommons.org/licenses/by-sa/3.0/"
           target="_blank"
           rel="noopener noreferrer"
+          className={classes.anchor}
         >
           <img
             alt="Creative Commons License"
@@ -102,16 +62,12 @@ const About = () => {
             src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png"
           />
         </a>
-        <br />
-        <br />
         Licensed Under
         <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
           {" "}
           A Creative Commons Attribution-ShareAlike 3.0 Unported License
         </a>
       </Typography>
-      <br />
-      <br />
       <Typography variant="h6" className={classes.Impulse}>
         Get in touch
       </Typography>
@@ -129,10 +85,7 @@ const About = () => {
       >
         <GitHubIcon fontSize="large" />
       </IconButton>
-      <br />
-      <Typography className={classes.Impulse}>
-        maanjayant@gmail.com
-      </Typography>{" "}
+      <Typography className={classes.Impulse}>maanjayant@gmail.com</Typography>{" "}
       <Button onClick={() => window.open("https://jayantmanchanda.com/")}>
         {" "}
         <Typography className={classes.Impulse}>jayantmanchanda.com</Typography>
