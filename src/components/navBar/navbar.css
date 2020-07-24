@@ -20,10 +20,21 @@
 
 .link {
   color: black;
-  text-decoration: inherit;
   letter-spacing: 3px;
+  font-family: Dosis, sans-serif;
+}
+
+a:hover {
+  text-decoration: underline !important;
+  color: black !important;
 }
 
 .item {
   padding-right: 31px;
+}
+
+.link-brand {
+  color: black;
+  letter-spacing: 5px;
+  font-family: Dosis, sans-serif;
 }

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography, Button } from "@material-ui/core";
 import { Navbar, Nav } from "react-bootstrap";
 
 import "./navbar.css";
@@ -11,16 +11,11 @@ export const NavBarComponent = () => {
   const user = useSelector((state) => state.users);
 
   const log = !user.auth ? (
-    <Link
-      to="/login"
-      style={{
-        color: "black",
-      }}
-    >
-      <Typography className="typo">Login</Typography>
+    <Link to="/login" className="link">
+      Login
     </Link>
   ) : (
-    <Typography>{user.userName}</Typography>
+    <Typography className="typo">{user.userName}</Typography>
   );
   return (
     <div>
@@ -29,7 +24,7 @@ export const NavBarComponent = () => {
           <Navbar.Brand>
             <Typography className="brand">
               {" "}
-              <Link className="link" to="/">
+              <Link className="link-brand" to="/">
                 VERBER
               </Link>
             </Typography>
@@ -40,23 +35,18 @@ export const NavBarComponent = () => {
             <Nav className="ml-auto">
               <Nav.Item className="item">
                 <Link to="/spaces" className="link">
-                  <Typography className="typo">Spaces</Typography>
+                  Spaces
                 </Link>
               </Nav.Item>
               <Nav.Item className="item">
-                <Link
-                  to="/newspace"
-                  style={{
-                    color: "black",
-                  }}
-                >
-                  <Typography className="typo">Add a Space</Typography>
+                <Link to="/newspace" className="link">
+                  Add a Space
                 </Link>
               </Nav.Item>
 
               <Nav.Item className="item">
                 <Link to="/about" className="link">
-                  <Typography className="typo">About</Typography>
+                  About
                 </Link>
               </Nav.Item>
               <Nav.Item className="item">
