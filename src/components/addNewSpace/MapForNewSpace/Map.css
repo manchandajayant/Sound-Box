@@ -205,3 +205,23 @@
 .leaflet-control-geosearch a.reset:hover {
   background: #f5f5f5;
 }
+
+.typography {
+  font-family: Dosis, sans-serif;
+  letter-spacing: 5px;
+}
+
+.button {
+  font-family: Dosis, sans-serif;
+  letter-spacing: 5px;
+  background-color: rgba(100, 100, 100);
+}
+
+.button-div {
+  padding-top: 2%;
+}
+
+.map-style {
+  height: 50vh;
+  width: 100%;
+}

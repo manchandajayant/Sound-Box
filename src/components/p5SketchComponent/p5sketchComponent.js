@@ -10,7 +10,6 @@ import { showAllSpaces } from "../../Store/actions/spaceActions";
 import useStyles from "./styles";
 
 const P5sketchComponent = () => {
-  const spaces = useSelector((state) => state.spaces);
   const space = useSelector((state) => state.space);
   const classes = useStyles();
   const dispatch = useDispatch();

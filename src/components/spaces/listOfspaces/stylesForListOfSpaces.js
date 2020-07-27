@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "25px",
     },
   },
+  leafletContainer: {
+    width: "100%",
+    height: "70vh",
+    boxShadow: "black",
+  },
 }));
 
 export default useStyles;

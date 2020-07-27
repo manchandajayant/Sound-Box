@@ -2,11 +2,11 @@ import React from "react";
 import { Route } from "react-router";
 import { Container } from "@material-ui/core";
 
-import SpaceDetailContainer from "./components/spaces/spaceDetailContainer";
-import ListOfSpaces from "./components/spaces/listOfSpaces";
+import SpaceDetailContainer from "./components/spaces/spaceDetail/spaceDetailContainer";
+import ListOfSpaces from "./components/spaces/listOfspaces/listOfSpaces";
 import SignUpFormContainer from "./components/signUp/signUpFormContainer";
 import LoginFormContainer from "./components/login/loginFormContainer";
-import AddNewSpaceContainer from "./components/addNewSpace/addNewSpaceContainer";
+import AddNewSpaceContainer from "./components/addNewSpace/NewSpace/addNewSpaceContainer";
 import NavBarComponent from "./components/navBar/navBarComponent";
 import FieldRecordingsForSpacesComponent from "./components/fieldRecordingsForSpaces/fieldRecordingsForSpacesComponent";
 import LandingPage from "./components/landingPage/landingPage";

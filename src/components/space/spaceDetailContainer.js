@@ -1,52 +1,20 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { Typography } from "@material-ui/core";
+
 import { showOneSpace } from "../../Store/actions/spaceActions";
 import { useSelector, useDispatch } from "react-redux";
 import P5sketchComponent from "../p5SketchComponent/p5sketchComponent";
-import { Link } from "react-router-dom";
+import useStyles from "./spaceDetailStyle";
 import "../App.css";
-import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
-  description: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-    textAlign: "justify",
-    textJustify: "inter-word ",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "15px",
-    },
-  },
-  title: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "30px",
-    },
-  },
-  link: {
-    color: "black",
-    textDecoration: "inherit",
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "25px",
-    },
-  },
-}));
 export const SpaceDetailContainer = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { id } = useParams();
   const space = useSelector((state) => state.space);
-  const user = useSelector((state) => state.user);
-  const recordings = useSelector((state) => state.recordings);
 
   useEffect(() => {
     dispatch(showOneSpace(id));
