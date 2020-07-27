@@ -22,6 +22,10 @@ export const styles = {
     letterSpacing: "3px",
   },
   uploadButton: {
-    color: "white",
+    color: "black",
+    display: "block",
+  },
+  textField: {
+    paddingBottom: "5%",
   },
 };

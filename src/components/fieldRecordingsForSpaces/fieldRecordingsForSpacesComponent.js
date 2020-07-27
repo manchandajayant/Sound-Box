@@ -132,8 +132,16 @@ class FieldRecordingsForSpacesComponent extends Component {
               <AudioPlayer Play src={this.state.src} />
             </Grid>
           </Container>
-          Upload A Recording{"   "}
-          <TextField onChange={this.onChange} type="file" name="file" />
+          <Typography className={classes.recordingsList}>
+            {" "}
+            Upload A Recording{"   "}
+          </Typography>
+          <TextField
+            onChange={this.onChange}
+            type="file"
+            name="file"
+            className={classes.textField}
+          />
           <Button
             className={classes.uploadButton}
             variant="contained"

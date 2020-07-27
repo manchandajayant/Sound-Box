@@ -10,6 +10,7 @@ export default class AddNewSpace extends Component {
       <div>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
+            <Typography className="typography">Description</Typography>
             <TextField
               variant="outlined"
               margin="normal"
