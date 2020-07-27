@@ -17,15 +17,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { newRecording } from "../../Store/actions/recordingActions";
 import { fetchRecordings } from "../../Store/actions/recordingActions";
 
+import { styles } from "./fieldRecordingComponentStyle";
 import "./AudioPlayer.css";
-
-const styles = {
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
-};
 
 class FieldRecordingsForSpacesComponent extends Component {
   state = {
@@ -81,114 +74,74 @@ class FieldRecordingsForSpacesComponent extends Component {
 
     const recordingsList =
       this.props.recordings.length === 0 ? (
-        <Typography
-          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
-        >
+        <Typography className={classes.recordingsList}>
           No recordings yet
         </Typography>
       ) : (
-        <Typography
-          style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
-        >
-          Recordings
-        </Typography>
+        <Typography className={classes.recordingsList}>Recordings</Typography>
       );
 
     if (!this.props.user.auth) {
       return (
         <div>
-          <br />
-          <Typography
-            variant="h4"
-            style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "3px" }}
-          >
+          <Typography variant="h4" className={classes.recordingsList}>
             {recordingsList}
           </Typography>
-          <br />
-          <br />
+
           {b.map((filtered, index) => {
             return (
               <div key={index} onClick={(e) => this.onPlay(index)}>
                 <Button
-                  style={{ color: "white" }}
+                  className={classes.buttonFilteredName}
                   variant="outlined"
-                  style={{
-                    fontFamily: "Dosis, sans-serif",
-                    letterSpacing: "3px",
-                  }}
                 >
                   {filtered.name}
                 </Button>
               </div>
             );
           })}
-          <br />
-          <br />
+
           <Container>
             <Grid className={classes.root}>
               <AudioPlayer Play src={this.state.src} />
             </Grid>
           </Container>
-          <br />
-          <br />
 
           <Typography variant="h6">
-            <Link
-              style={{
-                color: "black",
-                textDecoration: "inherit",
-                fontFamily: "Dosis, sans-serif",
-                letterSpacing: "3px",
-              }}
-              to="/login"
-            >
+            <Link className={classes.loginLink} to="/login">
               PLEASE LOGIN TO UPLOAD A RECORDING
             </Link>
           </Typography>
-          <br />
-          <br />
         </div>
       );
     } else {
       return (
         <div>
-          <br />
           <Typography variant="h4">{recordingsList}</Typography>
-          <br />
-          <br />
           {b.map((filtered, index) => {
             return (
               <div key={index} onClick={(e) => this.onPlay(index)}>
-                <Button style={{ color: "white" }} variant="outlined">
+                <Button className={classes.uploadButton} variant="outlined">
                   {filtered.name}
                 </Button>
               </div>
             );
           })}
-          <br />
-          <br />
           <Container>
             <Grid className={classes.root}>
               <AudioPlayer Play src={this.state.src} />
             </Grid>
           </Container>
-          <br />
-          <br />
           Upload A Recording{"   "}
-          <br />
-          <br />
           <TextField onChange={this.onChange} type="file" name="file" />
-          <br />
-          <br />
           <Button
-            style={{ color: "black" }}
+            className={classes.uploadButton}
             variant="contained"
             component="span"
             onClick={this.submit}
           >
             <Typography>Upload</Typography>
           </Button>
-          <br />
         </div>
       );
     }

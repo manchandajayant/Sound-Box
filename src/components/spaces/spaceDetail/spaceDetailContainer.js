@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 import { Typography } from "@material-ui/core";
 
-import { showOneSpace } from "../../Store/actions/spaceActions";
-import P5sketchComponent from "../p5SketchComponent/p5sketchComponent";
+import { showOneSpace } from "../../../Store/actions/spaceActions";
+import P5sketchComponent from "../../p5SketchComponent/p5sketchComponent";
 
 import useStyles from "./stylesForSpace";
 
@@ -15,8 +15,6 @@ export const SpaceDetailContainer = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const space = useSelector((state) => state.space);
-  const user = useSelector((state) => state.user);
-  const recordings = useSelector((state) => state.recordings);
 
   useEffect(() => {
     dispatch(showOneSpace(id));

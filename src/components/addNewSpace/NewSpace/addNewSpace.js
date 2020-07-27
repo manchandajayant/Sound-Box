@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+
 import { TextField, Typography, Button } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+
+import "./new-space.css";
 
 export default class AddNewSpace extends Component {
   render() {
@@ -10,11 +13,7 @@ export default class AddNewSpace extends Component {
           <br />
           <br />
           <Grid item xs={12} sm={6}>
-            <Typography
-              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
-            >
-              Description
-            </Typography>
+            <Typography className="typography">Description</Typography>
             <br />
             <TextField
               variant="outlined"
@@ -31,11 +30,7 @@ export default class AddNewSpace extends Component {
           <br />
           <br />
           <Grid item xs={12} sm={6}>
-            <Typography
-              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
-            >
-              Image Url
-            </Typography>
+            <Typography className="typography">Image Url</Typography>
             <br />
             <TextField
               type="text"
@@ -55,13 +50,9 @@ export default class AddNewSpace extends Component {
           <br />
           <br />
         </Grid>
-        <div style={{ paddingTop: "5%" }}>
+        <div className="button-div">
           <Button
-            style={{
-              fontFamily: "Dosis, sans-serif",
-              letterSpacing: "5px",
-              backgroundColor: "rgba(100,100,100)",
-            }}
+            className="button"
             type="submit"
             fullWidth
             variant="contained"

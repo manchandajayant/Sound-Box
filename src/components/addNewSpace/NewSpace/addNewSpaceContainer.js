@@ -8,51 +8,13 @@ import { withStyles } from "@material-ui/core/styles";
 import { Typography, TextField, Button } from "@material-ui/core";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-import { newSpace } from "../../Store/actions/spaceActions";
-import { newFile } from "../../Store/actions/fileActions";
+import { newSpace } from "../../../Store/actions/spaceActions";
+import { newFile } from "../../../Store/actions/fileActions";
+import { styles } from "./stylesForNewSpaceContaner";
 import AddNewSpace from "./addNewSpace";
-import LoginFormContainer from "../login/loginFormContainer";
-import MapForSpaces from "./mapForSpaces";
 
-const styles = (theme) => ({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    overflow: "hidden",
-  },
-  login: {
-    color: "white",
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-  },
-  Link: {
-    color: "black",
-    textDecoration: "inherit",
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-  },
-  description: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "12px",
-    },
-  },
-  button: {
-    backgroundColor: "rgb(100,100,100)",
-  },
-  typography: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-  },
-  heading: {
-    fontFamily: "Dosis, sans-serif",
-    letterSpacing: "5px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "30px",
-    },
-  },
-});
+import LoginFormContainer from "../../login/loginFormContainer";
+import MapForSpaces from "../MapForNewSpace/mapForSpaces";
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {
@@ -151,7 +113,7 @@ class AddNewSpaceContainer extends Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     if (!this.props.user.auth) {
       return (
         <div>

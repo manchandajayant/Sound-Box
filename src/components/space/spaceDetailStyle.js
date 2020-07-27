@@ -2,40 +2,34 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    display: "flex",
+    justifyContent: "center",
+    overflow: "hidden",
   },
-  grid: {
-    fontSize: 85,
+  description: {
     fontFamily: "Dosis, sans-serif",
-    color: "black",
-    letterSpacing: "30px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "70px",
-    },
-  },
-  Typo: {
-    fontFamily: "Dosis, sans-serif",
-    color: "black",
     letterSpacing: "5px",
     textAlign: "justify",
     textJustify: "inter-word ",
-    paddingBottom: "10%",
     [theme.breakpoints.down("sm")]: {
       fontSize: "15px",
     },
   },
-  Link: {
-    color: "black",
-    textDecoration: "inherit",
-    fontSize: "50px",
+  title: {
     fontFamily: "Dosis, sans-serif",
-    letterSpacing: "3px",
+    letterSpacing: "5px",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "70px",
+      fontSize: "30px",
     },
   },
-  container: {
-    paddingBottom: "8%",
+  link: {
+    color: "black",
+    textDecoration: "inherit",
+    fontFamily: "Dosis, sans-serif",
+    letterSpacing: "5px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "25px",
+    },
   },
 }));
 

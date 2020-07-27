@@ -52,7 +52,7 @@ class MapForSpaces extends Component {
       <div>
         <Grid item xs={12} md={12} component={Paper} elevation={14} square>
           <Map
-            style={{ height: "50vh", width: "100%" }}
+            className="map-style"
             center={center}
             zoom="3"
             ref={(m) => {
@@ -67,13 +67,9 @@ class MapForSpaces extends Component {
           </Map>
         </Grid>
         <br />
-        <div style={{ paddingTop: "2%" }}>
+        <div className="button-div">
           <Button
-            style={{
-              fontFamily: "Dosis, sans-serif",
-              letterSpacing: "5px",
-              backgroundColor: "rgba(100,100,100)",
-            }}
+            className="button"
             type="submit"
             fullWidth
             variant="contained"
@@ -87,10 +83,7 @@ class MapForSpaces extends Component {
           </Button>
           <br />
           {this.state.buttonClicked ? (
-            <Typography
-              variant="h6"
-              style={{ fontFamily: "Dosis, sans-serif", letterSpacing: "5px" }}
-            >
+            <Typography variant="h6" className="typography">
               Added {this.state.place.text}
             </Typography>
           ) : (

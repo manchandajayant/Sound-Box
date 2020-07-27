@@ -14,9 +14,8 @@ import {
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
-import { showAllSpaces } from "../../Store/actions/spaceActions";
+import { showAllSpaces } from "../../../Store/actions/spaceActions";
 import useStyles from "./stylesForListOfSpaces";
-import "./Homepage.css";
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {
@@ -62,7 +61,11 @@ const ListOfSpaces = () => {
           Spaces
         </Typography>
         <Grid item xs={12} md={12} component={Paper} elevation={14}>
-          <Map center={[56.992882804633986, 10.04150390625]} zoom={zoom}>
+          <Map
+            center={[56.992882804633986, 10.04150390625]}
+            zoom={zoom}
+            className={classes.leafletContainer}
+          >
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
@@ -90,7 +93,7 @@ const ListOfSpaces = () => {
                 }}
               >
                 <Link to={`/spaces/${activeSpace.id}`}>
-                  <Typography classname={classes.load}>
+                  <Typography className={classes.load}>
                     {activeSpace.name}
                   </Typography>
                 </Link>
