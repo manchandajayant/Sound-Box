@@ -18,7 +18,7 @@ import { newRecording } from "../../Store/actions/recordingActions";
 import { fetchRecordings } from "../../Store/actions/recordingActions";
 
 import { styles } from "./fieldRecordingComponentStyle";
-import "./AudioPlayer.css";
+import "./audio-player.css";
 
 class FieldRecordingsForSpacesComponent extends Component {
   state = {

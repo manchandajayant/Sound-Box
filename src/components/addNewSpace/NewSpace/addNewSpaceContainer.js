@@ -6,24 +6,14 @@ import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
 import { Typography, TextField, Button } from "@material-ui/core";
-import LinearProgress from "@material-ui/core/LinearProgress";
 
 import { newSpace } from "../../../Store/actions/spaceActions";
 import { newFile } from "../../../Store/actions/fileActions";
-import { styles } from "./stylesForNewSpaceContaner";
+import { styles, ColorLinearProgress } from "./stylesForNewSpaceContaner";
 import AddNewSpace from "./addNewSpace";
 
 import LoginFormContainer from "../../login/loginFormContainer";
 import MapForSpaces from "../MapForNewSpace/mapForSpaces";
-
-const ColorLinearProgress = withStyles({
-  colorPrimary: {
-    backgroundColor: "#ffffff",
-  },
-  barColorPrimary: {
-    backgroundColor: "rgba(100,100,100)",
-  },
-})(LinearProgress);
 
 class AddNewSpaceContainer extends Component {
   state = {
