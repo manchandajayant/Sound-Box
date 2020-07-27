@@ -165,19 +165,14 @@ class AddNewSpaceContainer extends Component {
             Space Details{" "}
           </Typography>
 
-          <br />
-          <br />
-          <br />
           <Typography variant="h6" className={classes.description}>
             *To add a space, you will need an impulse response, if you are not
             aware of what that is, you could go to the{" "}
             <Link to="/about">About</Link> page
           </Typography>
-          <br />
+
           <MapForSpaces place={this.addAPlace} />
 
-          <br />
-          <br />
           <AddNewSpace
             onSubmit={this.onSubmit}
             onChange={this.onChange}

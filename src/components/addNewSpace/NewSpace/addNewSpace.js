@@ -9,11 +9,7 @@ export default class AddNewSpace extends Component {
     return (
       <div>
         <Grid container spacing={3}>
-          <br />
-          <br />
           <Grid item xs={12} sm={6}>
-            <Typography className="typography">Description</Typography>
-            <br />
             <TextField
               variant="outlined"
               margin="normal"
@@ -26,11 +22,10 @@ export default class AddNewSpace extends Component {
               values={this.props.values}
             />
           </Grid>
-          <br />
-          <br />
+
           <Grid item xs={12} sm={6}>
             <Typography className="typography">Image Url</Typography>
-            <br />
+
             <TextField
               type="text"
               variant="outlined"
@@ -44,10 +39,6 @@ export default class AddNewSpace extends Component {
               values={this.props.values}
             />
           </Grid>
-          <br />
-
-          <br />
-          <br />
         </Grid>
         <div className="button-div">
           <Button
