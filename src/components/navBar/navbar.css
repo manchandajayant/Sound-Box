@@ -41,6 +41,11 @@
   font-family: Dosis, sans-serif;
 }
 
+.link-brand:hover {
+  text-decoration: none;
+  color: black;
+}
+
 @media (max-width: 992px) {
   .nav-item {
     padding-bottom: 5px;
