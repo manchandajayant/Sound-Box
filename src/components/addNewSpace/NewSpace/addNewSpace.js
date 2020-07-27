@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import { TextField, Typography, Button } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
+import { TextField, Typography, Button, Grid } from "@material-ui/core";
 
 import "./new-space.css";
 

@@ -12,7 +12,7 @@ const About = () => {
   const classes = useStyles();
   return (
     <div>
-      <Typography variant="h4" className={classes.About}>
+      <Typography variant="h4" className={classes.about}>
         About
       </Typography>
       <Typography variant="h6" className={classes.description}>
@@ -39,17 +39,17 @@ const About = () => {
         explaining the process.
       </Typography>
       <Container className={classes.container}>
-        <Grid className={classes.root}>
+        <Grid className={classes.grid}>
           <ReactPlayer url="https://youtu.be/1egKAtC16e8" />
         </Grid>
       </Container>
-      <Typography className={classes.Impulse}>
+      <Typography className={classes.impulse}>
         Impulse Responses from{" "}
         <Link href="#" onClick={() => window.open("https://openairlib.net")}>
           openairlib
         </Link>
       </Typography>
-      <Typography className={classes.Impulse}>
+      <Typography className={classes.impulse}>
         <a
           href="http://creativecommons.org/licenses/by-sa/3.0/"
           target="_blank"
@@ -58,7 +58,7 @@ const About = () => {
         >
           <img
             alt="Creative Commons License"
-            style={{ borderWidth: "0", height: "auto", width: "40px" }}
+            className={classes.image}
             src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png"
           />
         </a>
@@ -68,7 +68,7 @@ const About = () => {
           A Creative Commons Attribution-ShareAlike 3.0 Unported License
         </a>
       </Typography>
-      <Typography variant="h6" className={classes.Impulse}>
+      <Typography variant="h6" className={classes.impulse}>
         Get in touch
       </Typography>
       <IconButton
@@ -85,10 +85,10 @@ const About = () => {
       >
         <GitHubIcon fontSize="large" />
       </IconButton>
-      <Typography className={classes.Impulse}>maanjayant@gmail.com</Typography>{" "}
+      <Typography className={classes.impulse}>maanjayant@gmail.com</Typography>{" "}
       <Button onClick={() => window.open("https://jayantmanchanda.com/")}>
         {" "}
-        <Typography className={classes.Impulse}>jayantmanchanda.com</Typography>
+        <Typography className={classes.impulse}>jayantmanchanda.com</Typography>
       </Button>
     </div>
   );

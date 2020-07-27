@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  grid: {
     display: "flex",
     justifyContent: "center",
     overflow: "hidden",
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "15px",
     },
   },
-  About: {
+  about: {
     fontFamily: "Dosis, sans-serif",
     letterSpacing: "3px",
     paddingBottom: "8%",
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "30px",
     },
   },
-  Impulse: {
+  impulse: {
     fontFamily: "Dosis, sans-serif",
     letterSpacing: "3px",
     paddingBottom: "3%",
@@ -37,6 +37,11 @@ const useStyles = makeStyles((theme) => ({
   },
   anchor: {
     paddingBottom: "10%",
+  },
+  image: {
+    borderWidth: "0",
+    height: "auto",
+    width: "40px",
   },
 }));
 

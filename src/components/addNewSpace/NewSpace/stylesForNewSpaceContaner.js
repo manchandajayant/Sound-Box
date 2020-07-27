@@ -1,3 +1,6 @@
+import { LinearProgress } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+
 export const styles = (theme) => ({
   root: {
     display: "flex",
@@ -37,3 +40,12 @@ export const styles = (theme) => ({
     },
   },
 });
+
+export const ColorLinearProgress = withStyles({
+  colorPrimary: {
+    backgroundColor: "#ffffff",
+  },
+  barColorPrimary: {
+    backgroundColor: "rgba(100,100,100)",
+  },
+})(LinearProgress);
