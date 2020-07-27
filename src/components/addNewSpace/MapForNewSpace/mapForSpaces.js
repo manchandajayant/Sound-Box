@@ -30,7 +30,7 @@ class MapForSpaces extends Component {
 
   componentDidMount() {
     const map = L.map("map");
-    //console.log(this.leafletMap.leafletElement);
+
     const searchControl = new ELG.Geosearch().addTo(map);
     const results = new L.LayerGroup().addTo(map);
 
