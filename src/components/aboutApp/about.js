@@ -1,12 +1,15 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
-import { Typography, Container, Grid, Button, Link } from "@material-ui/core";
 import {
-  LinkedInIcon,
-  GitHubIcon,
+  Typography,
+  Container,
+  Grid,
+  Link,
   IconButton,
-} from "@material-ui/icons/LinkedIn";
+} from "@material-ui/core";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 import useStyles from "./styles";
 
@@ -47,7 +50,7 @@ const About = () => {
       </Container>
       <Typography className={classes.impulse}>
         Impulse Responses from{" "}
-        <Link href="#" onClick={() => window.open("https://openairlib.net")}>
+        <Link href="https://openairlib.net" target="_blank">
           openairlib
         </Link>
       </Typography>
@@ -73,25 +76,35 @@ const About = () => {
       <Typography variant="h6" className={classes.impulse}>
         Get in touch
       </Typography>
-      <IconButton
-        aria-label="Linkedin.com"
-        onClick={() =>
-          window.open("https://www.linkedin.com/in/jayantmanchanda/")
-        }
-      >
-        <LinkedInIcon fontSize="large" />
+      <IconButton aria-label="Linkedin.com">
+        <Link
+          href="https://www.linkedin.com/in/jayantmanchanda/"
+          target="_blank"
+          className={classes.linkedin}
+        >
+          <LinkedInIcon fontSize="large" />
+        </Link>
       </IconButton>
-      <IconButton
-        aria-label="Linkedin.com"
-        onClick={() => window.open("https://github.com/manchandajayant")}
-      >
-        <GitHubIcon fontSize="large" />
+      <IconButton aria-label="Linkedin.com">
+        <Link
+          href="https://github.com/manchandajayant"
+          target="_blank"
+          className={classes.github}
+        >
+          <GitHubIcon fontSize="large" />
+        </Link>
       </IconButton>
       <Typography className={classes.impulse}>maanjayant@gmail.com</Typography>{" "}
-      <Button onClick={() => window.open("https://jayantmanchanda.com/")}>
-        {" "}
-        <Typography className={classes.impulse}>jayantmanchanda.com</Typography>
-      </Button>
+      <Typography className={classes.impulse}>
+        <Link
+          target="_blank"
+          href="https://jayantmanchanda.com/"
+          className={classes.website}
+        >
+          {" "}
+          jayantmanchanda.com
+        </Link>
+      </Typography>
     </div>
   );
 };

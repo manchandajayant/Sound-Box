@@ -43,6 +43,19 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
     width: "40px",
   },
+  linkedin: {
+    textDecoration: "none",
+    color: "black",
+  },
+  github: {
+    textDecoration: "none",
+    color: "black",
+    marginBottom: "2px",
+  },
+  website: {
+    textDecoration: "none",
+    color: "black",
+  },
 }));
 
 export default useStyles;

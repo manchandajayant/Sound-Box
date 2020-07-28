@@ -10,7 +10,7 @@ import AddNewSpaceContainer from "./components/addNewSpace/NewSpace/addNewSpaceC
 import NavBarComponent from "./components/navBar/navBarComponent";
 import FieldRecordingsForSpacesComponent from "./components/fieldRecordingsForSpaces/fieldRecordingsForSpacesComponent";
 import LandingPage from "./components/landingPage/landingPage";
-import About from "./components/about/about";
+import About from "./components/aboutApp/about";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
