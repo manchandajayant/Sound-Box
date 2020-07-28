@@ -14,8 +14,10 @@ import {
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
-import { newRecording } from "../../Store/actions/recordingActions";
-import { fetchRecordings } from "../../Store/actions/recordingActions";
+import {
+  newRecording,
+  fetchRecordings,
+} from "../../Store/actions/recordingActions";
 
 import { styles } from "./fieldRecordingComponentStyle";
 import "./audio-player.css";
@@ -174,4 +176,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles, { withTheme: true })(FieldRecordingsForSpacesComponent));
+)(withStyles(styles)(FieldRecordingsForSpacesComponent));
