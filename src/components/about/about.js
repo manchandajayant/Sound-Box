@@ -1,12 +1,16 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
-import { Typography, Container, Grid, Button, Link } from "@material-ui/core";
 import {
-  LinkedInIcon,
-  GitHubIcon,
+  Typography,
+  Container,
+  Grid,
+  Button,
+  Link,
   IconButton,
-} from "@material-ui/icons/LinkedIn";
+} from "@material-ui/core";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 import useStyles from "./styles";
 
