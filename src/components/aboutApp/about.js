@@ -33,12 +33,7 @@ const About = () => {
         <br />
         If you are interested in creating your own impulse responses, here is
         one of my favorite youtuber's{" "}
-        <Link
-          href="#"
-          onClick={() =>
-            window.open("https://www.youtube.com/user/Hainbach101")
-          }
-        >
+        <Link href="https://www.youtube.com/user/Hainbach101" target="_blank">
           HainBach
         </Link>{" "}
         explaining the process.
@@ -68,7 +63,11 @@ const About = () => {
           />
         </a>
         Licensed Under
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        <a
+          rel="noopener noreferrer"
+          href="http://creativecommons.org/licenses/by-sa/3.0/"
+          target="_blank"
+        >
           {" "}
           A Creative Commons Attribution-ShareAlike 3.0 Unported License
         </a>
