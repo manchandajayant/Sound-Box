@@ -31,13 +31,13 @@ const iconSpace = new Icon({
   iconSize: [20, 20],
 });
 
-const ListOfSpaces = () => {
+const ListOfSpaces: React.FC = () => {
   const classes = useStyles();
   const matches = useMediaQuery("(max-width:600px)");
   const zoom = matches ? 2.5 : 4;
   const dispatch = useDispatch();
-  const spaces = useSelector((state) => state.spaces);
-  const [activeSpace, setactiveSpace] = useState(null);
+  const spaces: Array<any> = useSelector((state: any) => state.spaces);
+  const [activeSpace, setactiveSpace] = useState<null | any>(null);
 
   useEffect(() => {
     dispatch(showAllSpaces());

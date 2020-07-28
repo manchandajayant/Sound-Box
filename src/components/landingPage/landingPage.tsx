@@ -5,7 +5,7 @@ import { Typography, Button, Grid } from "@material-ui/core";
 
 import useStyles from "./styles";
 
-const LandingPage = () => {
+const LandingPage: React.FC = () => {
   const classes = useStyles();
 
   return (
