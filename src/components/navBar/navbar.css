@@ -50,8 +50,13 @@
   .nav-item {
     padding-bottom: 5px;
   }
+
   .link:hover {
     text-decoration: underline;
+  }
+
+  .link-brand {
+    font-size: 5px;
   }
 }
 
@@ -60,7 +65,12 @@
     padding-bottom: 5px;
     padding-left: 10px;
   }
+
   .link:hover {
     text-decoration: underline;
+  }
+
+  .link-brand {
+    font-size: 10px;
   }
 }

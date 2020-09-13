@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     letterSpacing: "30px",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "70px",
+      fontSize: "50px",
     },
   },
   Typo: {
