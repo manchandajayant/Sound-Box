@@ -9,8 +9,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Dosis, sans-serif",
     color: "black",
     letterSpacing: "30px",
+    marginLeft: "2%",
     [theme.breakpoints.down("sm")]: {
       fontSize: "50px",
+      marginLeft: "4%",
     },
   },
   Typo: {
