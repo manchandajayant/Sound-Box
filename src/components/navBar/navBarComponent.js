@@ -15,7 +15,7 @@ export const NavBarComponent = () => {
       Login
     </Link>
   ) : (
-    <span className="typo">{user.userName}Log Out</span>
+    <span className="typo">{user.userName}</span>
   );
   return (
     <div>
