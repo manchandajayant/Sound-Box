@@ -103,8 +103,9 @@ class AddNewSpaceContainer extends Component {
   };
 
   render() {
+    console.log(localStorage);
     const { classes } = this.props;
-    if (!this.props.user.auth) {
+    if (!localStorage.jwt) {
       return (
         <div>
           <Typography variant="h5" className={classes.login}>

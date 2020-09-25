@@ -9,13 +9,13 @@ import "./navbar.css";
 
 export const NavBarComponent = () => {
   const user = useSelector((state) => state.users);
-
-  const log = !user.auth ? (
+  console.log(user);
+  const log = !localStorage.jwt ? (
     <Link to="/login" className="link">
       Login
     </Link>
   ) : (
-    <span className="typo">{user.userName}</span>
+    <span className="typo">{user.userName}Log Out</span>
   );
   return (
     <div>

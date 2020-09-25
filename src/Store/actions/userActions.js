@@ -22,6 +22,7 @@ export const login = (data) => (dispatch, getState) => {
       .send(data)
       .then((res) => {
         const action = userLogin(res.body);
+        localStorage.setItem("jwt", action.payload.jwt);
         dispatch(action);
       })
       .catch(console.error);
