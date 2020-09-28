@@ -1,14 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography, Button } from "@material-ui/core";
 import { Navbar, Nav } from "react-bootstrap";
 
 import "./navbar.css";
 
 export const NavBarComponent = () => {
   const user = useSelector((state) => state.users);
+
   console.log(user);
   const log = !localStorage.jwt ? (
     <Link to="/login" className="link">

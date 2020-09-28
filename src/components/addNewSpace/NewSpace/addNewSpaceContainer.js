@@ -103,7 +103,7 @@ class AddNewSpaceContainer extends Component {
   };
 
   render() {
-    console.log(localStorage);
+    
     const { classes } = this.props;
     if (!localStorage.jwt) {
       return (
