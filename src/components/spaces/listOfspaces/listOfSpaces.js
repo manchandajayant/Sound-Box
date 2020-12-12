@@ -58,7 +58,7 @@ const ListOfSpaces = () => {
     return (
       <div>
         <Typography className={classes.heading} variant="h3">
-          Spaces
+          Click on the marker Icon to select a space
         </Typography>
         <Grid item xs={12} md={12} component={Paper} elevation={14}>
           <Map

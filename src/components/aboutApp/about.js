@@ -23,12 +23,12 @@ const About = () => {
       <Typography variant="h6" className={classes.description}>
         I am super enthusiastic about audio and sound, and using it for
         interactive and experiential purposes. I made this during the corona
-        lockdown and as such had impulse response data available for very few
-        places, mostly through openair library recorded by researchers at
-        university of york. As things get normal i intend to record impulse
-        responses for more sites and catalogue them. Incase you you want to
-        contribute with any impulse response data for a space, then you could
-        mail me and i will accredit you here.
+        virus lockdown and as such had impulse response data available for very
+        few places, mostly through openair library recorded by researchers at
+        university of york. As things get normal, I intend to record impulse
+        responses for more sites and catalogue them. I am currently in the
+        process of creating a bigger database for it, so that recordings can be
+        shared by audiophiles across the pond.
         <br />
         <br />
         If you are interested in creating your own impulse responses, here is

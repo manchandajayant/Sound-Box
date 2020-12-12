@@ -44,7 +44,7 @@ export const NavBarComponent = () => {
               <Nav.Item>
                 <Typography className="nav-item">
                   <Link to="/newspace" className="link">
-                    Add a Space
+                    Add an Impulse Response
                   </Link>
                 </Typography>
               </Nav.Item>

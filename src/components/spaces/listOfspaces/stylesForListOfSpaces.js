@@ -13,10 +13,11 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     fontFamily: "Dosis, sans-serif",
+    fontSize: "17px",
     paddingBottom: "10px",
-    letterSpacing: "5px",
+    letterSpacing: "3px",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "25px",
+      fontSize: "15px",
     },
   },
   leafletContainer: {

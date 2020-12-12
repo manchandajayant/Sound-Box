@@ -17,13 +17,10 @@ const LandingPage = () => {
       </Grid>
 
       <Typography variant="h5" className={classes.Typo}>
-        Verber is an application based on experiencing historical sites and
-        spaces through sound simulation. You can choose from the available
-        catalogue, or you can add to the catalogue by creating your own space
-        with an available Impulse Response.The app connects to your microphone
-        and gives you an impression of being in a space while being at your
-        computer.The application also offers the users to upload Ambient/Field
-        Recording Data related to the place.
+        An app for sharing Impulse Responses and Ambient Recordings for
+        architectural/non-architectural spaces and sites. The app allows you to
+        experience and test the sound of these spaces using the impulse
+        responses.
       </Typography>
       <Button>
         <Link to="/spaces" className={classes.Link}>
