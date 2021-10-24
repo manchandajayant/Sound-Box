@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import axios from "axios";
 import AudioPlayer from "react-h5-audio-player";
 
 import {
@@ -53,11 +52,13 @@ class FieldRecordingsForSpacesComponent extends Component {
     formData.append("file", file);
     formData.append("upload_preset", "ipspnq0s");
 
-    const response = await axios.post(
-      `https://api.cloudinary.com/v1_1/manjay/raw/upload`,
+    const response = await fetch(
+      `https://api.cloudinary.com/v1_1/manjay/raw/upload`,{
+        method: "POST",
+      },
       formData
     );
-    console.log("response", response.data);
+
 
     this.setState({
       location: response.data.secure_url,

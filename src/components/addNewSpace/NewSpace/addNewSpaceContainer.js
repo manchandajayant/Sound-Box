@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -54,14 +53,14 @@ class AddNewSpaceContainer extends Component {
       onUploadProgress: (progressEvent) => {
         const { loaded, total } = progressEvent;
         let percent = Math.floor((loaded * 100) / total);
-
         if (percent < 100) {
           this.setState({ uploadPercentage: percent });
         }
       },
+      'method':"POST"
     };
 
-    const response = await axios.post(
+    const response = await fetch(
       `https://api.cloudinary.com/v1_1/manjay/raw/upload`,
       formData,
       options
