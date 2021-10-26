@@ -4,7 +4,7 @@ export const JWT = "JWT";
 export const NEW_USER = "NEW_USER";
 export const USER_FETCHED = "USER_FETCHED";
 
-const baseUrl = "https://secure-brook-09679.herokuapp.com/";
+const baseUrl = "https://secure-brook-09679.herokuapp.com";
 //const baseUrl = "http://localhost:4000";
 
 const userLogin = (payload) => ({
