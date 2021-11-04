@@ -6,7 +6,7 @@ export const SPACE_FETCHED = "SPACE_FETCHED";
 export const SPACE_CREATED = "SPACE_CREATED";
 export const SPACE_DELETED = "SPACE_DELETED";
 
-const baseUrl = "https://secure-brook-09679.herokuapp.com";
+const baseUrl = "https://pacific-retreat-12481.herokuapp.com";
 //const baseUrl = "http://localhost:4000";
 
 const allSpacesFetched = (spaces) => ({
