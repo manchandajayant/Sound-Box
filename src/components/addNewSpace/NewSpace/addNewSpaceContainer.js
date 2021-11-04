@@ -47,7 +47,7 @@ class AddNewSpaceContainer extends Component {
 
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "ipspnq0s");
+    formData.append("upload_preset", "VERBER");
 
     const options = {
       onUploadProgress: (progressEvent) => {
