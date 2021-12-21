@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 
 import { showOneSpace } from "../../../Store/actions/spaceActions";
-import P5sketchComponent from "../../p5SketchComponent/p5sketchComponent";
 
 import useStyles from "./stylesForSpace";
+import WebAudioComponent from "../../p5SketchComponent/WebAudioComponent";
 
 export const SpaceDetailContainer = () => {
   const classes = useStyles();
@@ -33,7 +33,7 @@ export const SpaceDetailContainer = () => {
 
         <img src={space.url} className={classes.image} alt="loading" />
 
-        <P5sketchComponent />
+        <WebAudioComponent />
         <Typography variant="h6" className={classes.typo}>
           <Link className={classes.link} to={`/spaces/${space.id}/audiofiles`}>
             AMBIENT RECORDINGS
